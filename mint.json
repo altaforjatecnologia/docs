@@ -1,29 +1,29 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "IntegraBot",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#6366F1",
+    "light": "#818CF8",
+    "dark": "#4F46E5",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#6366F1",
+      "to": "#818CF8"
     }
   },
   "topbarLinks": [
     {
-      "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "name": "Suporte",
+      "url": "mailto:suporte@integrabot.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://app.integrabot.com"
   },
   "tabs": [
     {
@@ -33,32 +33,42 @@
   ],
   "anchors": [
     {
-      "name": "Documentation",
+      "name": "Documentação",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
+      "url": "https://docs.integrabot.com"
     },
     {
-      "name": "Community",
+      "name": "Comunidade",
       "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://community.integrabot.com"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://integrabot.com/blog"
     }
   ],
   "navigation": [
     {
-      "group": "Get Started",
+      "group": "Introdução",
       "pages": [
-        "introduction",
+        "welcome",
         "quickstart",
         "development"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Guia do Usuário",
+      "pages": [
+        "essentials/menu-usuario",
+        "essentials/banco-conhecimento",
+        "essentials/ferramentas-ia",
+        "essentials/integracoes",
+        "essentials/conversas-analise"
+      ]
+    },
+    {
+      "group": "Recursos Avançados",
       "pages": [
         "essentials/markdown",
         "essentials/code",
@@ -84,8 +94,8 @@
     }
   ],
   "footerSocials": {
-    "x": "https://x.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://linkedin.com/company/mintlify"
+    "x": "https://x.com/integrabot",
+    "github": "https://github.com/integrabot",
+    "linkedin": "https://linkedin.com/company/integrabot"
   }
 }
