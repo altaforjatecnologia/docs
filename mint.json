@@ -70,6 +70,16 @@
       ]
     },
     {
+      "group": "Workflows",
+      "pages": [
+        "workflows/index",
+        "workflows/workflow-flow",
+        "workflows/using-variables",
+        "workflows/scheduling-actions",
+        "workflows/email-action"
+      ]
+    },
+    {
       "group": "Recursos Avançados",
       "pages": [
         "essentials/markdown",
