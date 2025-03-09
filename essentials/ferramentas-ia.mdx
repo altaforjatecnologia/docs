@@ -1,0 +1,178 @@
+---
+title: 'Ferramentas de IA'
+description: 'Amplie as capacidades do seu agente de IA com ferramentas personalizadas'
+---
+
+# Ferramentas de IA
+
+As Ferramentas de IA permitem expandir as capacidades do seu agente, possibilitando que ele realize ações específicas, acesse dados externos e execute funções personalizadas.
+
+## Visão Geral das Ferramentas
+
+<img
+  className="block dark:hidden"
+  src="/images/tools-light.svg"
+  alt="Ferramentas Light"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/tools-dark.svg"
+  alt="Ferramentas Dark"
+/>
+
+Na seção de Ferramentas de IA, você pode criar, gerenciar e monitorar as ferramentas disponíveis para seu chatbot. Para acessar:
+
+1. Selecione seu chatbot no Dashboard
+2. Clique em "Ferramentas" no menu lateral
+3. Visualize as ferramentas existentes ou crie novas
+
+## Tipos de Ferramentas
+
+A IntegraBot oferece três tipos principais de ferramentas:
+
+### Ferramentas Padrão
+
+São ferramentas pré-configuradas que podem ser ativadas rapidamente:
+
+- **Consulta de CEP**: Busca informações de endereços a partir do CEP
+- **Previsão do Tempo**: Fornece dados meteorológicos para uma localidade
+- **Calculadora**: Realiza cálculos matemáticos durante a conversa
+- **Pesquisa na Web**: Busca informações atualizadas na internet
+
+### Ferramentas Sem Código
+
+Permitem criar funcionalidades personalizadas sem necessidade de programação:
+
+1. Acesse a seção "Ferramentas"
+2. Clique em "Criar nova ferramenta"
+3. Selecione "Ferramenta sem código"
+4. Configure os parâmetros e comportamentos desejados
+5. Salve e ative a ferramenta
+
+### Ferramentas Personalizadas
+
+Para usuários avançados, é possível criar ferramentas com código JavaScript:
+
+1. Acesse a seção "Ferramentas"
+2. Clique em "Criar nova ferramenta"
+3. Selecione "Ferramenta personalizada"
+4. Escreva o código JavaScript para a função
+5. Defina os parâmetros de entrada e saída
+6. Teste e ative a ferramenta
+
+## Como Criar uma Ferramenta
+
+### Passo 1: Informações Básicas
+
+- **Nome da ferramenta**: Identificação clara e objetiva
+- **Descrição**: Explique o que a ferramenta faz (ajuda a IA a decidir quando usá-la)
+- **Tipo de ferramenta**: Padrão, Sem código ou Personalizada
+
+### Passo 2: Definir Propriedades
+
+As propriedades são os parâmetros que a ferramenta receberá:
+
+- **Nome da propriedade**: Identificador do parâmetro
+- **Tipo**: Texto, Número, Booleano ou Data
+- **Descrição**: Explicação sobre o parâmetro
+- **Obrigatório**: Define se o parâmetro é necessário para execução
+
+### Passo 3: Implementação
+
+Dependendo do tipo de ferramenta escolhido:
+
+- **Ferramenta Padrão**: Apenas configure os parâmetros necessários
+- **Ferramenta Sem Código**: Configure as ações e respostas esperadas
+- **Ferramenta Personalizada**: Escreva o código JavaScript
+
+### Passo 4: Teste e Ativação
+
+- Teste a ferramenta com diferentes entradas
+- Verifique se as respostas estão corretas
+- Ative a ferramenta para uso no chatbot
+
+## Exemplos de Ferramentas Personalizadas
+
+### Consulta de Produtos
+
+```javascript
+// Exemplo de ferramenta para consultar produtos em uma API
+async function consultarProduto(codigo) {
+  try {
+    const response = await fetch(`https://sua-api.com/produtos/${codigo}`);
+    const data = await response.json();
+
+    if (!data || !data.nome) {
+      return "Produto não encontrado.";
+    }
+
+    return `Produto: ${data.nome}\nPreço: R$ ${data.preco}\nEstoque: ${data.estoque} unidades`;
+  } catch (error) {
+    return "Erro ao consultar o produto. Tente novamente mais tarde.";
+  }
+}
+
+// Retorna o resultado da consulta
+return consultarProduto($codigo);
+```
+
+### Agendamento de Horários
+
+```javascript
+// Exemplo de ferramenta para verificar horários disponíveis
+async function verificarHorarios(data) {
+  try {
+    const dataFormatada = new Date(data).toISOString().split('T')[0];
+    const response = await fetch(`https://sua-api.com/agenda/${dataFormatada}`);
+    const horarios = await response.json();
+
+    if (!horarios || horarios.length === 0) {
+      return "Não há horários disponíveis para esta data.";
+    }
+
+    let resultado = `Horários disponíveis em ${dataFormatada}:\n`;
+    horarios.forEach(h => {
+      resultado += `- ${h}\n`;
+    });
+
+    return resultado;
+  } catch (error) {
+    return "Erro ao verificar horários. Tente novamente mais tarde.";
+  }
+}
+
+// Retorna os horários disponíveis
+return verificarHorarios($data);
+```
+
+## Gerenciamento de Ferramentas
+
+### Ativação e Desativação
+
+Para cada ferramenta, você pode:
+- **Ativar**: Habilitar a ferramenta para uso pelo chatbot
+- **Desativar**: Pausar temporariamente a ferramenta
+- **Excluir**: Remover completamente a ferramenta
+
+### Monitoramento de Uso
+
+Acompanhe o desempenho de cada ferramenta:
+- **Frequência de uso**: Quantas vezes a ferramenta foi utilizada
+- **Taxa de sucesso**: Percentual de execuções bem-sucedidas
+- **Tempo médio**: Duração média de cada execução
+
+## Limitações e Boas Práticas
+
+### Limitações
+
+- Cada ferramenta pode consumir créditos adicionais de interação
+- O tempo de execução é limitado para garantir respostas rápidas
+- Algumas integrações podem requerer planos específicos
+
+### Boas Práticas
+
+- Crie descrições claras para que a IA saiba quando usar cada ferramenta
+- Defina nomes de propriedades intuitivos e autoexplicativos
+- Teste exaustivamente antes de ativar em produção
+- Implemente tratamento de erros adequado
+- Mantenha o código limpo e eficiente

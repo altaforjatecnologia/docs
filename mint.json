@@ -64,7 +64,9 @@
         "essentials/banco-conhecimento",
         "essentials/ferramentas-ia",
         "essentials/integracoes",
-        "essentials/conversas-analise"
+        "essentials/conversas-analise",
+        "essentials/estatisticas-analytics",
+        "essentials/configuracoes-equipe"
       ]
     },
     {
