@@ -76,7 +76,8 @@
         "workflows/workflow-flow",
         "workflows/using-variables",
         "workflows/scheduling-actions",
-        "workflows/email-action"
+        "workflows/email-action",
+        "workflows/process-workflow-queue"
       ]
     },
     {

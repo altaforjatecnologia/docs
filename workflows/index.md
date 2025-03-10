@@ -12,6 +12,7 @@ Workflows são sequências de ações automatizadas que são executadas em respo
 - [Usando Variáveis nos Workflows](using-variables.md) - Aprenda a usar variáveis para tornar seus workflows mais dinâmicos e personalizados.
 - [Agendamento de Ações](scheduling-actions.md) - Saiba como configurar o agendamento de ações para controlar quando elas serão executadas.
 - [Ações de Email](email-action.md) - Aprenda a configurar ações de email em seus workflows.
+- [Processamento de Workflows na Fila](process-workflow-queue.md) - Documentação técnica sobre o processamento de workflows a partir da fila RabbitMQ.
 
 ## Casos de Uso Comuns
 
