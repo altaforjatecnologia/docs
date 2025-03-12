@@ -1,0 +1,154 @@
+---
+title: 'Criação de Canais'
+description: 'Guia completo para criar e configurar canais de comunicação em seu agente de IA'
+---
+
+# Criação de Canais em Agentes
+
+Os canais de comunicação são as interfaces através das quais seus usuários interagem com seu agente de IA. Este guia explica como criar e configurar diferentes canais para seu agente.
+
+## Visão Geral dos Canais
+
+<img
+  className="block dark:hidden"
+  src="/images/channels-light.svg"
+  alt="Canais Light"
+/>
+<img
+  className="hidden dark:block"
+  src="/images/channels-dark.svg"
+  alt="Canais Dark"
+/>
+
+Na seção de Canais, você pode criar, configurar e gerenciar os diferentes meios de comunicação disponíveis para seu agente. Para acessar:
+
+1. Selecione seu agente no Dashboard
+2. Clique em "Canais" no menu lateral
+3. Visualize os canais existentes ou adicione novos
+
+## Tipos de Canais Disponíveis
+
+A IntegraBot oferece diferentes tipos de canais que você pode configurar para seu agente:
+
+### WhatsApp Web
+
+Conecte seu agente ao WhatsApp usando a versão web do aplicativo.
+
+- **Vantagens**: Configuração simples, sem necessidade de aprovação
+- **Limitações**: Requer um dispositivo conectado, sujeito a limitações do WhatsApp Web
+
+### WhatsApp Cloud API
+
+Integre seu agente diretamente com a API oficial do WhatsApp Business.
+
+- **Vantagens**: Conexão estável, recursos avançados, maior volume de mensagens
+- **Limitações**: Requer aprovação da Meta e número de telefone comercial
+
+### Outros Canais (Em breve)
+
+- **Telegram**: Integração com a plataforma Telegram
+- **Facebook Messenger**: Conexão com páginas do Facebook
+- **Instagram Direct**: Mensagens diretas no Instagram
+- **SMS**: Envio e recebimento de mensagens de texto
+
+## Como Criar um Novo Canal
+
+### Passo 1: Acessar a Seção de Canais
+
+1. Faça login na plataforma IntegraBot
+2. Selecione o agente para o qual deseja adicionar um canal
+3. No menu lateral, clique em "Canais"
+4. Clique no botão "Adicionar Canal" no canto superior direito
+
+### Passo 2: Selecionar o Tipo de Canal
+
+1. No modal que aparece, escolha o tipo de canal que deseja adicionar
+2. Cada tipo de canal terá requisitos específicos de configuração
+3. Clique em "Criar" para prosseguir
+
+### Passo 3: Configurar o Canal
+
+#### Para WhatsApp Web:
+
+1. Após criar o canal, clique em "Gerenciar Canal"
+2. Clique no botão "Conectar WhatsApp"
+3. Um QR code será exibido na tela
+4. Abra o WhatsApp no seu celular
+5. Acesse Configurações > Dispositivos conectados > Conectar um dispositivo
+6. Escaneie o QR code exibido na plataforma
+7. Aguarde a confirmação da conexão
+
+#### Para WhatsApp Cloud API:
+
+1. Após criar o canal, clique em "Gerenciar Canal"
+2. Insira o Phone Number ID fornecido pela Meta
+3. Insira o Access Token da sua conta de desenvolvedor
+4. Configure o Webhook URL (fornecido pela plataforma) na sua conta Meta
+5. Defina o Verification Token (fornecido pela plataforma)
+6. Clique em "Salvar" e depois em "Verificar Conexão"
+
+## Gerenciamento de Canais
+
+### Visualização de Status
+
+Para cada canal, você pode verificar:
+- **Status de conexão**: Conectado, Desconectado ou Em configuração
+- **Data de criação**: Quando o canal foi adicionado
+- **Estatísticas básicas**: Número de mensagens trocadas
+
+### Configurações Avançadas
+
+Dependendo do tipo de canal, você pode configurar:
+
+- **Tempo de resposta**: Intervalo entre mensagens recebidas e respostas
+- **Mensagem de boas-vindas**: Texto enviado no início de uma nova conversa
+- **Transferência para humano**: Configurações para escalar o atendimento
+- **Horário de funcionamento**: Definir quando o agente estará ativo
+
+### Desconexão e Remoção
+
+Para gerenciar seus canais:
+- **Desconectar**: Pausar temporariamente o canal sem removê-lo
+- **Reconectar**: Reativar um canal previamente desconectado
+- **Excluir**: Remover completamente o canal do seu agente
+
+## Solução de Problemas Comuns
+
+### WhatsApp Web Desconectado
+
+Se seu canal WhatsApp Web desconectar:
+1. Verifique se o dispositivo móvel está com internet ativa
+2. Confirme se o WhatsApp está aberto no dispositivo
+3. Tente reconectar seguindo o processo de escaneamento do QR code
+4. Verifique se não há muitos dispositivos já conectados à sua conta
+
+### Falha na Verificação da Cloud API
+
+Se a verificação da API do WhatsApp falhar:
+1. Confirme se o Phone Number ID está correto
+2. Verifique se o Access Token é válido e não expirou
+3. Certifique-se de que o Webhook URL foi configurado corretamente
+4. Verifique se as permissões necessárias foram concedidas na conta Meta
+
+## Melhores Práticas
+
+1. **Teste antes de usar em produção**: Configure o canal e realize testes completos antes de disponibilizá-lo aos usuários.
+
+2. **Mantenha backups de tokens**: Guarde os tokens e credenciais em um local seguro para facilitar reconfigurações.
+
+3. **Monitore o desempenho**: Verifique regularmente as estatísticas de uso e tempo de resposta do canal.
+
+4. **Atualize regularmente**: Mantenha-se atualizado sobre mudanças nas políticas das plataformas (especialmente WhatsApp).
+
+5. **Configure mensagens de fallback**: Prepare respostas automáticas para momentos em que o canal estiver indisponível.
+
+## Limitações por Plano
+
+Dependendo do seu plano na IntegraBot, podem existir limitações quanto a:
+
+- **Número de canais**: Quantidade de canais que podem ser criados por agente
+- **Volume de mensagens**: Limite mensal de mensagens por canal
+- **Tipos de canais**: Disponibilidade de canais específicos
+- **Recursos avançados**: Acesso a configurações e integrações especiais
+
+Consulte a página de [Planos e Preços](https://integrabot.com/pricing) para mais detalhes sobre as limitações específicas do seu plano.
