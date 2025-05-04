@@ -5,11 +5,11 @@
     "dark": "/logo/integrabot-logo-dark.png",
     "light": "/logo/integrabot-logo-light.png"
   },
-  "favicon": "/logo/icon-logo-dark.png",
+  "favicon": "/logo/icon-logo-light.png",
   "colors": {
     "primary": "#222e3d",
     "light": "#818CF8",
-    "dark": "#4F46E5",
+    "dark": "#222e3d",
     "anchors": {
       "from": "#6366F1",
       "to": "#818CF8"
