@@ -8,11 +8,11 @@
   "favicon": "/logo/icon-logo-light.png",
   "colors": {
     "primary": "#222e3d",
-    "light": "#818CF8",
+    "light": "#222e3d",
     "dark": "#222e3d",
     "anchors": {
-      "from": "#6366F1",
-      "to": "#818CF8"
+      "from": "#222e3d",
+      "to": "#222e3d"
     }
   },
   "topbarLinks": [
