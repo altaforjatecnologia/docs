@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "IntegraBot",
+  "name": "Integrabot",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
@@ -17,15 +17,19 @@
   },
   "topbarLinks": [
     {
-      "name": "Suporte",
-      "url": "mailto:suporte@integrabot.com"
+      "name": "Hello Integrabot",
+      "url": "mailto:hello@integrabot.ai"
     }
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://app.integrabot.com"
+    "url": "https://app.integrabot.ai"
   },
   "tabs": [
+    {
+      "name": "Tutoriais",
+      "url": "https://integrabot.ai/tutorials"
+    },
     {
       "name": "API Reference",
       "url": "api-reference"
@@ -35,17 +39,17 @@
     {
       "name": "Documentação",
       "icon": "book-open-cover",
-      "url": "https://docs.integrabot.com"
+      "url": "https://docs.integrabot.ai"
     },
     {
       "name": "Comunidade",
       "icon": "slack",
-      "url": "https://community.integrabot.com"
+      "url": "https://community.integrabot.ai"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://integrabot.com/blog"
+      "url": "https://integrabot.ai/blog"
     }
   ],
   "navigation": [
