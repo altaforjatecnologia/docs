@@ -41,50 +41,48 @@
       "url": "https://discord.gg/integrabot"
     }
   ],
-  "navigation": {
-    "languages": [
-      {
-        "language": "pt-BR",
-        "groups": [
-          {
-            "group": "Começando",
-            "pages": [
-              "pt/introduction",
-              "pt/quickstart"
-            ]
-          },
-          {
-            "group": "Guias",
-            "pages": [
-              "pt/guias/conectar-whatsapp",
-              "pt/guias/configurar-agente",
-              "pt/guias/adicionar-conhecimento",
-              "pt/guias/gerenciar-conversas"
-            ]
-          },
-          {
-            "group": "Recursos",
-            "pages": [
-              "pt/conceitos/whatsapp-flows",
-              "pt/conceitos/como-funciona-ia"
-            ]
-          }
-        ]
-      },
-      {
-        "language": "en",
-        "groups": [
-          {
-            "group": "Getting Started",
-            "pages": [
-              "en/introduction",
-              "en/quickstart"
-            ]
-          }
-        ]
-      }
-    ]
-  },
+  "tabs": [
+    {
+      "name": "Português",
+      "url": "pt"
+    },
+    {
+      "name": "English",
+      "url": "en"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Começando",
+      "pages": [
+        "pt/introduction",
+        "pt/quickstart"
+      ]
+    },
+    {
+      "group": "Guias",
+      "pages": [
+        "pt/guias/conectar-whatsapp",
+        "pt/guias/configurar-agente",
+        "pt/guias/adicionar-conhecimento",
+        "pt/guias/gerenciar-conversas"
+      ]
+    },
+    {
+      "group": "Recursos",
+      "pages": [
+        "pt/conceitos/whatsapp-flows",
+        "pt/conceitos/como-funciona-ia"
+      ]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "en/introduction",
+        "en/quickstart"
+      ]
+    }
+  ],
   "footerSocials": {
     "x": "https://x.com/integrabot",
     "github": "https://github.com/altaforjatecnologia",
