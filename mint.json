@@ -15,7 +15,15 @@
       "dark": "#1a1a1a"
     }
   },
-  "theme": "light",
+  "theme": "maple",
+  "fonts": {
+    "heading": {
+      "family": "Libre Baskerville"
+    },
+    "body": {
+      "family": "Inter"
+    }
+  },
   "topbarLinks": [
     {
       "name": "Support",
@@ -89,34 +97,6 @@
       "pages": [
         "en/introduction",
         "en/quickstart"
-      ]
-    },
-    {
-      "group": "User Guides",
-      "pages": [
-        "en/guides/connect-whatsapp",
-        "en/guides/configure-agent",
-        "en/guides/add-knowledge",
-        "en/guides/create-flows",
-        "en/guides/ai-tools",
-        "en/guides/manage-conversations"
-      ]
-    },
-    {
-      "group": "Concepts",
-      "pages": [
-        "en/concepts/how-ai-works",
-        "en/concepts/knowledge-base",
-        "en/concepts/whatsapp-flows",
-        "en/concepts/integrations"
-      ]
-    },
-    {
-      "group": "Reference",
-      "pages": [
-        "en/reference/flow-components",
-        "en/reference/tool-types",
-        "en/reference/glossary"
       ]
     }
   ],
