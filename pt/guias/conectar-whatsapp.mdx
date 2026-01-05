@@ -1,404 +1,68 @@
 ---
 title: 'Conectar WhatsApp'
-description: 'Guia completo para conectar sua conta do WhatsApp Business ao Integrabot'
+description: 'Conecte seu número do WhatsApp ao Integrabot'
 ---
 
-## Visão Geral
-
-Conectar seu WhatsApp ao Integrabot é o primeiro passo para começar a automatizar seu atendimento. Este processo é rápido, seguro e utiliza a tecnologia oficial do WhatsApp.
+Conecte seu número do WhatsApp para o agente começar a atender clientes.
 
 <img
-  src="/images/screenshots/pt/whatsapp-connect-overview.png"
-  alt="Tela de conexão do WhatsApp"
-  className="rounded-lg border border-gray-200 shadow-sm"
-/>
-
-<Info>
-  **Tempo estimado:** 2-3 minutos
-</Info>
-
-## Pré-requisitos
-
-Antes de começar, certifique-se de que você tem:
-
-<Check>
-  Um número de telefone exclusivo para o bot
-</Check>
-<Check>
-  WhatsApp instalado no seu celular com esse número
-</Check>
-<Check>
-  Acesso ao painel do Integrabot
-</Check>
-
-<Warning>
-  **Importante:** O número usado para o bot não pode estar conectado ao WhatsApp Web ou outro dispositivo simultaneamente. Use um número dedicado.
-</Warning>
-
-## Tipos de Conexão
-
-O Integrabot oferece duas formas de conectar seu WhatsApp:
-
-<Tabs>
-  <Tab title="WhatsApp Business (Recomendado)">
-    ### WhatsApp Business API
-    
-    Conexão oficial através da API do WhatsApp Business.
-    
-    **Vantagens:**
-    - ✅ Maior estabilidade
-    - ✅ Recursos empresariais avançados
-    - ✅ Suporte a múltiplos atendentes
-    - ✅ Selo de verificação disponível
-    
-    **Requisitos:**
-    - Número de telefone exclusivo
-    - Facebook Business Manager (criação gratuita)
-    - Verificação de negócio
-  </Tab>
-  
-  <Tab title="WhatsApp Pessoal">
-    ### WhatsApp Pessoal
-    
-    Conexão via WhatsApp Web (para testes).
-    
-    **Vantagens:**
-    - ✅ Configuração instantânea
-    - ✅ Sem verificações necessárias
-    - ✅ Ideal para testar
-    
-    **Limitações:**
-    - ⚠️ Menos estável
-    - ⚠️ Não recomendado para produção
-    - ⚠️ Pode exigir reconexões frequentes
-  </Tab>
-</Tabs>
-
-## Passo a Passo: Conectar WhatsApp
-
-### 1. Acesse a Tela de Conexão
-
-<Steps>
-  <Step title="Faça Login">
-    Acesse [app.integrabot.ai](https://app.integrabot.ai) e faça login na sua conta
-  </Step>
-  
-  <Step title="Menu WhatsApp">
-    No menu lateral esquerdo, clique em **WhatsApp**
-  </Step>
-  
-  <Step title="Conectar Novo Canal">
-    Clique no botão **"+ Conectar Canal"** ou **"Conectar WhatsApp"**
-  </Step>
-</Steps>
-
-### 2. Escolha o Tipo de Conexão
-
-Selecione entre **WhatsApp Business API** ou **WhatsApp Pessoal**.
-
-<Tip>
-  Para uso profissional, recomendamos sempre o **WhatsApp Business API**.
-</Tip>
-
-### 3. Gere o QR Code
-
-<img
-  src="/images/screenshots/pt/whatsapp-qr-code.png"
-  alt="QR Code para conexão do WhatsApp"
+  src="/images/screenshots/pt/whatsapp-connection-overview.png"
+  alt="Tela de conexão WhatsApp"
   className="rounded-lg border border-gray-200 shadow-sm my-4"
 />
 
+## Pré-requisitos
+
+- Número de telefone exclusivo para o bot
+- WhatsApp instalado no celular
+
+## Conectar
+
 <Steps>
-  <Step title="Aguarde o QR Code">
-    O sistema irá gerar um QR Code único para sua conexão
+  <Step title="Acessar WhatsApp">
+    No menu, clique em **WhatsApp**
   </Step>
   
-  <Step title="Mantenha a Janela Aberta">
-    Não feche a aba do navegador até concluir a conexão
+  <Step title="Conectar Canal">
+    Clique em **Conectar Canal**
+  </Step>
+  
+  <Step title="Escanear QR Code">
+    - Abra WhatsApp no celular
+    - Vá em **Aparelhos Conectados**
+    - Toque em **Conectar Aparelho**
+    - Escaneie o código
   </Step>
 </Steps>
 
-### 4. Escaneie com seu Celular
-
-<Steps>
-  <Step title="Abra o WhatsApp">
-    No seu celular, abra o aplicativo WhatsApp
-  </Step>
-  
-  <Step title="Vá em Configurações">
-    - **Android:** Toque nos 3 pontos no canto superior direito → Aparelhos conectados
-    - **iPhone:** Vá em Ajustes → Aparelhos conectados
-  </Step>
-  
-  <Step title="Conectar Aparelho">
-    Toque em **"Conectar um aparelho"** ou **"Conectar"**
-  </Step>
-  
-  <Step title="Escaneie o QR Code">
-    Aponte a câmera do celular para o QR Code exibido na tela do computador
-  </Step>
-</Steps>
-
-### 5. Confirme a Conexão
-
-<Steps>
-  <Step title="Aguarde a Verificação">
-    Após escanear, aguarde alguns segundos enquanto o sistema valida a conexão
-  </Step>
-  
-  <Step title="Conexão Estabelecida">
-    Você verá uma mensagem de sucesso: **"WhatsApp conectado com sucesso!"**
-  </Step>
-  
-  <Step title="Configure o Nome">
-    Dê um nome identificador para este canal (ex: "Atendimento Principal", "Vendas", etc.)
-  </Step>
-</Steps>
-
-<Check>
-  **Pronto!** Seu WhatsApp está conectado e pronto para uso.
-</Check>
-
-## Verificar Status da Conexão
-
-Após conectar, você pode verificar o status do seu canal:
-
-<Card title="Indicadores de Status">
-  - 🟢 **Conectado**: Canal ativo e funcionando
-  - 🟡 **Sincronizando**: Carregando mensagens
-  - 🔴 **Desconectado**: Necessita reconexão
-  - ⚫ **Inativo**: Canal pausado manualmente
-</Card>
-
-Para verificar:
-1. Acesse o menu **WhatsApp**
-2. Veja o card do seu canal
-3. O badge de status aparece no canto superior direito
-
-## Configurações do Canal
-
-Após conectar, você pode configurar:
-
-<AccordionGroup>
-  <Accordion title="Nome do Canal" icon="tag">
-    Identifique seu canal com um nome descritivo
-    
-    **Como alterar:**
-    1. Clique no canal desejado
-    2. Clique em **Configurações** (ícone de engrenagem)
-    3. Edite o campo **Nome do Canal**
-    4. Salve
-  </Accordion>
-  
-  <Accordion title="Webhook de Notificações" icon="bell">
-    Receba notificações de novas mensagens em sistemas externos
-    
-    **Configurar:**
-    1. Vá em Configurações do canal
-    2. Adicione a URL do webhook
-    3. Selecione os eventos que deseja receber
-    4. Salve
-  </Accordion>
-  
-  <Accordion title="Horário de Atendimento" icon="clock">
-    Defina quando o agente deve atender automaticamente
-    
-    **Configurar:**
-    1. Acesse Configurações
-    2. Ative **Horário de Atendimento**
-    3. Defina os dias e horários
-    4. Configure mensagem fora do horário
-  </Accordion>
-  
-  <Accordion title="Mensagem de Ausência" icon="message">
-    Mensagem automática quando você estiver offline
-    
-    **Configurar:**
-    1. Vá em Configurações
-    2. Ative **Mensagem de Ausência**
-    3. Escreva sua mensagem
-    4. Salve
-  </Accordion>
-</AccordionGroup>
-
-## Reconectar Canal
-
-Se seu canal ficar desconectado, você pode reconectá-lo facilmente:
-
-<Steps>
-  <Step title="Acesse WhatsApp">
-    Vá no menu **WhatsApp** no painel
-  </Step>
-  
-  <Step title="Identifique o Canal Desconectado">
-    Procure pelo canal com badge 🔴 **Desconectado**
-  </Step>
-  
-  <Step title="Clique em Reconectar">
-    Clique no botão **"Reconectar"**
-  </Step>
-  
-  <Step title="Escaneie Novamente">
-    Um novo QR Code será gerado. Escaneie seguindo os mesmos passos anteriores
-  </Step>
-</Steps>
-
-## Múltiplos Canais
-
-Você pode conectar vários números do WhatsApp na mesma conta do Integrabot.
-
-<Tip>
-  Útil para separar atendimento por departamento ou criar canais específicos (vendas, suporte, etc.)
-</Tip>
-
-**Para adicionar mais canais:**
-1. Na tela de WhatsApp, clique em **"+ Conectar Canal"**
-2. Siga o mesmo processo de conexão
-3. Configure o novo canal com nome diferente
-
-**Casos de uso:**
-- Canal de Vendas
-- Canal de Suporte
-- Canal de Agendamentos
-- Canal por região/loja
-
-## Solução de Problemas
-
-<AccordionGroup>
-  <Accordion title="QR Code não aparece" icon="question">
-    **Possíveis causas:**
-    - Bloqueio de pop-ups do navegador
-    - Conexão de internet instável
-    - Cache do navegador
-    
-    **Soluções:**
-    1. Recarregue a página (F5)
-    2. Limpe o cache do navegador
-    3. Tente outro navegador (Chrome recomendado)
-    4. Verifique sua conexão de internet
-  </Accordion>
-  
-  <Accordion title="QR Code expira rapidamente" icon="clock">
-    O QR Code tem validade de 60 segundos por segurança.
-    
-    **Solução:**
-    - Deixe o celular pronto antes de gerar o QR Code
-    - Se expirar, clique em **"Gerar novo QR Code"**
-  </Accordion>
-  
-  <Accordion title="Erro ao escanear QR Code" icon="x">
-    **Verifique:**
-    - Se o WhatsApp no celular está atualizado
-    - Se o número já não está conectado em outro lugar
-    - Se a câmera tem permissão no WhatsApp
-    
-    **Solução:**
-    1. Atualize o WhatsApp para última versão
-    2. Desconecte de outros dispositivos
-    3. Tente novamente
-  </Accordion>
-  
-  <Accordion title="Conexão cai constantemente" icon="wifi-off">
-    **Possíveis causas:**
-    - Número conectado em múltiplos lugares
-    - Internet instável no celular
-    - Celular com economia de energia
-    
-    **Soluções:**
-    1. Desconecte o WhatsApp Web se estiver usando
-    2. Mantenha o celular com internet estável
-    3. Desative economia de energia para o WhatsApp
-    4. Considere migrar para WhatsApp Business API
-  </Accordion>
-  
-  <Accordion title="Mensagens não estão sendo enviadas" icon="send">
-    **Verifique:**
-    - Status da conexão está verde
-    - Agente está ativo
-    - Não há restrições de horário
-    
-    **Solução:**
-    1. Verifique o status no menu WhatsApp
-    2. Reconecte se necessário
-    3. Verifique configurações do agente
-    4. Entre em contato com o suporte se persistir
-  </Accordion>
-</AccordionGroup>
-
-## Melhores Práticas
-
-<CardGroup cols={2}>
-  <Card title="Use Número Dedicado" icon="phone">
-    Tenha um número exclusivo para o bot, não use seu número pessoal
-  </Card>
-  <Card title="Mantenha Celular Conectado" icon="wifi">
-    Se usar WhatsApp pessoal, mantenha o celular com internet boa
-  </Card>
-  <Card title="Monitore o Status" icon="eye">
-    Verifique diariamente se a conexão está ativa
-  </Card>
-  <Card title="Configure Backup" icon="shield">
-    Tenha um plano B caso a conexão caia
-  </Card>
-</CardGroup>
-
-## Segurança
+<img
+  src="/images/screenshots/pt/whatsapp-qr-code.png"
+  alt="QR Code"
+  className="rounded-lg border border-gray-200 shadow-sm my-4"
+/>
 
 <Warning>
-  **Nunca compartilhe:**
-  - O QR Code com terceiros
-  - Acesso ao celular conectado
-  - Credenciais da conta Integrabot
+  Use um número exclusivo. Não use o mesmo em outros dispositivos.
 </Warning>
 
-O Integrabot utiliza:
-- ✅ Criptografia end-to-end do WhatsApp
-- ✅ Conexão segura via HTTPS
-- ✅ Tokens de acesso protegidos
-- ✅ Conformidade com LGPD
+## Problemas Comuns
 
-## Próximos Passos
-
-Agora que seu WhatsApp está conectado:
-
-<CardGroup cols={2}>
-  <Card
-    title="Configure seu Agente"
-    icon="robot"
-    href="/pt/guias/configurar-agente"
-  >
-    Personalize o comportamento do seu agente de IA
-  </Card>
-  <Card
-    title="Adicione Conhecimento"
-    icon="book"
-    href="/pt/guias/adicionar-conhecimento"
-  >
-    Treine seu agente com informações do seu negócio
-  </Card>
-  <Card
-    title="Teste o Atendimento"
-    icon="message"
-    href="/pt/quickstart"
-  >
-    Faça um teste enviando mensagens
-  </Card>
-  <Card
-    title="Gerencie Conversas"
-    icon="messages"
-    href="/pt/guias/gerenciar-conversas"
-  >
-    Aprenda a acompanhar e intervir nas conversas
-  </Card>
-</CardGroup>
-
-## Precisa de Ajuda?
-
-<Card title="Suporte Técnico" icon="headset">
-  Se você encontrou algum problema não listado aqui, entre em contato:
+<AccordionGroup>
+  <Accordion title="QR Code expirou" icon="clock">
+    Feche o modal e tente novamente
+  </Accordion>
   
-  📧 Email: hello@integrabot.ai
+  <Accordion title="Número já em uso" icon="exclamation-triangle">
+    Desconecte o número de outros dispositivos primeiro
+  </Accordion>
   
-  💬 Chat: Clique no ícone no canto inferior direito
+  <Accordion title="Erro ao conectar" icon="circle-xmark">
+    Verifique conexão de internet no celular e tente novamente
+  </Accordion>
+</AccordionGroup>
+
+## Próximo Passo
+
+<Card title="Configurar Agente" icon="robot" href="/pt/guias/configurar-agente">
+  Configure o comportamento do agente
 </Card>
-

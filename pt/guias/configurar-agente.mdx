@@ -1,551 +1,72 @@
 ---
-title: 'Configurar Agente de IA'
-description: 'Aprenda a personalizar seu agente de IA para atender clientes de forma inteligente e alinhada com seu negócio'
+title: 'Configurar Agente'
+description: 'Configure o comportamento do agente de IA'
 ---
 
-## Visão Geral
-
-O Agente de IA é o coração do Integrabot. É ele quem conversa com seus clientes, responde perguntas e executa ações automaticamente. Uma boa configuração garante atendimento de qualidade e alinhado com sua marca.
-
-<Info>
-  Pense no agente como um novo funcionário: ele precisa conhecer seu negócio, entender as regras e saber como se comunicar com os clientes.
-</Info>
-
-## Acessar Configurações do Agente
-
-<Steps>
-  <Step title="Acesse o Painel">
-    Faça login em [app.integrabot.ai](https://app.integrabot.ai)
-  </Step>
-  
-  <Step title="Menu Meu Agente">
-    No menu lateral, clique em **Meu Agente**
-  </Step>
-  
-  <Step title="Visualize as Configurações">
-    Você verá as abas: **Configuração do Agente** e **Módulos e Ferramentas**
-  </Step>
-</Steps>
+Configure como o agente deve atender seus clientes.
 
 <img
   src="/images/screenshots/pt/agent-config-tabs.png"
-  alt="Interface de configuração do agente com abas"
+  alt="Configuração do agente"
   className="rounded-lg border border-gray-200 shadow-sm my-4"
 />
 
-## Aba 1: Configuração do Agente
+## Objetivo
 
-### Objetivo Principal
+Defina o que o agente deve fazer:
 
-O objetivo define **o propósito** do seu agente. É a missão dele.
-
-<Accordion title="Como escrever um bom objetivo">
-  Um bom objetivo deve:
-  - Ser claro e específico
-  - Mencionar o tipo de negócio
-  - Indicar a ação principal esperada
-  - Ser objetivo (1-3 frases)
-  
-  **Exemplos:**
-  
-  ```text
-  ❌ Ruim: "Atender clientes"
-  
-  ✅ Bom: "Atender clientes interessados em consultas 
-  odontológicas, fornecer informações sobre tratamentos 
-  e agendar consultas de avaliação."
-  ```
-  
-  ```text
-  ✅ E-commerce:
-  "Auxiliar clientes na escolha de produtos, responder 
-  dúvidas sobre estoque e preços, e facilitar o processo 
-  de compra."
-  ```
-  
-  ```text
-  ✅ Consultoria:
-  "Qualificar leads interessados em serviços de consultoria 
-  empresarial, identificar necessidades e agendar reuniões 
-  de diagnóstico gratuito."
-  ```
-</Accordion>
-
-**Campo no sistema:**
-```
-Objetivo Principal
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-[Escreva o objetivo do seu agente aqui...]
+```text
+Exemplo: Atender clientes interessados em consultas 
+odontológicas, fornecer informações sobre tratamentos 
+e agendar avaliações.
 ```
 
-### Instruções
+<Accordion title="Exemplos por tipo de negócio">
+**E-commerce:**
+```
+Atender clientes, apresentar produtos do catálogo,
+responder dúvidas sobre pedidos e fornecer informações
+sobre entrega.
+```
 
-As instruções são as **regras e diretrizes** que o agente deve seguir durante as conversas.
+**Serviços:**
+```
+Fornecer informações sobre serviços, enviar orçamentos
+e agendar reuniões com clientes interessados.
+```
 
-<Tabs>
-  <Tab title="Estrutura Recomendada">
-    **1. Como cumprimentar**
-    ```
-    - Cumprimente de forma [calorosa/profissional/amigável]
-    - Pergunte o nome do cliente no início
-    ```
-    
-    **2. Processo de atendimento**
-    ```
-    - Identifique a necessidade do cliente
-    - Faça perguntas qualificadoras
-    - Forneça informações relevantes
-    ```
-    
-    **3. O que fazer e não fazer**
-    ```
-    - Sempre ofereça [X] quando o cliente perguntar sobre [Y]
-    - Não prometa descontos sem autorização
-    - Não forneça informações sobre [tópico sensível]
-    ```
-    
-    **4. Como encerrar**
-    ```
-    - Pergunte se há mais dúvidas
-    - Agradeça pelo contato
-    - Envie uma mensagem de despedida
-    ```
-  </Tab>
-  
-  <Tab title="Exemplo Completo">
-    ```text
-    INSTRUÇÕES DO AGENTE
-    
-    1. CUMPRIMENTO E IDENTIFICAÇÃO
-    - Cumprimente o cliente de forma calorosa e profissional
-    - Pergunte o nome do cliente logo no início
-    - Se apresente como assistente virtual da empresa
-    
-    2. IDENTIFICAÇÃO DA NECESSIDADE
-    - Pergunte qual tratamento odontológico o cliente tem interesse
-    - Se o cliente não souber, apresente as opções: clareamento, 
-      implante, ortodontia, restauração, limpeza
-    - Faça perguntas para entender melhor a situação
-    
-    3. FORNECIMENTO DE INFORMAÇÕES
-    - Explique o tratamento de forma simples e clara
-    - Mencione benefícios e duração aproximada
-    - Forneça faixa de preço quando perguntado
-    - Use as informações da base de conhecimento
-    
-    4. AGENDAMENTO
-    - Sempre ofereça agendamento de avaliação gratuita
-    - Pergunte preferência de dia e horário
-    - Confirme os dados antes de finalizar
-    
-    5. RESTRIÇÕES
-    - Não diagnostique problemas médicos
-    - Não garanta resultados específicos
-    - Não dê descontos sem autorização prévia
-    - Se não souber algo, seja honesto e direcione para atendimento humano
-    
-    6. ENCERRAMENTO
-    - Pergunte se há mais alguma dúvida
-    - Agradeça pelo contato
-    - Reforce que estamos disponíveis para ajudar
-    ```
-  </Tab>
-  
-  <Tab title="Exemplos por Setor">
-    **E-commerce de Roupas:**
-    ```
-    - Pergunte qual tipo de peça o cliente procura
-    - Identifique estilo preferido e tamanho
-    - Apresente produtos disponíveis em estoque
-    - Forneça informações sobre entrega e troca
-    - Facilite o processo de compra enviando link
-    - Não prometa prazos de entrega que não podemos cumprir
-    ```
-    
-    **Restaurante:**
-    ```
-    - Cumprimente e pergunte como podemos ajudar
-    - Apresente o cardápio quando solicitado
-    - Informe preços e opções vegetarianas/veganas
-    - Auxilie com reservas de mesa ou pedidos delivery
-    - Pergunte endereço de entrega para pedidos
-    - Não aceite pedidos fora da área de entrega
-    ```
-    
-    **Academia:**
-    ```
-    - Identifique o objetivo do cliente (emagrecimento, ganho de massa, etc)
-    - Apresente os planos disponíveis
-    - Ofereça aula experimental gratuita
-    - Agende visita para conhecer a estrutura
-    - Explique benefícios de cada modalidade
-    - Não faça promessas sobre resultados específicos
-    ```
-  </Tab>
-</Tabs>
-
-### Restrições
-
-Campo opcional para definir **limites rígidos** do que o agente não deve fazer.
-
-<Accordion title="Quando usar restrições">
-  Use este campo para:
-  - Tópicos sensíveis que não devem ser discutidos
-  - Informações confidenciais
-  - Limites de preços ou descontos
-  - Políticas importantes da empresa
-  
-  **Exemplos:**
-  ```text
-  - Nunca revelar margem de lucro dos produtos
-  - Não discutir política ou religião
-  - Não fornecer dados pessoais de outros clientes
-  - Não autorizar devoluções fora do prazo de 7 dias
-  - Não negociar preços abaixo de R$ [valor mínimo]
-  ```
+**Imobiliária:**
+```
+Atender interessados em imóveis, fornecer informações
+sobre disponibilidade e agendar visitas.
+```
 </Accordion>
 
-### Temperatura de Comunicação
+## Teste
 
-A temperatura controla o **estilo de comunicação** do agente: quão criativo, empático ou formal ele será.
-
-<Tabs>
-  <Tab title="0.1 - Formal e Objetiva">
-    **Características:**
-    - Respostas diretas e concisas
-    - Tom profissional e sério
-    - Pouca variação nas respostas
-    - Foco total em informações
-    
-    **Quando usar:**
-    - Área jurídica ou médica
-    - Serviços financeiros
-    - B2B corporativo
-    - Quando precisão é crítica
-    
-    **Exemplo de resposta:**
-    ```
-    Olá. Nosso horário de atendimento é de segunda a 
-    sexta, das 9h às 18h. Para agendar uma consulta, 
-    necessito de seu nome completo e data de preferência.
-    ```
-  </Tab>
-  
-  <Tab title="0.3 - Equilibrada (Recomendado)">
-    **Características:**
-    - Equilíbrio entre formal e amigável
-    - Tom profissional mas acessível
-    - Respostas consistentes com leve variação
-    - Adequado para a maioria dos negócios
-    
-    **Quando usar:**
-    - Maior parte dos negócios
-    - E-commerce
-    - Serviços em geral
-    - Quando não tem certeza
-    
-    **Exemplo de resposta:**
-    ```
-    Olá! Que bom ter você aqui! 😊
-    
-    Nosso horário de atendimento é de segunda a sexta, 
-    das 9h às 18h. Para agendar sua consulta, vou precisar 
-    de algumas informações. Pode me dizer seu nome completo?
-    ```
-    
-    <Tip>
-      **Esta é a opção recomendada para começar.** Você pode ajustar depois baseado no feedback dos clientes.
-    </Tip>
-  </Tab>
-  
-  <Tab title="0.7 - Calorosa e Empática">
-    **Características:**
-    - Respostas mais criativas e variadas
-    - Tom empático e acolhedor
-    - Uso de emojis e expressões
-    - Personalização maior
-    
-    **Quando usar:**
-    - Área de saúde (psicologia, terapia)
-    - Serviços de bem-estar
-    - Educação infantil
-    - Pet shops
-    - Quando experiência emocional importa
-    
-    **Exemplo de resposta:**
-    ```
-    Oi! Fico muito feliz em poder te ajudar! 🌟
-    
-    Entendo que você está procurando uma solução para [X]. 
-    Estou aqui para te apoiar nessa jornada! Nosso horário 
-    de atendimento é de segunda a sexta, das 9h às 18h, 
-    mas posso já ir adiantando algumas informações. Me conta, 
-    qual é seu nome? 😊
-    ```
-  </Tab>
-</Tabs>
-
-<Card title="Como Escolher">
-  **Pergunta simples:** Como seus clientes preferem ser tratados?
-  
-  - Formalmente e direto ao ponto? → **0.1**
-  - De forma profissional mas amigável? → **0.3**
-  - Com empatia e acolhimento? → **0.7**
-</Card>
-
-## Aba 2: Módulos e Ferramentas
-
-### Módulos do Sistema
-
-Os módulos são funcionalidades prontas que o agente pode usar.
-
-<AccordionGroup>
-  <Accordion title="Captura de Leads" icon="user-plus">
-    Ativa a capacidade do agente de coletar informações estruturadas dos clientes.
-    
-    **O que faz:**
-    - Captura nome, telefone, email, etc.
-    - Armazena respostas de Flows
-    - Qualifica leads automaticamente
-    
-    **Quando ativar:**
-    - Se você quer gerar leads
-    - Se usa Flows para captura
-  </Accordion>
-  
-  <Accordion title="Agendamentos" icon="calendar">
-    Permite que o agente agende compromissos automaticamente.
-    
-    **O que faz:**
-    - Consulta agenda disponível
-    - Agenda horários
-    - Envia lembretes
-    - Confirma presença
-    
-    **Quando ativar:**
-    - Clínicas, consultórios
-    - Salões de beleza
-    - Prestadores de serviço
-  </Accordion>
-  
-  <Accordion title="Catálogo de Produtos" icon="shopping-cart">
-    Dá acesso do agente ao seu catálogo de produtos/serviços.
-    
-    **O que faz:**
-    - Apresenta produtos
-    - Informa preços e disponibilidade
-    - Envia fotos
-    - Facilita escolha
-    
-    **Quando ativar:**
-    - E-commerce
-    - Lojas físicas
-    - Restaurantes (cardápio)
-  </Accordion>
-</AccordionGroup>
-
-### Ferramentas Customizadas
-
-Além dos módulos nativos, você pode criar **ferramentas personalizadas** que conectam o agente a sistemas externos.
-
-<Info>
-  Ferramentas customizadas são avançadas. Veja o [guia completo de ferramentas](/pt/guias/ferramentas-ia) para mais detalhes.
-</Info>
-
-## Testar seu Agente
-
-Após configurar, é essencial testar antes de liberar para clientes reais.
+Clique no ícone de chat no canto inferior direito para testar o agente antes de colocá-lo no ar.
 
 <Steps>
-  <Step title="Abra o Chat de Teste">
-    Clique no ícone de **chat** 💬 no canto inferior direito da tela
+  <Step title="Abrir Chat">
+    Clique no ícone de chat
   </Step>
   
-  <Step title="Simule Conversas">
-    Faça perguntas como se fosse um cliente:
-    - Perguntas comuns
-    - Perguntas difíceis
-    - Tentativas de fugir do assunto
+  <Step title="Fazer Perguntas">
+    Simule conversas como se fosse um cliente
   </Step>
   
-  <Step title="Avalie as Respostas">
-    Verifique se:
-    - ✅ Tom está adequado
-    - ✅ Informações estão corretas
-    - ✅ Agente segue as instruções
-    - ✅ Não há informações incorretas
-  </Step>
-  
-  <Step title="Ajuste se Necessário">
-    Se algo não estiver ideal, volte e refine as configurações
+  <Step title="Ajustar">
+    Se necessário, volte e ajuste o objetivo
   </Step>
 </Steps>
-
-<Tip>
-  **Teste múltiplas vezes** com diferentes tipos de pergunta. Quanto mais testar, melhor será o resultado!
-</Tip>
-
-## Exemplos de Configuração Completa
-
-<AccordionGroup>
-  <Accordion title="Clínica Odontológica">
-    **Objetivo:**
-    ```
-    Atender pacientes interessados em tratamentos odontológicos, 
-    fornecer informações sobre procedimentos e agendar consultas 
-    de avaliação.
-    ```
-    
-    **Instruções:**
-    ```
-    - Cumprimente de forma calorosa e pergunte o nome
-    - Identifique qual tratamento o paciente busca
-    - Explique o procedimento de forma simples
-    - Forneça informações sobre valores quando perguntado
-    - Ofereça agendamento de avaliação gratuita
-    - Pergunte preferência de data e horário
-    - Não diagnostique problemas, apenas informe sobre tratamentos
-    - Seja empático com receios e ansiedades
-    ```
-    
-    **Temperatura:** 0.7 (Calorosa)
-    
-    **Módulos:** Agendamentos ✅
-  </Accordion>
-  
-  <Accordion title="E-commerce de Eletrônicos">
-    **Objetivo:**
-    ```
-    Auxiliar clientes na escolha de produtos eletrônicos, 
-    responder dúvidas técnicas, informar sobre estoque e 
-    facilitar o processo de compra.
-    ```
-    
-    **Instruções:**
-    ```
-    - Pergunte qual tipo de produto o cliente procura
-    - Identifique necessidades e orçamento
-    - Apresente opções disponíveis em estoque
-    - Compare especificações quando solicitado
-    - Informe sobre garantia e formas de pagamento
-    - Envie link para finalizar compra
-    - Não prometa descontos além dos divulgados
-    - Informe prazo de entrega de acordo com CEP
-    ```
-    
-    **Temperatura:** 0.3 (Equilibrada)
-    
-    **Módulos:** Catálogo ✅
-  </Accordion>
-  
-  <Accordion title="Escritório de Advocacia">
-    **Objetivo:**
-    ```
-    Realizar triagem inicial de potenciais clientes, identificar 
-    tipo de demanda jurídica e agendar consulta com advogado 
-    especializado.
-    ```
-    
-    **Instruções:**
-    ```
-    - Apresente-se como assistente do escritório
-    - Pergunte o nome e em que podemos ajudar
-    - Identifique a área do direito (trabalhista, civil, etc)
-    - Faça perguntas básicas sobre o caso
-    - Ofereça agendamento de consulta com advogado
-    - Informe valor da consulta e duração
-    - Nunca forneça orientação jurídica
-    - Não comente sobre chances de sucesso
-    - Mantenha tom formal e profissional
-    ```
-    
-    **Restrições:**
-    ```
-    - Nunca fornecer orientação jurídica específica
-    - Não comentar sobre outros casos ou clientes
-    - Não prometer resultados
-    - Não discutir honorários sem consulta prévia
-    ```
-    
-    **Temperatura:** 0.1 (Formal)
-    
-    **Módulos:** Agendamentos ✅, Captura de Leads ✅
-  </Accordion>
-</AccordionGroup>
-
-## Melhores Práticas
-
-<CardGroup cols={2}>
-  <Card title="Seja Específico" icon="target">
-    Quanto mais claro e específico nas instruções, melhores serão as respostas
-  </Card>
-  <Card title="Teste Muito" icon="flask">
-    Teste exaustivamente antes de liberar para clientes reais
-  </Card>
-  <Card title="Itere Gradualmente" icon="arrows-rotate">
-    Comece simples e vá refinando baseado no feedback
-  </Card>
-  <Card title="Monitore Conversas" icon="eye">
-    Acompanhe as primeiras conversas e ajuste se necessário
-  </Card>
-  <Card title="Use Exemplos" icon="lightbulb">
-    Dê exemplos de como responder certas situações
-  </Card>
-  <Card title="Defina Limites" icon="shield">
-    Deixe claro o que o agente não deve fazer
-  </Card>
-</CardGroup>
-
-## Erros Comuns a Evitar
-
-<Warning>
-  **❌ Instruções vagas:** "Seja legal com os clientes"
-  
-  **✅ Instruções específicas:** "Cumprimente com 'Olá! Como posso ajudar?' e sempre pergunte o nome"
-</Warning>
-
-<Warning>
-  **❌ Objetivo muito amplo:** "Vender produtos"
-  
-  **✅ Objetivo específico:** "Auxiliar na escolha de produtos de maquiagem, recomendar produtos adequados ao tipo de pele e facilitar a compra"
-</Warning>
-
-<Warning>
-  **❌ Não testar:** Liberar direto para clientes
-  
-  **✅ Testar muito:** Simular dezenas de conversas antes de liberar
-</Warning>
 
 ## Próximos Passos
 
 <CardGroup cols={2}>
-  <Card
-    title="Adicionar Conhecimento"
-    icon="book"
-    href="/pt/guias/adicionar-conhecimento"
-  >
-    Alimente seu agente com informações do negócio
+  <Card title="Base de Conhecimento" icon="book" href="/pt/guias/adicionar-conhecimento">
+    Adicione informações sobre produtos e serviços
   </Card>
-  <Card
-    title="Criar Flows"
-    icon="workflow"
-    href="/pt/guias/criar-flows"
-  >
-    Configure formulários interativos no WhatsApp
-  </Card>
-  <Card
-    title="Ferramentas IA"
-    icon="wrench"
-    href="/pt/guias/ferramentas-ia"
-  >
-    Expanda capacidades com ferramentas customizadas
-  </Card>
-  <Card
-    title="Como Funciona a IA"
-    icon="brain"
-    href="/pt/conceitos/como-funciona-ia"
-  >
-    Entenda a tecnologia por trás do agente
+  <Card title="Gerenciar Conversas" icon="messages" href="/pt/guias/gerenciar-conversas">
+    Acompanhe interações em tempo real
   </Card>
 </CardGroup>
-

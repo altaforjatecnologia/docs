@@ -26,80 +26,65 @@
   },
   "topbarLinks": [
     {
-      "name": "Support",
+      "name": "Suporte",
       "url": "mailto:hello@integrabot.ai"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
-    "url": "https://app.integrabot.ai"
+    "name": "Acessar",
+    "url": "https://integrabot.ai"
   },
-  "tabs": [
-    {
-      "name": "🇧🇷 Português",
-      "url": "pt"
-    },
-    {
-      "name": "🇺🇸 English",
-      "url": "en"
-    }
-  ],
   "anchors": [
     {
-      "name": "Community",
+      "name": "Comunidade",
       "icon": "discord",
       "url": "https://discord.gg/integrabot"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://integrabot.ai/blog"
     }
   ],
-  "navigation": [
-    {
-      "group": "Começando",
-      "pages": [
-        "pt/introduction",
-        "pt/quickstart"
-      ]
-    },
-    {
-      "group": "Guias de Usuário",
-      "pages": [
-        "pt/guias/conectar-whatsapp",
-        "pt/guias/configurar-agente",
-        "pt/guias/adicionar-conhecimento",
-        "pt/guias/criar-flows",
-        "pt/guias/ferramentas-ia",
-        "pt/guias/gerenciar-conversas"
-      ]
-    },
-    {
-      "group": "Conceitos",
-      "pages": [
-        "pt/conceitos/como-funciona-ia",
-        "pt/conceitos/base-conhecimento",
-        "pt/conceitos/whatsapp-flows",
-        "pt/conceitos/integracoes"
-      ]
-    },
-    {
-      "group": "Referência",
-      "pages": [
-        "pt/referencia/componentes-flows",
-        "pt/referencia/tipos-ferramentas",
-        "pt/referencia/glossario"
-      ]
-    },
-    {
-      "group": "Getting Started",
-      "pages": [
-        "en/introduction",
-        "en/quickstart"
-      ]
-    }
-  ],
+  "navigation": {
+    "languages": [
+      {
+        "language": "pt-BR",
+        "groups": [
+          {
+            "group": "Começando",
+            "pages": [
+              "pt/introduction",
+              "pt/quickstart"
+            ]
+          },
+          {
+            "group": "Guias",
+            "pages": [
+              "pt/guias/conectar-whatsapp",
+              "pt/guias/configurar-agente",
+              "pt/guias/adicionar-conhecimento",
+              "pt/guias/gerenciar-conversas"
+            ]
+          },
+          {
+            "group": "Recursos",
+            "pages": [
+              "pt/conceitos/whatsapp-flows",
+              "pt/conceitos/como-funciona-ia"
+            ]
+          }
+        ]
+      },
+      {
+        "language": "en",
+        "groups": [
+          {
+            "group": "Getting Started",
+            "pages": [
+              "en/introduction",
+              "en/quickstart"
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "footerSocials": {
     "x": "https://x.com/integrabot",
     "github": "https://github.com/altaforjatecnologia",
@@ -110,6 +95,6 @@
     "suggestEdit": true
   },
   "search": {
-    "prompt": "Buscar na documentação..."
+    "prompt": "Buscar..."
   }
 }

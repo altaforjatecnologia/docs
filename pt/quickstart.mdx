@@ -1,320 +1,109 @@
 ---
 title: 'Início Rápido'
-description: 'Configure seu primeiro agente de IA no Integrabot em menos de 5 minutos'
+description: 'Configure em 5 minutos'
 ---
 
-## Bem-vindo! 🎉
-
-Este guia vai te levar através dos passos essenciais para começar a usar o Integrabot. Ao final, você terá um agente de IA funcionando e conversando com seus clientes via WhatsApp.
+Configure seu agente de IA e comece a atender clientes automaticamente no WhatsApp.
 
 <Note>
-  **Tempo estimado:** 5-10 minutos
+  Tempo estimado: 5 minutos
 </Note>
 
-## Pré-requisitos
+## Você vai precisar
 
-Antes de começar, certifique-se de ter:
+- Conta no Integrabot ([criar conta](https://integrabot.ai))
+- Número de telefone para WhatsApp Business
+- Informações básicas sobre seu negócio
 
-<Check>
-  Uma conta no Integrabot (se não tiver, [crie aqui](https://app.integrabot.ai/register))
-</Check>
-<Check>
-  Um número de telefone para WhatsApp Business
-</Check>
-<Check>
-  Informações básicas sobre seu negócio (produtos/serviços)
-</Check>
-
-## Passo 1: Conecte seu WhatsApp
-
-O primeiro passo é conectar sua conta do WhatsApp Business ao Integrabot.
+## Conectar WhatsApp
 
 <Steps>
-  <Step title="Acesse o Painel">
-    Faça login em [app.integrabot.ai](https://app.integrabot.ai) e clique em **WhatsApp** no menu lateral
+  <Step title="Acesse WhatsApp">
+    Faça login em [integrabot.ai](https://integrabot.ai) e clique em **WhatsApp** no menu
   </Step>
   
-  <Step title="Clique em Conectar Novo Canal">
-    Na tela de WhatsApp, clique no botão **"+ Conectar Canal"**
+  <Step title="Conectar Canal">
+    Clique em **Conectar Canal**
   </Step>
   
-  <Step title="Escaneie o QR Code">
-    - Abra o WhatsApp no seu celular
-    - Vá em **Configurações > Aparelhos Conectados**
-    - Toque em **Conectar um Aparelho**
-    - Escaneie o QR Code exibido na tela
-  </Step>
-  
-  <Step title="Confirme a Conexão">
-    Após escanear, aguarde alguns segundos. Você verá uma mensagem de sucesso e seu canal estará conectado!
+  <Step title="Escanear QR Code">
+    Abra WhatsApp no celular > **Aparelhos Conectados** > Escaneie o código
   </Step>
 </Steps>
 
 <Warning>
-  **Importante:** Use um número exclusivo para o bot. Não use o mesmo número em outros dispositivos simultaneamente.
+  Use um número exclusivo. Não use o mesmo em outros dispositivos.
 </Warning>
 
-<Card
-  title="Guia Completo de Conexão"
-  icon="book"
-  href="/pt/guias/conectar-whatsapp"
->
-  Para mais detalhes e solução de problemas, consulte o guia completo
-</Card>
-
-## Passo 2: Configure seu Agente de IA
-
-Agora vamos configurar o "cérebro" do seu assistente virtual.
+## Configurar Agente
 
 <Steps>
   <Step title="Acesse Meu Agente">
-    No menu lateral, clique em **Meu Agente**
+    No menu, clique em **Meu Agente**
   </Step>
   
   <Step title="Defina o Objetivo">
-    No campo **Objetivo Principal**, descreva o propósito do seu agente:
+    Descreva o que o agente deve fazer:
     
     ```text
-    Atender clientes interessados em nossos serviços de 
-    consultoria empresarial, fornecer informações sobre 
-    pacotes e agendar reuniões de diagnóstico gratuito.
+    Atender clientes interessados em consultoria empresarial,
+    fornecer informações sobre serviços e agendar reuniões.
     ```
   </Step>
   
-  <Step title="Escreva as Instruções">
-    No campo **Instruções**, detalhe como o agente deve se comportar:
-    
-    ```text
-    - Seja cordial e profissional
-    - Pergunte o nome do cliente no início da conversa
-    - Identifique a principal necessidade do cliente
-    - Apresente o pacote mais adequado
-    - Ofereça agendamento de reunião
-    - Não prometa descontos sem autorização
-    ```
-  </Step>
-  
-  <Step title="Escolha o Estilo de Comunicação">
-    Selecione a temperatura da comunicação:
-    - **0.3** (Equilibrado) - Recomendado para começar
-  </Step>
-  
-  <Step title="Salve as Configurações">
-    Clique em **Salvar** no topo da página
+  <Step title="Salvar">
+    Clique em **Salvar**
   </Step>
 </Steps>
 
 <Info>
-  Você pode testar seu agente clicando no ícone de chat no canto inferior direito da tela!
+  Teste o agente clicando no ícone de chat no canto inferior direito!
 </Info>
 
-<Accordion title="Exemplo completo de configuração de agente">
-**Objetivo:**
-```
-Atender clientes de uma clínica odontológica, fornecer 
-informações sobre tratamentos, valores e agendar consultas.
-```
+## Adicionar Conhecimento
 
-**Instruções:**
-```
-1. Cumprimente o paciente de forma calorosa
-2. Pergunte o nome e qual tratamento tem interesse
-3. Forneça informações sobre o tratamento solicitado
-4. Apresente valores quando perguntado
-5. Ofereça agendamento de avaliação gratuita
-6. Se não souber responder algo, direcione para o atendimento humano
-7. Sempre finalize perguntando se há mais alguma dúvida
-```
-
-**Estilo:** 0.7 (Caloroso e empático)
-</Accordion>
-
-## Passo 3: Adicione Conhecimento
-
-Para que seu agente responda com precisão, ele precisa conhecer seu negócio.
+Adicione informações para o agente responder clientes:
 
 <Tabs>
-  <Tab title="Texto Direto (Mais Rápido)">
-    1. Vá em **Base de Conhecimento** no menu
-    2. Clique na aba **Texto**
-    3. Cole informações importantes:
-       - Lista de produtos/serviços
-       - Preços
-       - Horários de funcionamento
-       - Políticas importantes
-    4. Clique em **Salvar**
-    
-    <Tip>
-      Comece com o essencial. Você pode adicionar mais informações depois!
-    </Tip>
+  <Tab title="Texto">
+    1. Acesse **Base de Conhecimento**
+    2. Digite ou cole informações sobre produtos, serviços e preços
+    3. Clique em **Salvar**
   </Tab>
   
-  <Tab title="Importar Website">
-    1. Vá em **Base de Conhecimento**
-    2. Clique na aba **URLs**
-    3. Cole o link do seu site (ex: https://seusite.com.br)
-    4. Clique em **Importar**
-    5. Aguarde o processamento (alguns minutos)
-    
-    <Note>
-      O sistema extrai automaticamente todo o conteúdo da página!
-    </Note>
+  <Tab title="Website">
+    1. Acesse **Base de Conhecimento** > **URLs**
+    2. Cole o link do seu site
+    3. Clique em **Importar**
   </Tab>
   
-  <Tab title="Upload de Documento">
-    1. Vá em **Base de Conhecimento**
-    2. Clique na aba **Documentos**
-    3. Arraste arquivos PDF, DOC ou TXT
-    4. Aguarde o upload e processamento
-    
-    <Check>
-      Aceita: PDF, DOCX, DOC, TXT
-    </Check>
+  <Tab title="Documento">
+    1. Acesse **Base de Conhecimento** > **Documentos**
+    2. Arraste PDF, DOC ou TXT
+    3. Aguarde processamento
   </Tab>
 </Tabs>
 
-**Exemplo de conhecimento básico para começar:**
+## Pronto!
 
-```text
-SOBRE NÓS
-Somos a Consultoria Empresarial XYZ, especializada em 
-auxiliar pequenas e médias empresas a crescerem de forma 
-sustentável.
-
-SERVIÇOS
-- Diagnóstico Empresarial: R$ 2.500
-- Planejamento Estratégico: R$ 5.000
-- Consultoria Mensal: R$ 3.000/mês
-
-HORÁRIO DE ATENDIMENTO
-Segunda a Sexta: 9h às 18h
-Sábado: 9h às 13h
-
-PRIMEIRA REUNIÃO
-Oferecemos uma reunião de diagnóstico gratuita de 30 minutos.
-```
-
-<Card
-  title="Guia Completo da Base de Conhecimento"
-  icon="book"
-  href="/pt/guias/adicionar-conhecimento"
->
-  Aprenda técnicas avançadas de estruturação de conhecimento
-</Card>
-
-## Passo 4: Teste seu Agente
-
-Antes de disponibilizar para seus clientes, vamos testar!
-
-<img
-  src="/images/screenshots/pt/agent-test-chat.png"
-  alt="Chat de teste do agente"
-  className="rounded-lg border border-gray-200 shadow-sm my-4"
-/>
-
-<Steps>
-  <Step title="Abra o Chat de Teste">
-    Clique no ícone de **chat** no canto inferior direito de qualquer página do painel
-  </Step>
-  
-  <Step title="Simule uma Conversa">
-    Faça perguntas como se fosse um cliente:
-    - "Olá, quanto custa uma consultoria?"
-    - "Quais serviços vocês oferecem?"
-    - "Como posso agendar uma reunião?"
-  </Step>
-  
-  <Step title="Avalie as Respostas">
-    - As respostas estão corretas?
-    - O tom está adequado?
-    - O agente está usando as informações da base de conhecimento?
-  </Step>
-  
-  <Step title="Ajuste se Necessário">
-    Se algo não estiver bom, volte para **Meu Agente** e ajuste as instruções
-  </Step>
-</Steps>
-
-<Tip>
-  Teste várias perguntas diferentes para garantir que o agente está bem treinado!
-</Tip>
-
-## Passo 5: Seu Agente Está no Ar! 🚀
-
-Parabéns! Seu agente já está ativo e pronto para atender.
-
-### O que acontece agora?
-
-1. Qualquer pessoa que enviar mensagem para seu número do WhatsApp será atendida pelo agente
-2. O agente usará as instruções e conhecimento que você configurou
-3. Você pode acompanhar todas as conversas em tempo real no menu **Conversas**
-4. Se necessário, você pode intervir manualmente em qualquer conversa
-
-### Acompanhamento
-
-<CardGroup cols={2}>
-  <Card title="Conversas" icon="messages" href="/pt/guias/gerenciar-conversas">
-    Visualize e interaja com as conversas em tempo real
-  </Card>
-  <Card title="Leads" icon="users">
-    Veja os contatos capturados e suas informações
-  </Card>
-  <Card title="Dashboard" icon="chart-line">
-    Acompanhe métricas de atendimento e performance
-  </Card>
-  <Card title="Ferramentas IA" icon="tools" href="/pt/guias/ferramentas-ia">
-    Expanda as capacidades do agente com ferramentas
-  </Card>
-</CardGroup>
-
-## Próximos Passos (Opcional)
-
-Agora que seu agente básico está funcionando, você pode:
-
-<AccordionGroup>
-  <Accordion title="1. Criar Flows Interativos" icon="workflow">
-    Crie formulários dentro do WhatsApp para capturar informações estruturadas
-    
-    [Ver guia de Flows](/pt/guias/criar-flows)
-  </Accordion>
-  
-  <Accordion title="2. Adicionar Ferramentas de IA" icon="screwdriver-wrench">
-    Conecte APIs externas e automatize ações (consultar estoque, criar pedidos, etc)
-    
-    [Ver guia de Ferramentas](/pt/guias/ferramentas-ia)
-  </Accordion>
-  
-  <Accordion title="3. Configurar Integrações" icon="plug">
-    Integre com CRM, email, calendário e outros sistemas
-    
-    [Ver guia de Integrações](/pt/conceitos/integracoes)
-  </Accordion>
-  
-  <Accordion title="4. Expandir Base de Conhecimento" icon="book">
-    Adicione mais documentos, FAQs e informações detalhadas
-    
-    [Ver guia completo](/pt/guias/adicionar-conhecimento)
-  </Accordion>
-</AccordionGroup>
-
-## Precisa de Ajuda?
-
-<CardGroup cols={2}>
-  <Card title="Suporte por Email" icon="envelope">
-    hello@integrabot.ai
-  </Card>
-  <Card title="Comunidade" icon="discord">
-    Entre no nosso Discord
-  </Card>
-  <Card title="Base de Conhecimento" icon="book">
-    Navegue pelos guias completos
-  </Card>
-  <Card title="Vídeo Tutoriais" icon="video">
-    Em breve no nosso canal
-  </Card>
-</CardGroup>
+Seu agente já está ativo. Qualquer mensagem no WhatsApp será respondida automaticamente.
 
 <Check>
-  **Pronto!** Seu agente de IA está configurado e funcionando. Boa sorte! 🎉
+  Acesse **Conversas** no menu para acompanhar interações em tempo real
 </Check>
+
+## Recursos Adicionais
+
+<CardGroup cols={2}>
+  <Card title="Gerenciar Conversas" icon="messages" href="/pt/guias/gerenciar-conversas">
+    Acompanhe e intervenha em conversas
+  </Card>
+  <Card title="WhatsApp Flows" icon="diagram-cells" href="/pt/conceitos/whatsapp-flows">
+    Crie formulários no WhatsApp
+  </Card>
+</CardGroup>
+
+<Info>
+  Dúvidas? Entre em contato: hello@integrabot.ai
+</Info>
 
