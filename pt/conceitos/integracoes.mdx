@@ -1,0 +1,449 @@
+---
+title: 'Integrações'
+description: 'Conecte o Integrabot com CRMs, ferramentas de marketing, calendários e outros sistemas'
+---
+
+## Visão Geral
+
+Integrações permitem que o Integrabot se conecte com outras ferramentas que você já usa, criando um ecossistema completo de automação.
+
+<Info>
+  Para criar integrações customizadas via API, veja [Ferramentas de IA](/pt/guias/ferramentas-ia).
+</Info>
+
+## Integrações Disponíveis
+
+<Tabs>
+  <Tab title="CRM">
+    ### Customer Relationship Management
+    
+    Sincronize leads e clientes automaticamente.
+    
+    <CardGroup cols={2}>
+      <Card title="HubSpot" icon="hubspot">
+        **Status:** ✅ Disponível
+        
+        **O que faz:**
+        - Criar/atualizar contatos
+        - Criar deals
+        - Registrar atividades
+        - Sincronização bidirecional
+      </Card>
+      
+      <Card title="Pipedrive" icon="pipe">
+        **Status:** ✅ Disponível
+        
+        **O que faz:**
+        - Criar pessoas e organizações
+        - Criar deals e atividades
+        - Atualizar etapas do funil
+      </Card>
+      
+      <Card title="RD Station" icon="rocket">
+        **Status:** ✅ Disponível
+        
+        **O que faz:**
+        - Criar leads
+        - Atualizar conversões
+        - Enviar eventos
+        - Criar oportunidades
+      </Card>
+      
+      <Card title="Salesforce" icon="cloud">
+        **Status:** 🔄 Em breve
+        
+        Integração em desenvolvimento
+      </Card>
+    </CardGroup>
+  </Tab>
+  
+  <Tab title="Automação">
+    ### Plataformas de Automação
+    
+    <CardGroup cols={2}>
+      <Card title="Zapier" icon="bolt">
+        **Status:** ✅ Disponível
+        
+        **Conecte com:**
+        - +5000 aplicativos
+        - Workflows customizados
+        - Gatilhos e ações
+      </Card>
+      
+      <Card title="Make (Integromat)" icon="puzzle">
+        **Status:** ✅ Disponível
+        
+        **Workflows visuais:**
+        - Cenários complexos
+        - Múltiplas condições
+        - Transformação de dados
+      </Card>
+      
+      <Card title="n8n" icon="code">
+        **Status:** ✅ Disponível
+        
+        **Open source:**
+        - Self-hosted
+        - Automações avançadas
+        - Código customizado
+      </Card>
+      
+      <Card title="Pabbly Connect" icon="link">
+        **Status:** 🔄 Em breve
+        
+        Alternativa ao Zapier
+      </Card>
+    </CardGroup>
+  </Tab>
+  
+  <Tab title="Calendário">
+    ### Agendamento
+    
+    <CardGroup cols={2}>
+      <Card title="Google Calendar" icon="calendar">
+        **Status:** ✅ Disponível
+        
+        **Funcionalidades:**
+        - Criar eventos
+        - Consultar disponibilidade
+        - Enviar lembretes
+        - Cancelar/remarcar
+      </Card>
+      
+      <Card title="Calendly" icon="calendar-check">
+        **Status:** ✅ Disponível
+        
+        **Funcionalidades:**
+        - Link de agendamento
+        - Sincronização automática
+        - Tipos de eventos
+      </Card>
+      
+      <Card title="Microsoft Outlook" icon="envelope">
+        **Status:** 🔄 Em breve
+        
+        Calendário do Office 365
+      </Card>
+    </CardGroup>
+  </Tab>
+  
+  <Tab title="E-commerce">
+    ### Lojas Online
+    
+    <CardGroup cols={2}>
+      <Card title="Shopify" icon="shopping-cart">
+        **Status:** 🔄 Em breve
+        
+        **Planejado:**
+        - Consultar produtos
+        - Status de pedidos
+        - Criar pedidos
+      </Card>
+      
+      <Card title="WooCommerce" icon="wordpress">
+        **Status:** 🔄 Em breve
+        
+        Via API REST do WordPress
+      </Card>
+    </CardGroup>
+  </Tab>
+</Tabs>
+
+## Como Configurar Integrações
+
+### Exemplo: HubSpot
+
+<Steps>
+  <Step title="Acesse Integrações">
+    Menu lateral → **Integrações**
+  </Step>
+  
+  <Step title="Selecione HubSpot">
+    Clique no card do HubSpot
+  </Step>
+  
+  <Step title="Conecte Conta">
+    Clique em **Conectar**
+    
+    Você será redirecionado para autorizar no HubSpot
+  </Step>
+  
+  <Step title="Configure Mapeamento">
+    Defina como os campos são mapeados:
+    
+    ```
+    Integrabot → HubSpot
+    ────────────────────────
+    Nome       → firstname
+    Email      → email
+    Telefone   → phone
+    Interesse  → lead_source
+    ```
+  </Step>
+  
+  <Step title="Defina Gatilhos">
+    Quando sincronizar:
+    - ✅ Nova conversa iniciada
+    - ✅ Flow preenchido
+    - ✅ Lead qualificado
+    - ⬜ Cada mensagem (não recomendado)
+  </Step>
+  
+  <Step title="Teste">
+    Use botão **Testar Integração**
+    
+    Verifique se contato apareceu no HubSpot
+  </Step>
+  
+  <Step title="Ative">
+    Salve e ative a integração
+  </Step>
+</Steps>
+
+## Casos de Uso
+
+<AccordionGroup>
+  <Accordion title="Lead Capture → CRM" icon="user-arrow-right">
+    **Fluxo:**
+    1. Cliente preenche Flow no WhatsApp
+    2. Integrabot captura dados
+    3. Automaticamente cria lead no CRM
+    4. Define etapa inicial do funil
+    5. Atribui para vendedor
+    
+    **Ferramentas:** HubSpot, Pipedrive, RD Station
+  </Accordion>
+  
+  <Accordion title="Agendamento Automático" icon="calendar-plus">
+    **Fluxo:**
+    1. Cliente solicita agendamento
+    2. Agente consulta Google Calendar
+    3. Mostra horários disponíveis
+    4. Cliente escolhe
+    5. Evento criado automaticamente
+    6. Lembrete enviado 1 dia antes
+    
+    **Ferramentas:** Google Calendar, Calendly
+  </Accordion>
+  
+  <Accordion title="Notificação de Equipe" icon="bell">
+    **Fluxo:**
+    1. Lead qualificado capturado
+    2. Webhook dispara
+    3. Notificação no Slack
+    4. Email para vendedor
+    5. Tarefa criada no Trello
+    
+    **Ferramentas:** Zapier/Make + Slack/Email/Trello
+  </Accordion>
+  
+  <Accordion title="Sincronização Bidirecional" icon="arrows-rotate">
+    **Fluxo:**
+    1. Vendedor atualiza CRM
+    2. Informações sincronizam com Integrabot
+    3. Agente tem contexto atualizado
+    4. Próxima conversa usa novos dados
+    
+    **Ferramentas:** HubSpot, Pipedrive (via webhooks)
+  </Accordion>
+</AccordionGroup>
+
+## Webhooks
+
+Para integrações customizadas, use webhooks:
+
+### Receber Eventos
+
+Configure webhook para receber eventos do Integrabot:
+
+```javascript
+// Seu endpoint
+POST https://sua-api.com/webhook/integrabot
+
+// Payload
+{
+  "evento": "lead_capturado",
+  "timestamp": "2025-01-04T10:30:00Z",
+  "dados": {
+    "nome": "João Silva",
+    "email": "joao@example.com",
+    "telefone": "+5511999999999",
+    "origem": "flow_captura_lead"
+  }
+}
+```
+
+**Eventos disponíveis:**
+- `nova_conversa`
+- `mensagem_recebida`
+- `mensagem_enviada`
+- `lead_capturado`
+- `flow_preenchido`
+- `conversa_transferida`
+- `conversa_finalizada`
+
+### Enviar Comandos
+
+Também pode enviar comandos via webhook:
+
+```javascript
+// Enviar mensagem programaticamente
+POST https://api.integrabot.ai/v1/mensagens
+
+{
+  "canal_id": "CH-123",
+  "telefone": "+5511999999999",
+  "mensagem": "Olá! Seu pedido foi confirmado.",
+  "tipo": "text"
+}
+```
+
+## Segurança
+
+<CardGroup cols={2}>
+  <Card title="OAuth 2.0" icon="key">
+    Integrações nativas usam OAuth para segurança máxima
+  </Card>
+  
+  <Card title="API Keys Criptografadas" icon="lock">
+    Chaves são armazenadas criptografadas
+  </Card>
+  
+  <Card title="Assinatura de Webhooks" icon="signature">
+    Webhooks incluem assinatura para validação
+  </Card>
+  
+  <Card title="Rate Limiting" icon="gauge">
+    Proteção contra uso excessivo
+  </Card>
+</CardGroup>
+
+### Validar Webhook
+
+Sempre valide assinatura:
+
+```javascript
+const crypto = require('crypto');
+
+function validarWebhook(payload, assinatura, secret) {
+  const hash = crypto
+    .createHmac('sha256', secret)
+    .update(JSON.stringify(payload))
+    .digest('hex');
+    
+  return hash === assinatura;
+}
+
+// Uso
+app.post('/webhook', (req, res) => {
+  const assinatura = req.headers['x-integrabot-signature'];
+  
+  if (!validarWebhook(req.body, assinatura, process.env.WEBHOOK_SECRET)) {
+    return res.status(401).send('Assinatura inválida');
+  }
+  
+  // Processa webhook...
+});
+```
+
+## Monitoramento
+
+Acompanhe suas integrações:
+
+**Métricas:**
+- Eventos sincronizados
+- Erros e falhas
+- Latência
+- Taxa de sucesso
+
+**Logs:**
+- Acesse **Integrações** → Integração específica → **Logs**
+- Veja cada tentativa de sincronização
+- Debug de erros
+
+## Solução de Problemas
+
+<AccordionGroup>
+  <Accordion title="Integração desconectou" icon="plug-circle-xmark">
+    **Causas comuns:**
+    - Token expirou
+    - Permissões revogadas
+    - Mudança de senha
+    
+    **Solução:**
+    Reconecte a integração em **Integrações** → **Reconectar**
+  </Accordion>
+  
+  <Accordion title="Dados não sincronizam" icon="triangle-exclamation">
+    **Verifique:**
+    - Integração está ativa?
+    - Gatilhos configurados?
+    - Mapeamento de campos correto?
+    - Logs mostram erros?
+    
+    **Teste:**
+    Use função de teste na configuração
+  </Accordion>
+  
+  <Accordion title="Webhooks não chegam" icon="webhook">
+    **Verifique:**
+    - URL está acessível publicamente?
+    - HTTPS configurado?
+    - Firewall não bloqueando?
+    - Validação de assinatura correta?
+    
+    **Debug:**
+    Use ferramenta como webhook.site para testar
+  </Accordion>
+</AccordionGroup>
+
+## Roadmap de Integrações
+
+### Em Desenvolvimento
+- Salesforce
+- Microsoft Dynamics
+- Notion
+- Airtable
+- ActiveCampaign
+
+### Planejado
+- Mailchimp
+- SendGrid
+- Twilio
+- Stripe
+- PayPal
+
+<Tip>
+  Precisa de uma integração específica? Entre em contato: hello@integrabot.ai
+</Tip>
+
+## Próximos Passos
+
+<CardGroup cols={2}>
+  <Card
+    title="Ferramentas IA"
+    icon="wrench"
+    href="/pt/guias/ferramentas-ia"
+  >
+    Crie integrações customizadas via API
+  </Card>
+  <Card
+    title="API Reference"
+    icon="code"
+  >
+    Documentação completa da API (em breve)
+  </Card>
+  <Card
+    title="Webhooks Guide"
+    icon="webhook"
+  >
+    Guia detalhado de webhooks (em breve)
+  </Card>
+  <Card
+    title="Exemplos"
+    icon="github"
+  >
+    Repositório com exemplos de código
+  </Card>
+</CardGroup>
+

@@ -7,17 +7,18 @@
   },
   "favicon": "/logo/icon-logo-light.png",
   "colors": {
-    "primary": "#222e3d",
-    "light": "#222e3d",
-    "dark": "#5b6c82",
-    "anchors": {
-      "from": "#5b6c82",
-      "to": "#5b6c82"
+    "primary": "#34322d",
+    "light": "#6b6963",
+    "dark": "#34322d",
+    "background": {
+      "light": "#f8f8f7",
+      "dark": "#1a1a1a"
     }
   },
+  "theme": "light",
   "topbarLinks": [
     {
-      "name": "Hello Integrabot",
+      "name": "Support",
       "url": "mailto:hello@integrabot.ai"
     }
   ],
@@ -27,24 +28,19 @@
   },
   "tabs": [
     {
-      "name": "Tutoriais",
-      "url": "https://integrabot.ai/tutorials"
+      "name": "🇧🇷 Português",
+      "url": "pt"
     },
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "🇺🇸 English",
+      "url": "en"
     }
   ],
   "anchors": [
     {
-      "name": "Documentação",
-      "icon": "book-open-cover",
-      "url": "https://docs.integrabot.ai"
-    },
-    {
-      "name": "Comunidade",
-      "icon": "slack",
-      "url": "https://community.integrabot.ai"
+      "name": "Community",
+      "icon": "discord",
+      "url": "https://discord.gg/integrabot"
     },
     {
       "name": "Blog",
@@ -54,66 +50,86 @@
   ],
   "navigation": [
     {
-      "group": "Introdução",
+      "group": "Começando",
       "pages": [
-        "welcome",
-        "quickstart",
-        "development"
+        "pt/introduction",
+        "pt/quickstart"
       ]
     },
     {
-      "group": "Guia do Usuário",
+      "group": "Guias de Usuário",
       "pages": [
-        "essentials/menu-usuario",
-        "essentials/banco-conhecimento",
-        "essentials/ferramentas-ia",
-        "essentials/integracoes",
-        "essentials/criacao-canais",
-        "essentials/conversas-analise",
-        "essentials/estatisticas-analytics",
-        "essentials/configuracoes-equipe"
+        "pt/guias/conectar-whatsapp",
+        "pt/guias/configurar-agente",
+        "pt/guias/adicionar-conhecimento",
+        "pt/guias/criar-flows",
+        "pt/guias/ferramentas-ia",
+        "pt/guias/gerenciar-conversas"
       ]
     },
     {
-      "group": "Workflows",
+      "group": "Conceitos",
       "pages": [
-        "workflows/index",
-        "workflows/workflow-flow",
-        "workflows/using-variables",
-        "workflows/scheduling-actions",
-        "workflows/email-action",
-        "workflows/process-workflow-queue"
+        "pt/conceitos/como-funciona-ia",
+        "pt/conceitos/base-conhecimento",
+        "pt/conceitos/whatsapp-flows",
+        "pt/conceitos/integracoes"
       ]
     },
     {
-      "group": "Recursos Avançados",
+      "group": "Referência",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "pt/referencia/componentes-flows",
+        "pt/referencia/tipos-ferramentas",
+        "pt/referencia/glossario"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Getting Started",
       "pages": [
-        "api-reference/introduction"
+        "en/introduction",
+        "en/quickstart"
       ]
     },
     {
-      "group": "Endpoint Examples",
+      "group": "User Guides",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "en/guides/connect-whatsapp",
+        "en/guides/configure-agent",
+        "en/guides/add-knowledge",
+        "en/guides/create-flows",
+        "en/guides/ai-tools",
+        "en/guides/manage-conversations"
+      ]
+    },
+    {
+      "group": "Concepts",
+      "pages": [
+        "en/concepts/how-ai-works",
+        "en/concepts/knowledge-base",
+        "en/concepts/whatsapp-flows",
+        "en/concepts/integrations"
+      ]
+    },
+    {
+      "group": "Reference",
+      "pages": [
+        "en/reference/flow-components",
+        "en/reference/tool-types",
+        "en/reference/glossary"
       ]
     }
   ],
   "footerSocials": {
     "x": "https://x.com/integrabot",
-    "github": "https://github.com/integrabot",
+    "github": "https://github.com/altaforjatecnologia",
     "linkedin": "https://linkedin.com/company/integrabot"
+  },
+  "feedback": {
+    "thumbsRating": true,
+    "suggestEdit": true
+  },
+  "search": {
+    "prompt": "Buscar na documentação..."
   }
 }

@@ -1,0 +1,632 @@
+---
+title: 'Adicionar Conhecimento'
+description: 'Aprenda a alimentar a base de conhecimento do seu agente de IA com informações sobre seu negócio'
+---
+
+## Visão Geral
+
+A Base de Conhecimento é onde você armazena todas as informações que seu agente precisa para responder seus clientes. Quanto melhor estruturada, mais precisas serão as respostas.
+
+<Info>
+  Pense na base de conhecimento como o "treinamento" do seu agente - é aqui que ele aprende sobre seus produtos, serviços, políticas e procedimentos.
+</Info>
+
+## Como Funciona
+
+Quando um cliente faz uma pergunta, o agente:
+
+1. **Analisa a pergunta** para entender a intenção
+2. **Busca na base de conhecimento** informações relevantes
+3. **Processa as informações** encontradas
+4. **Formula uma resposta** personalizada e contextual
+
+<Tip>
+  Quanto mais relevante e bem organizado o conteúdo, melhores as respostas!
+</Tip>
+
+## Acessar a Base de Conhecimento
+
+<Steps>
+  <Step title="Faça Login">
+    Acesse [app.integrabot.ai](https://app.integrabot.ai)
+  </Step>
+  
+  <Step title="Menu Base de Conhecimento">
+    No menu lateral, clique em **Base de Conhecimento**
+  </Step>
+  
+  <Step title="Escolha o Método">
+    Você verá 4 abas: **Lista**, **URL**, **Documentos** e **Texto**
+  </Step>
+</Steps>
+
+<img
+  src="/images/screenshots/pt/knowledge-base-tabs.png"
+  alt="Interface da base de conhecimento com métodos de importação"
+  className="rounded-lg border border-gray-200 shadow-sm my-4"
+/>
+
+## Métodos de Adição de Conhecimento
+
+<Tabs>
+  <Tab title="Importar URL (Recomendado)">
+    ### Importar de Website
+    
+    A forma mais rápida de adicionar muito conteúdo de uma vez.
+    
+    **Como funciona:**
+    1. Cole a URL de uma página
+    2. O sistema extrai automaticamente todo o texto
+    3. O conteúdo é processado e vetorizado
+    4. Fica disponível para o agente imediatamente
+    
+    **Passo a passo:**
+    
+    <Steps>
+      <Step title="Acesse a Aba URLs">
+        Clique na aba **URLs** na tela de Base de Conhecimento
+      </Step>
+      
+      <Step title="Cole a URL">
+        No campo "URL da Página", cole o endereço completo
+        
+        Exemplo: `https://seusite.com.br/sobre-nos`
+      </Step>
+      
+      <Step title="Adicione Título (opcional)">
+        Dê um nome descritivo para identificar este conteúdo
+      </Step>
+      
+      <Step title="Escolha Categoria">
+        Selecione ou crie uma categoria (ex: "Produtos", "Políticas")
+      </Step>
+      
+      <Step title="Clique em Importar">
+        Aguarde o processamento (pode levar alguns minutos)
+      </Step>
+    </Steps>
+    
+    **URLs úteis para importar:**
+    - Página "Sobre Nós"
+    - Páginas de produtos/serviços
+    - FAQ
+    - Políticas de troca/devolução
+    - Termos de uso
+    - Blog posts relevantes
+    
+    <Tip>
+      **Dica:** Importe sua página inicial primeiro - geralmente contém as informações mais importantes!
+    </Tip>
+    
+    <Warning>
+      O sistema extrai apenas o texto principal da página. Menus, rodapés e sidebars geralmente são ignorados automaticamente.
+    </Warning>
+  </Tab>
+  
+  <Tab title="Upload de Documentos">
+    ### Fazer Upload de Arquivos
+    
+    Ideal para documentos internos, manuais, catálogos e materiais em PDF/Word.
+    
+    **Formatos aceitos:**
+    - 📄 PDF (.pdf)
+    - 📝 Word (.docx, .doc)
+    - 📋 Texto (.txt)
+    - 📊 Markdown (.md)
+    
+    **Passo a passo:**
+    
+    <Steps>
+      <Step title="Acesse a Aba Documentos">
+        Clique na aba **Documentos**
+      </Step>
+      
+      <Step title="Arraste ou Selecione">
+        Arraste arquivos para a área indicada ou clique para selecionar
+      </Step>
+      
+      <Step title="Aguarde o Upload">
+        Múltiplos arquivos podem ser enviados simultaneamente
+      </Step>
+      
+      <Step title="Processamento Automático">
+        O sistema extrai o texto e processa automaticamente
+      </Step>
+    </Steps>
+    
+    **Documentos úteis:**
+    - Catálogo de produtos (PDF)
+    - Manual de procedimentos
+    - Tabela de preços
+    - Apresentação institucional
+    - Regulamentos internos
+    
+    <Note>
+      **Limite por arquivo:** 10 MB
+      
+      **Limite total:** Varia conforme seu plano
+    </Note>
+    
+    <Tip>
+      Para documentos grandes, considere dividi-los em partes menores e mais específicas (ex: separar catálogo por categoria).
+    </Tip>
+  </Tab>
+  
+  <Tab title="Adicionar Texto">
+    ### Escrever Diretamente
+    
+    Perfeito para informações rápidas, FAQs, ou quando você não tem um documento pronto.
+    
+    **Passo a passo:**
+    
+    <Steps>
+      <Step title="Acesse a Aba Texto">
+        Clique na aba **Texto**
+      </Step>
+      
+      <Step title="Dê um Título">
+        Título descritivo para identificar este conteúdo
+      </Step>
+      
+      <Step title="Escreva o Conteúdo">
+        Digite ou cole o texto no editor
+      </Step>
+      
+      <Step title="Escolha Categoria">
+        Organize por categoria para facilitar gestão
+      </Step>
+      
+      <Step title="Salve">
+        Clique em **Salvar** - fica disponível imediatamente
+      </Step>
+    </Steps>
+    
+    **Quando usar:**
+    - Informações específicas não disponíveis em documentos
+    - FAQs customizadas
+    - Instruções especiais
+    - Atualizações rápidas
+    
+    <Accordion title="Exemplo: FAQ de uma clínica">
+      ```text
+      TÍTULO: FAQ - Consultas e Agendamentos
+      
+      CONTEÚDO:
+      
+      Como agendar uma consulta?
+      Você pode agendar por WhatsApp, telefone (11) 9999-9999 
+      ou diretamente aqui comigo. Preciso saber sua preferência 
+      de dia e horário.
+      
+      Qual o valor da consulta?
+      Consulta inicial: R$ 150
+      Retorno (até 30 dias): R$ 80
+      Avaliação gratuita para novos pacientes
+      
+      Quais formas de pagamento aceitam?
+      - Dinheiro
+      - Cartão de crédito (até 3x sem juros)
+      - Cartão de débito
+      - PIX (5% de desconto)
+      
+      Preciso levar algum documento?
+      Sim, traga:
+      - RG ou CNH
+      - Carteirinha do convênio (se tiver)
+      - Exames anteriores relacionados (se houver)
+      
+      Qual o horário de funcionamento?
+      Segunda a Sexta: 8h às 19h
+      Sábado: 8h às 12h
+      Domingo e Feriados: Fechado
+      ```
+    </Accordion>
+  </Tab>
+  
+  <Tab title="Integração (Em breve)">
+    ### Sincronização Automática
+    
+    Em breve você poderá conectar:
+    - Google Drive
+    - Notion
+    - Confluence
+    - Outros sistemas
+    
+    <Note>
+      Recurso em desenvolvimento. Em breve disponível!
+    </Note>
+  </Tab>
+</Tabs>
+
+## Organização por Categorias
+
+Categorias ajudam a organizar e gerenciar o conhecimento.
+
+<AccordionGroup>
+  <Accordion title="Criar Categoria" icon="folder-plus">
+    1. Na aba **Lista**, clique em **Nova Categoria**
+    2. Dê um nome descritivo
+    3. Adicione descrição (opcional)
+    4. Salve
+    
+    **Exemplos de categorias:**
+    - Produtos
+    - Serviços
+    - Políticas
+    - Procedimentos
+    - FAQ
+    - Preços
+    - Sobre a Empresa
+  </Accordion>
+  
+  <Accordion title="Mover Item de Categoria" icon="arrows-rotate">
+    1. Na lista de conhecimentos, clique no item
+    2. Selecione **Editar**
+    3. Escolha nova categoria
+    4. Salve
+  </Accordion>
+  
+  <Accordion title="Filtrar por Categoria" icon="filter">
+    Na aba **Lista**, use o seletor de categorias no topo para filtrar a visualização
+  </Accordion>
+</AccordionGroup>
+
+## Gerenciar Conhecimento
+
+### Visualizar e Editar
+
+<Steps>
+  <Step title="Acesse a Lista">
+    Vá na aba **Lista** para ver todos os itens
+  </Step>
+  
+  <Step title="Clique no Item">
+    Clique em qualquer item para ver detalhes
+  </Step>
+  
+  <Step title="Editar Conteúdo">
+    Clique em **Editar** para modificar o texto extraído
+  </Step>
+</Steps>
+
+<Tip>
+  **Revisar é importante!** Às vezes a extração automática pode capturar informações incorretas. Vale revisar os principais documentos.
+</Tip>
+
+### Ativar/Desativar
+
+Você pode desativar temporariamente um conhecimento sem excluí-lo:
+
+1. Na lista, clique no item
+2. Use o toggle **Ativo/Inativo**
+3. Itens inativos não serão consultados pelo agente
+
+<Info>
+  Útil para testar o que acontece sem certos conhecimentos ou para informações sazonais.
+</Info>
+
+### Excluir
+
+<Warning>
+  **Atenção:** Exclusão é permanente!
+</Warning>
+
+Para excluir:
+1. Clique no item
+2. Clique em **Excluir**
+3. Confirme a ação
+
+## Melhores Práticas
+
+<CardGroup cols={2}>
+  <Card title="Comece pelo Essencial" icon="star">
+    Adicione primeiro as informações mais importantes:
+    - O que você vende/oferece
+    - Preços principais
+    - Como comprar/contratar
+    - Contato e localização
+  </Card>
+  
+  <Card title="Seja Específico" icon="bullseye">
+    Informações claras e específicas geram respostas melhores
+    
+    ❌ "Temos vários produtos"
+    ✅ "Vendemos notebooks Dell, HP e Lenovo, de R$ 2.500 a R$ 8.000"
+  </Card>
+  
+  <Card title="Mantenha Atualizado" icon="rotate">
+    Revise e atualize regularmente:
+    - Preços
+    - Disponibilidade
+    - Políticas
+    - Informações de contato
+  </Card>
+  
+  <Card title="Estruture Bem" icon="list">
+    Use:
+    - Títulos descritivos
+    - Listas e bullet points
+    - Parágrafos curtos
+    - Categorias lógicas
+  </Card>
+  
+  <Card title="Teste as Respostas" icon="flask">
+    Após adicionar conhecimento:
+    - Faça perguntas no chat de teste
+    - Veja se as respostas usam o novo conteúdo
+    - Ajuste se necessário
+  </Card>
+  
+  <Card title="Evite Redundância" icon="copy">
+    Não duplique a mesma informação em vários lugares. Uma fonte única e bem estruturada é melhor.
+  </Card>
+</CardGroup>
+
+## Exemplos por Tipo de Negócio
+
+<AccordionGroup>
+  <Accordion title="E-commerce" icon="shopping-cart">
+    **Conhecimento essencial:**
+    
+    1. **Catálogo de Produtos**
+       - Nome, descrição, especificações
+       - Preços e condições de pagamento
+       - Estoque disponível
+    
+    2. **Políticas**
+       - Entrega: prazos, regiões, custos
+       - Troca e devolução: prazos e condições
+       - Garantia
+    
+    3. **FAQ**
+       - Como rastrear pedido
+       - Formas de pagamento
+       - Parcelamento
+       - Cupons de desconto
+    
+    **Formato recomendado:**
+    - Catálogo: Documento PDF ou URL do site
+    - Políticas: Texto direto
+    - FAQ: Texto direto formatado
+  </Accordion>
+  
+  <Accordion title="Serviços (Clínicas, Consultórios)" icon="heart">
+    **Conhecimento essencial:**
+    
+    1. **Serviços Oferecidos**
+       - Tipos de atendimento/tratamento
+       - Duração aproximada
+       - Valores e formas de pagamento
+    
+    2. **Profissionais**
+       - Especialidades
+       - Formação e experiência
+    
+    3. **Procedimentos**
+       - Como agendar
+       - Documentos necessários
+       - Preparação prévia
+       - Pós-atendimento
+    
+    4. **Convênios**
+       - Quais são aceitos
+       - Cobertura
+    
+    **Formato recomendado:**
+    - Página "Sobre" do site: URL
+    - Tabela de preços: Documento ou Texto
+    - Procedimentos: Texto direto
+  </Accordion>
+  
+  <Accordion title="Restaurante/Delivery" icon="utensils">
+    **Conhecimento essencial:**
+    
+    1. **Cardápio Completo**
+       - Pratos com descrição
+       - Preços
+       - Opções vegetarianas/veganas
+       - Alergênicos
+    
+    2. **Delivery**
+       - Área de entrega
+       - Tempo de entrega
+       - Taxa de entrega
+       - Pedido mínimo
+    
+    3. **Funcionamento**
+       - Horários
+       - Dias de funcionamento
+       - Formas de pagamento
+       - Reservas
+    
+    **Formato recomendado:**
+    - Cardápio: PDF ou URL
+    - Info de delivery: Texto direto
+    - Horários e reservas: Texto direto
+  </Accordion>
+  
+  <Accordion title="Educação (Cursos, Escola)" icon="graduation-cap">
+    **Conhecimento essencial:**
+    
+    1. **Cursos Oferecidos**
+       - Modalidades
+       - Duração
+       - Conteúdo programático
+       - Valores e formas de pagamento
+    
+    2. **Processo de Matrícula**
+       - Documentos necessários
+       - Prazos
+       - Como se inscrever
+    
+    3. **Infraestrutura**
+       - Localização
+       - Recursos disponíveis
+       - Horários de funcionamento
+    
+    4. **FAQ**
+       - Certificação
+       - Material didático
+       - Cancelamento/trancamento
+    
+    **Formato recomendado:**
+    - Site institucional: URLs
+    - Processos: Texto direto
+    - FAQ: Texto direto
+  </Accordion>
+</AccordionGroup>
+
+## Estrutura de Conhecimento Exemplo
+
+<Accordion title="Exemplo Completo: Clínica Odontológica">
+  ### Categoria: Tratamentos
+  
+  **Documento: Clareamento Dental**
+  ```
+  CLAREAMENTO DENTAL
+  
+  O que é:
+  Procedimento estético que remove manchas e deixa os dentes mais brancos.
+  
+  Tipos oferecidos:
+  1. Clareamento a Laser (consultório)
+     - Duração: 1 sessão de 40 minutos
+     - Resultado imediato
+     - Valor: R$ 800
+  
+  2. Clareamento Caseiro
+     - Duração: 3 semanas
+     - Uso de moldeiras em casa
+     - Valor: R$ 450
+  
+  Indicações:
+  - Dentes amarelados
+  - Manchas de alimentos
+  - Descoloração natural
+  
+  Contraindicações:
+  - Gestantes
+  - Dentes com cáries não tratadas
+  - Restaurações extensas na frente
+  
+  Cuidados pós-clareamento:
+  - Evitar alimentos com corante por 48h
+  - Não fumar
+  - Usar creme dental específico
+  
+  Resultado dura em média 1 a 2 anos
+  ```
+  
+  ---
+  
+  ### Categoria: Procedimentos
+  
+  **Texto: Como Agendar**
+  ```
+  AGENDAMENTO DE CONSULTAS
+  
+  Formas de agendar:
+  - WhatsApp: (11) 9999-9999
+  - Telefone: (11) 3333-3333
+  - Pessoalmente na recepção
+  
+  Primeira consulta:
+  - Avaliação gratuita para novos pacientes
+  - Duração: 30 minutos
+  - Sem compromisso
+  
+  Documentos necessários:
+  - RG ou CNH
+  - Carteirinha do convênio (se houver)
+  
+  Cancelamento:
+  - Avisar com 24h de antecedência
+  - Multa de R$ 50 para cancelamento sem aviso
+  
+  Atraso:
+  - Tolerância de 15 minutos
+  - Após isso, consulta pode ser remarcada
+  ```
+  
+  ---
+  
+  ### Categoria: Sobre
+  
+  **URL:** https://clinica.com.br/sobre
+  
+  (Sistema extrai automaticamente as informações da página)
+</Accordion>
+
+## Monitoramento e Otimização
+
+### Verificar Uso do Conhecimento
+
+<Steps>
+  <Step title="Acesse a Lista">
+    Vá em Base de Conhecimento → Lista
+  </Step>
+  
+  <Step title="Veja Estatísticas">
+    Cada item mostra:
+    - Número de vezes consultado
+    - Última vez que foi usado
+    - Taxa de utilidade
+  </Step>
+  
+  <Step title="Otimize">
+    - Itens nunca usados: Revisar ou remover
+    - Itens muito usados: Garantir que estão atualizados
+  </Step>
+</Steps>
+
+### Identificar Gaps
+
+<Tip>
+  **Dica valiosa:** Monitore as conversas em **Conversas** para identificar perguntas que o agente não soube responder bem. Isso indica gaps na base de conhecimento!
+</Tip>
+
+## Limites por Plano
+
+<Note>
+  Os limites variam conforme seu plano:
+  
+  - **Starter:** Até 50 documentos
+  - **Pro:** Até 500 documentos
+  - **Enterprise:** Ilimitado
+  
+  Veja todos os detalhes em **Workspace → Plano & Cobrança**
+</Note>
+
+## Próximos Passos
+
+<CardGroup cols={2}>
+  <Card
+    title="Testar Agente"
+    icon="comments"
+    href="/pt/quickstart#passo-4-teste-seu-agente"
+  >
+    Teste se o agente está usando o conhecimento corretamente
+  </Card>
+  <Card
+    title="Como Funciona a IA"
+    icon="brain"
+    href="/pt/conceitos/como-funciona-ia"
+  >
+    Entenda como o agente processa o conhecimento
+  </Card>
+  <Card
+    title="Ferramentas IA"
+    icon="wrench"
+    href="/pt/guias/ferramentas-ia"
+  >
+    Expanda capacidades com ferramentas customizadas
+  </Card>
+  <Card
+    title="Criar Flows"
+    icon="workflow"
+    href="/pt/guias/criar-flows"
+  >
+    Configure formulários interativos
+  </Card>
+</CardGroup>
+

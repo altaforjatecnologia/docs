@@ -1,0 +1,545 @@
+---
+title: 'Tipos de Ferramentas'
+description: 'Referência completa dos tipos de ferramentas disponíveis para expandir as capacidades do agente'
+---
+
+## Ferramentas Nativas
+
+Ferramentas prontas incluídas no Integrabot.
+
+### send_whatsapp_flow
+
+Envia um formulário WhatsApp Flow para o cliente.
+
+**Parâmetros:**
+
+| Nome | Tipo | Obrigatório | Descrição |
+|------|------|-------------|-----------|
+| `flow_id` | string | Sim | ID do Flow a enviar |
+| `mensagem_introducao` | string | Não | Mensagem antes do Flow |
+
+**Retorno:**
+
+```json
+{
+  "sucesso": true,
+  "flow_enviado": "FLOW-123",
+  "timestamp": "2025-01-04T10:30:00Z"
+}
+```
+
+**Quando usar:**
+- Capturar informações estruturadas
+- Agendamentos
+- Formulários de contato
+
+---
+
+### create_lead
+
+Cria ou atualiza um lead no CRM.
+
+**Parâmetros:**
+
+| Nome | Tipo | Obrigatório | Descrição |
+|------|------|-------------|-----------|
+| `nome` | string | Sim | Nome do lead |
+| `email` | string | Não | Email |
+| `telefone` | string | Sim | Telefone |
+| `origem` | string | Não | De onde veio |
+| `tags` | array | Não | Tags para classificar |
+| `score` | number | Não | Score de qualificação (0-100) |
+
+**Retorno:**
+
+```json
+{
+  "lead_id": "LEAD-456",
+  "criado": true,
+  "atualizado": false
+}
+```
+
+---
+
+### transfer_to_human
+
+Transfere conversa para atendimento humano.
+
+**Parâmetros:**
+
+| Nome | Tipo | Obrigatório | Descrição |
+|------|------|-------------|-----------|
+| `motivo` | string | Não | Motivo da transferência |
+| `prioridade` | string | Não | `baixa`, `media`, `alta` |
+| `atendente_id` | string | Não | Atendente específico |
+
+**Retorno:**
+
+```json
+{
+  "transferido": true,
+  "atendente": "USER-789",
+  "tempo_espera_estimado": "2 minutos"
+}
+```
+
+---
+
+### search_knowledge_base
+
+Busca específica na base de conhecimento (usada automaticamente).
+
+**Parâmetros:**
+
+| Nome | Tipo | Obrigatório | Descrição |
+|------|------|-------------|-----------|
+| `query` | string | Sim | Consulta de busca |
+| `categoria` | string | Não | Filtrar por categoria |
+| `top_k` | number | Não | Quantidade de resultados (padrão: 3) |
+
+**Retorno:**
+
+```json
+{
+  "resultados": [
+    {
+      "titulo": "Preços de Clareamento",
+      "conteudo": "...",
+      "relevancia": 0.95
+    }
+  ]
+}
+```
+
+## Ferramentas Customizadas
+
+Templates para criar suas próprias ferramentas.
+
+### Template: Consultar API Externa
+
+**Caso de uso:** Consultar estoque, preços, disponibilidade
+
+**Configuração:**
+
+```json
+{
+  "nome": "consultar_estoque",
+  "descricao": "Consulta disponibilidade de produto em tempo real",
+  "endpoint": "https://sua-api.com/estoque",
+  "metodo": "POST",
+  "headers": {
+    "Authorization": "Bearer ${env.API_KEY}",
+    "Content-Type": "application/json"
+  },
+  "parametros": {
+    "type": "object",
+    "properties": {
+      "produto_id": {
+        "type": "string",
+        "description": "ID do produto"
+      },
+      "loja_id": {
+        "type": "string",
+        "description": "ID da loja (opcional)"
+      }
+    },
+    "required": ["produto_id"]
+  }
+}
+```
+
+**Sua API deve retornar:**
+
+```json
+{
+  "disponivel": true,
+  "quantidade": 15,
+  "preco": 99.90,
+  "prazo_entrega": "2-3 dias úteis"
+}
+```
+
+---
+
+### Template: Calcular Valor
+
+**Caso de uso:** Orçamentos, fretes, impostos
+
+**Configuração:**
+
+```json
+{
+  "nome": "calcular_orcamento",
+  "descricao": "Calcula orçamento baseado em especificações",
+  "endpoint": "https://sua-api.com/calcular",
+  "metodo": "POST",
+  "parametros": {
+    "type": "object",
+    "properties": {
+      "servico": {
+        "type": "string",
+        "description": "Tipo de serviço"
+      },
+      "quantidade": {
+        "type": "number",
+        "description": "Quantidade desejada"
+      },
+      "urgente": {
+        "type": "boolean",
+        "description": "Se é urgente (afeta preço)"
+      }
+    },
+    "required": ["servico", "quantidade"]
+  }
+}
+```
+
+**Retorno esperado:**
+
+```json
+{
+  "valor_total": 1500.00,
+  "valor_base": 1200.00,
+  "adicional_urgencia": 300.00,
+  "prazo": "5 dias úteis",
+  "desconto_disponivel": "10% para pagamento à vista"
+}
+```
+
+---
+
+### Template: Criar Registro
+
+**Caso de uso:** Criar pedido, ticket, agendamento
+
+**Configuração:**
+
+```json
+{
+  "nome": "criar_pedido",
+  "descricao": "Cria um novo pedido no sistema",
+  "endpoint": "https://sua-api.com/pedidos",
+  "metodo": "POST",
+  "parametros": {
+    "type": "object",
+    "properties": {
+      "cliente_id": {
+        "type": "string"
+      },
+      "produtos": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "produto_id": { "type": "string" },
+            "quantidade": { "type": "number" }
+          }
+        }
+      },
+      "endereco_entrega": {
+        "type": "object",
+        "properties": {
+          "cep": { "type": "string" },
+          "rua": { "type": "string" },
+          "numero": { "type": "string" }
+        }
+      }
+    },
+    "required": ["produtos", "endereco_entrega"]
+  }
+}
+```
+
+**Retorno esperado:**
+
+```json
+{
+  "pedido_id": "PED-12345",
+  "valor_total": 350.00,
+  "link_pagamento": "https://pay.com/12345",
+  "prazo_entrega": "3-5 dias úteis"
+}
+```
+
+---
+
+### Template: Validar Informação
+
+**Caso de uso:** Validar cupom, CPF, CEP
+
+**Configuração:**
+
+```json
+{
+  "nome": "validar_cupom",
+  "descricao": "Valida código de cupom de desconto",
+  "endpoint": "https://sua-api.com/validar-cupom",
+  "metodo": "POST",
+  "parametros": {
+    "type": "object",
+    "properties": {
+      "codigo": {
+        "type": "string",
+        "description": "Código do cupom"
+      },
+      "valor_compra": {
+        "type": "number",
+        "description": "Valor total da compra"
+      }
+    },
+    "required": ["codigo"]
+  }
+}
+```
+
+**Retorno esperado:**
+
+```json
+{
+  "valido": true,
+  "tipo_desconto": "percentual",
+  "valor_desconto": 10,
+  "valor_final": 90.00,
+  "condicoes": "Válido apenas para compras acima de R$ 50",
+  "expira_em": "2025-01-31"
+}
+```
+
+## Parâmetros JSON Schema
+
+Todos os parâmetros seguem JSON Schema.
+
+### Tipos Básicos
+
+<Tabs>
+  <Tab title="String">
+    ```json
+    {
+      "nome": {
+        "type": "string",
+        "description": "Nome do cliente",
+        "minLength": 2,
+        "maxLength": 100
+      }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Number">
+    ```json
+    {
+      "quantidade": {
+        "type": "number",
+        "description": "Quantidade desejada",
+        "minimum": 1,
+        "maximum": 100
+      }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Boolean">
+    ```json
+    {
+      "urgente": {
+        "type": "boolean",
+        "description": "Se é urgente ou não"
+      }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Enum">
+    ```json
+    {
+      "tipo": {
+        "type": "string",
+        "enum": ["produto", "servico"],
+        "description": "Tipo de item"
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Tipos Complexos
+
+<Tabs>
+  <Tab title="Array">
+    ```json
+    {
+      "produtos": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Lista de IDs de produtos",
+        "minItems": 1,
+        "maxItems": 10
+      }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Object">
+    ```json
+    {
+      "endereco": {
+        "type": "object",
+        "properties": {
+          "rua": { "type": "string" },
+          "numero": { "type": "string" },
+          "cep": { "type": "string", "pattern": "^[0-9]{5}-[0-9]{3}$" }
+        },
+        "required": ["rua", "numero", "cep"]
+      }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="OneOf (Union)">
+    ```json
+    {
+      "pagamento": {
+        "oneOf": [
+          {
+            "type": "object",
+            "properties": {
+              "tipo": { "const": "cartao" },
+              "numero": { "type": "string" }
+            }
+          },
+          {
+            "type": "object",
+            "properties": {
+              "tipo": { "const": "pix" },
+              "chave": { "type": "string" }
+            }
+          }
+        ]
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Formato de Resposta
+
+### Resposta de Sucesso
+
+```json
+{
+  "sucesso": true,
+  "dados": {
+    // Seus dados aqui
+  },
+  "mensagem_cliente": "Texto que o agente pode usar diretamente"
+}
+```
+
+### Resposta de Erro
+
+```json
+{
+  "sucesso": false,
+  "erro": {
+    "codigo": "PRODUTO_NAO_ENCONTRADO",
+    "mensagem": "Produto não encontrado em nosso catálogo",
+    "detalhes": "ID fornecido: 12345"
+  }
+}
+```
+
+<Tip>
+  Sempre inclua `mensagem_cliente` para facilitar a resposta do agente.
+</Tip>
+
+## Segurança
+
+### Headers de Autenticação
+
+<Tabs>
+  <Tab title="Bearer Token">
+    ```json
+    {
+      "headers": {
+        "Authorization": "Bearer ${env.API_TOKEN}"
+      }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="API Key">
+    ```json
+    {
+      "headers": {
+        "X-API-Key": "${env.API_KEY}"
+      }
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Basic Auth">
+    ```json
+    {
+      "headers": {
+        "Authorization": "Basic ${env.BASIC_AUTH}"
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Variáveis de Ambiente
+
+Use `${env.NOME}` para referenciar secrets:
+
+- `${env.API_KEY}`
+- `${env.API_TOKEN}`
+- `${env.WEBHOOK_SECRET}`
+
+<Warning>
+  Nunca exponha secrets no código da ferramenta!
+</Warning>
+
+## Limites
+
+| Item | Limite |
+|------|--------|
+| Timeout por chamada | 30 segundos |
+| Tamanho máximo de resposta | 100 KB |
+| Chamadas simultâneas | 10 |
+| Rate limit | 100 req/min |
+| Tentativas de retry | 3 |
+
+## Próximos Passos
+
+<CardGroup cols={2}>
+  <Card
+    title="Guia de Ferramentas"
+    icon="book"
+    href="/pt/guias/ferramentas-ia"
+  >
+    Aprenda a criar e usar ferramentas
+  </Card>
+  <Card
+    title="Exemplos"
+    icon="code"
+  >
+    Repositório com código pronto (em breve)
+  </Card>
+  <Card
+    title="API Reference"
+    icon="brackets-curly"
+  >
+    Documentação completa da API
+  </Card>
+  <Card
+    title="Suporte"
+    icon="headset"
+  >
+    hello@integrabot.ai
+  </Card>
+</CardGroup>
+

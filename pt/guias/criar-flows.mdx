@@ -1,0 +1,645 @@
+---
+title: 'Criar WhatsApp Flows'
+description: 'Aprenda a criar formulários interativos dentro do WhatsApp para capturar leads e qualificar clientes'
+---
+
+## O que são WhatsApp Flows?
+
+WhatsApp Flows (também chamados de Smart Forms no Integrabot) são **formulários interativos nativos** que aparecem dentro do próprio WhatsApp. Seus clientes preenchem informações sem sair do app.
+
+<img
+  src="/images/screenshots/pt/flow-example-whatsapp.png"
+  alt="Exemplo de WhatsApp Flow no celular"
+  className="rounded-lg border border-gray-200 shadow-sm my-4"
+/>
+
+<img
+  src="/images/screenshots/pt/flow-builder-interface.png"
+  alt="Interface do construtor de flows"
+  className="rounded-lg border border-gray-200 shadow-sm my-4"
+/>
+
+<Info>
+  Flows criam uma experiência muito mais profissional e aumentam significativamente as taxas de conversão comparado a perguntas sequenciais por chat.
+</Info>
+
+## Benefícios dos Flows
+
+<CardGroup cols={3}>
+  <Card title="Experiência Nativa" icon="mobile">
+    Interface integrada do WhatsApp, familiar para o usuário
+  </Card>
+  <Card title="Dados Estruturados" icon="database">
+    Informações organizadas e fáceis de processar
+  </Card>
+  <Card title="Taxa de Conversão" icon="chart-line">
+    Até 3x mais conversões vs perguntas por chat
+  </Card>
+  <Card title="Validação Automática" icon="check">
+    Campos validados automaticamente (email, telefone, etc)
+  </Card>
+  <Card title="Múltiplas Etapas" icon="list">
+    Divida formulários grandes em etapas menores
+  </Card>
+  <Card title="Profissional" icon="star">
+    Visual moderno e alinhado com sua marca
+  </Card>
+</CardGroup>
+
+## Casos de Uso
+
+<AccordionGroup>
+  <Accordion title="Captura de Leads Qualificados" icon="user-plus">
+    Colete informações estruturadas de potenciais clientes:
+    - Nome completo
+    - Email e telefone
+    - Interesse/necessidade
+    - Orçamento disponível
+    - Prazo desejado
+    - Como conheceu a empresa
+  </Accordion>
+  
+  <Accordion title="Agendamento de Consultas" icon="calendar">
+    Facilite o processo de agendamento:
+    - Nome do paciente/cliente
+    - Tipo de serviço desejado
+    - Preferência de data
+    - Horário preferido
+    - Primeira vez ou retorno
+    - Convênio (se aplicável)
+  </Accordion>
+  
+  <Accordion title="Pedidos e Orçamentos" icon="shopping-cart">
+    Capture pedidos de forma estruturada:
+    - Produto/serviço de interesse
+    - Quantidade
+    - Especificações
+    - Endereço de entrega
+    - Forma de pagamento preferida
+  </Accordion>
+  
+  <Accordion title="Pesquisas e Feedback" icon="star">
+    Colete feedback dos clientes:
+    - Avaliação do atendimento
+    - Satisfação com produto/serviço
+    - Sugestões de melhoria
+    - NPS (Net Promoter Score)
+  </Accordion>
+</AccordionGroup>
+
+## Acessar o Construtor de Flows
+
+<Steps>
+  <Step title="Faça Login">
+    Acesse [app.integrabot.ai](https://app.integrabot.ai)
+  </Step>
+  
+  <Step title="Menu Construir Flows">
+    No menu lateral, clique em **Construir Flows**
+  </Step>
+  
+  <Step title="Criar Novo Flow">
+    Clique em **+ Novo Flow** para começar do zero
+    
+    Ou escolha um **Template** para começar mais rápido
+  </Step>
+</Steps>
+
+## Componentes Disponíveis
+
+<Tabs>
+  <Tab title="Campos de Entrada">
+    ### TextInput
+    Campo de texto curto (nome, email, telefone).
+    
+    **Propriedades:**
+    - Label (obrigatório)
+    - Placeholder
+    - Tipo (text, email, phone, number)
+    - Obrigatório (sim/não)
+    - Validação personalizada
+    
+    **Quando usar:**
+    - Nome
+    - Email
+    - Telefone
+    - CPF
+    - Código postal
+    
+    ---
+    
+    ### TextArea
+    Campo de texto longo para respostas detalhadas.
+    
+    **Propriedades:**
+    - Label
+    - Placeholder
+    - Número máximo de caracteres
+    - Linhas visíveis
+    
+    **Quando usar:**
+    - Descrição de necessidade
+    - Observações
+    - Endereço completo
+    - Feedback detalhado
+  </Tab>
+  
+  <Tab title="Seleção">
+    ### RadioButtonsGroup
+    Seleção única entre múltiplas opções (botões de rádio).
+    
+    **Propriedades:**
+    - Label da pergunta
+    - Lista de opções
+    - Valor padrão
+    - Obrigatório
+    
+    **Quando usar:**
+    - Sim/Não
+    - Escolha de plano
+    - Tipo de atendimento
+    - Primeira vez ou retorno
+    
+    **Exemplo:**
+    ```
+    Qual o seu interesse?
+    ○ Produto A
+    ○ Produto B
+    ○ Produto C
+    ```
+    
+    ---
+    
+    ### CheckboxGroup
+    Seleção múltipla (checkboxes).
+    
+    **Propriedades:**
+    - Label
+    - Lista de opções
+    - Mínimo/máximo de seleções
+    - Obrigatório
+    
+    **Quando usar:**
+    - Múltiplos interesses
+    - Dias da semana disponíveis
+    - Serviços desejados
+    
+    **Exemplo:**
+    ```
+    Quais serviços tem interesse? (pode marcar vários)
+    ☑ Consultoria
+    ☐ Treinamento
+    ☑ Implementação
+    ```
+    
+    ---
+    
+    ### Dropdown
+    Lista suspensa de opções.
+    
+    **Propriedades:**
+    - Label
+    - Opções
+    - Valor padrão
+    - Busca habilitada (para muitas opções)
+    
+    **Quando usar:**
+    - Lista longa de opções (estados, cidades)
+    - Categorias
+    - Profissões
+  </Tab>
+  
+  <Tab title="Data e Calendário">
+    ### DatePicker
+    Seletor de data.
+    
+    **Propriedades:**
+    - Label
+    - Data mínima
+    - Data máxima
+    - Formato (DD/MM/AAAA)
+    - Dias bloqueados
+    
+    **Quando usar:**
+    - Data de nascimento
+    - Data preferida para agendamento
+    - Prazo desejado
+    
+    **Recursos:**
+    - Bloquear finais de semana
+    - Bloquear datas específicas
+    - Limitar range de datas
+    
+    <Tip>
+      Útil para agendamentos - você pode bloquear datas já lotadas dinamicamente!
+    </Tip>
+  </Tab>
+  
+  <Tab title="Outros">
+    ### OptIn (Checkbox)
+    Aceite de termos ou confirmações.
+    
+    **Quando usar:**
+    - Aceite de termos
+    - Consentimento LGPD
+    - Autorização de contato
+    
+    **Exemplo:**
+    ```
+    ☐ Aceito receber comunicações por email e WhatsApp
+    ```
+    
+    ---
+    
+    ### Image
+    Exibir imagem no formulário.
+    
+    **Quando usar:**
+    - Logo da empresa
+    - Produto/serviço
+    - Ilustração explicativa
+    
+    ---
+    
+    ### EmbeddedLink
+    Botão com link externo.
+    
+    **Quando usar:**
+    - Link para termos de uso
+    - Ver catálogo completo
+    - Acessar site
+  </Tab>
+</Tabs>
+
+## Criar seu Primeiro Flow
+
+### Exemplo: Captura de Lead para Consultoria
+
+<Steps>
+  <Step title="Informações Básicas">
+    1. Nome do Flow: "Captura Lead Consultoria"
+    2. Descrição: "Formulário para leads interessados em consultoria"
+    3. Categoria: Leads
+  </Step>
+  
+  <Step title="Adicione Campos">
+    Clique em **+ Adicionar Campo** e configure:
+    
+    **Campo 1: Nome**
+    - Tipo: TextInput
+    - Label: "Qual é o seu nome?"
+    - Placeholder: "João Silva"
+    - Obrigatório: Sim
+    - Tipo de dado: text
+    
+    **Campo 2: Email**
+    - Tipo: TextInput
+    - Label: "Qual é o seu email?"
+    - Placeholder: "joao@empresa.com"
+    - Obrigatório: Sim
+    - Tipo de dado: email
+    
+    **Campo 3: Empresa**
+    - Tipo: TextInput
+    - Label: "Qual o nome da sua empresa?"
+    - Placeholder: "Minha Empresa Ltda"
+    - Obrigatório: Não
+    
+    **Campo 4: Tipo de Consultoria**
+    - Tipo: RadioButtonsGroup
+    - Label: "Que tipo de consultoria você precisa?"
+    - Opções:
+      - Estratégica
+      - Financeira
+      - Marketing
+      - Tecnologia
+      - Não sei ainda
+    - Obrigatório: Sim
+    
+    **Campo 5: Orçamento**
+    - Tipo: RadioButtonsGroup
+    - Label: "Qual seu orçamento estimado?"
+    - Opções:
+      - Até R$ 5.000
+      - R$ 5.000 a R$ 15.000
+      - R$ 15.000 a R$ 50.000
+      - Acima de R$ 50.000
+    - Obrigatório: Não
+    
+    **Campo 6: Observações**
+    - Tipo: TextArea
+    - Label: "Quer nos contar mais sobre sua necessidade?"
+    - Placeholder: "Descreva brevemente..."
+    - Obrigatório: Não
+    - Max caracteres: 500
+  </Step>
+  
+  <Step title="Configure o Footer">
+    O footer é o botão de envio:
+    
+    - Texto do botão: "Enviar"
+    - Mensagem de sucesso: "Obrigado! Em breve entraremos em contato."
+  </Step>
+  
+  <Step title="Preview">
+    Clique em **Preview** para ver como ficará no WhatsApp
+    
+    Teste preenchendo o formulário
+  </Step>
+  
+  <Step title="Publique">
+    Quando estiver satisfeito, clique em **Publicar**
+    
+    O Flow estará disponível para uso imediatamente!
+  </Step>
+</Steps>
+
+<Check>
+  Pronto! Seu primeiro Flow está criado.
+</Check>
+
+## Conectar Flow ao Agente
+
+Após criar o Flow, você precisa ensinar o agente quando enviá-lo.
+
+<Steps>
+  <Step title="Acesse Meu Agente">
+    Menu lateral → **Meu Agente**
+  </Step>
+  
+  <Step title="Edite as Instruções">
+    Adicione instrução para quando enviar o Flow:
+    
+    ```text
+    Quando o cliente demonstrar interesse em consultoria, 
+    envie o Flow "Captura Lead Consultoria" para coletar 
+    as informações necessárias.
+    
+    Diga algo como: "Ótimo! Para te ajudar melhor, vou 
+    enviar um formulário rápido com algumas perguntas. 
+    São só 2 minutos!"
+    ```
+  </Step>
+  
+  <Step title="Ative o Módulo">
+    Na aba **Módulos e Ferramentas**, ative:
+    
+    - ✅ Captura de Leads
+  </Step>
+  
+  <Step title="Teste">
+    Abra o chat de teste e simule uma conversa:
+    
+    Você: "Tenho interesse em consultoria"
+    
+    Agente: "Ótimo! Para te ajudar melhor, vou enviar um formulário..."
+    [Envia o Flow]
+  </Step>
+</Steps>
+
+## Templates Prontos
+
+Para acelerar, use nossos templates prontos:
+
+<CardGroup cols={2}>
+  <Card title="Captura de Lead Simples" icon="user">
+    Nome, email, telefone e interesse
+  </Card>
+  <Card title="Agendamento Consulta" icon="calendar">
+    Dados pessoais, tipo de consulta e preferência de data
+  </Card>
+  <Card title="Pesquisa de Satisfação" icon="star">
+    Avaliação e feedback sobre atendimento
+  </Card>
+  <Card title="Orçamento Personalizado" icon="calculator">
+    Especificações e requisitos do projeto
+  </Card>
+  <Card title="Cadastro Completo" icon="id-card">
+    Formulário extenso com múltiplas etapas
+  </Card>
+  <Card title="Pedido de Produto" icon="shopping-bag">
+    Seleção de produto, quantidade e entrega
+  </Card>
+</CardGroup>
+
+<Tip>
+  **Dica:** Comece com um template e customize para suas necessidades!
+</Tip>
+
+## Campos Dinâmicos e Condicionais
+
+<Warning>
+  **Limitação da API do WhatsApp:** Campos dinâmicos nativos não são suportados. No entanto, o Integrabot oferece uma solução alternativa.
+</Warning>
+
+### Solução: Pre-processamento
+
+Você pode gerar Flows dinâmicos antes de enviá-los:
+
+<Accordion title="Como funciona">
+  1. Cliente demonstra interesse
+  2. Agente consulta informações relevantes (ex: horários disponíveis)
+  3. Sistema gera Flow com essas informações
+  4. Flow é enviado ao cliente com dados atualizados
+  
+  **Exemplo:**
+  Flow de agendamento com apenas horários realmente disponíveis naquele dia.
+</Accordion>
+
+<Info>
+  Para implementar Flows dinâmicos, você precisará usar [Ferramentas de IA](/pt/guias/ferramentas-ia) customizadas. Entre em contato com o suporte para ajuda.
+</Info>
+
+## Visualizar Submissões
+
+Após clientes preencherem os Flows, veja as respostas:
+
+<Steps>
+  <Step title="Menu Submissões">
+    No menu lateral, clique em **Submissões**
+  </Step>
+  
+  <Step title="Filtre por Flow">
+    Use o filtro para ver submissões de um Flow específico
+  </Step>
+  
+  <Step title="Veja Detalhes">
+    Clique em qualquer submissão para ver todas as respostas
+  </Step>
+  
+  <Step title="Exporte">
+    Clique em **Exportar** para baixar em CSV ou Excel
+  </Step>
+</Steps>
+
+<CardGroup cols={2}>
+  <Card title="Criar Lead" icon="user-plus">
+    Transforme submissão em lead no CRM
+  </Card>
+  <Card title="Contatar Cliente" icon="message">
+    Abra conversa direta com o cliente
+  </Card>
+  <Card title="Agendar" icon="calendar">
+    Crie agendamento baseado nas respostas
+  </Card>
+  <Card title="Exportar Dados" icon="download">
+    Baixe para análise externa
+  </Card>
+</CardGroup>
+
+## Melhores Práticas
+
+<CardGroup cols={2}>
+  <Card title="Mantenha Curto" icon="gauge">
+    Idealmente 5-8 campos. Formulários longos têm maior abandono
+  </Card>
+  <Card title="Ordem Lógica" icon="list-ol">
+    Comece com perguntas fáceis (nome), deixe as sensíveis para o final
+  </Card>
+  <Card title="Labels Claros" icon="text">
+    Use perguntas diretas: "Qual é seu nome?" ao invés de apenas "Nome"
+  </Card>
+  <Card title="Placeholders Úteis" icon="info">
+    Dê exemplos nos placeholders: "exemplo@email.com"
+  </Card>
+  <Card title="Valide Dados" icon="check-circle">
+    Use tipos corretos (email, phone) para validação automática
+  </Card>
+  <Card title="Teste Muito" icon="flask">
+    Teste no celular antes de publicar para clientes
+  </Card>
+</CardGroup>
+
+## Análise e Otimização
+
+### Métricas Importantes
+
+<Steps>
+  <Step title="Taxa de Abertura">
+    % de clientes que abriram o Flow após receber
+    
+    **Meta:** > 80%
+    
+    **Se baixa:** Melhore a mensagem de introdução do agente
+  </Step>
+  
+  <Step title="Taxa de Conclusão">
+    % de quem começou e completou o formulário
+    
+    **Meta:** > 60%
+    
+    **Se baixa:** Reduza número de campos ou simplifique perguntas
+  </Step>
+  
+  <Step title="Tempo Médio">
+    Quanto tempo leva para preencher
+    
+    **Meta:** < 2 minutos
+    
+    **Se alto:** Formulário pode estar muito longo
+  </Step>
+  
+  <Step title="Campos Abandonados">
+    Em qual campo as pessoas desistem
+    
+    **Análise:** Se um campo específico tem muito abandono, revise-o
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Flow não aparece no WhatsApp" icon="question">
+    **Possíveis causas:**
+    - Flow não foi publicado
+    - Cliente usando WhatsApp desatualizado
+    - Problema de conexão
+    
+    **Soluções:**
+    1. Verifique se Flow está com status "Publicado"
+    2. Peça cliente atualizar WhatsApp
+    3. Tente reenviar
+  </Accordion>
+  
+  <Accordion title="Dados não estão salvando" icon="exclamation">
+    **Verifique:**
+    - Módulo "Captura de Leads" está ativo?
+    - Flow está conectado corretamente?
+    - Sem erros no console?
+    
+    **Solução:**
+    Entre em contato com suporte com ID do Flow
+  </Accordion>
+  
+  <Accordion title="Campo não valida corretamente" icon="x">
+    **Garanta:**
+    - Tipo de dado está correto (email, phone, etc)
+    - Validação personalizada está correta
+    - Formato esperado está claro no placeholder
+  </Accordion>
+</AccordionGroup>
+
+## Exemplos Completos
+
+<Accordion title="Flow Completo: Clínica Odontológica">
+  **Nome:** Agendamento de Consulta Odontológica
+  
+  **Campos:**
+  
+  1. **Nome Completo** (TextInput, obrigatório)
+  2. **Telefone** (TextInput type=phone, obrigatório)
+  3. **Email** (TextInput type=email, opcional)
+  4. **Primeira Consulta?** (RadioButtons: Sim / Retorno)
+  5. **Tipo de Tratamento** (RadioButtons)
+     - Clareamento
+     - Implante
+     - Ortodontia
+     - Limpeza
+     - Outro
+  6. **Tem Convênio?** (RadioButtons: Sim / Não)
+  7. **Se sim, qual?** (TextInput, condicional)
+  8. **Data Preferida** (DatePicker, próximos 30 dias)
+  9. **Turno Preferido** (RadioButtons)
+     - Manhã (8h-12h)
+     - Tarde (14h-18h)
+     - Noite (18h-21h)
+  10. **Observações** (TextArea, opcional)
+  
+  **Footer:**
+  - Botão: "Agendar Consulta"
+  - Sucesso: "Consulta pré-agendada! Nossa equipe entrará em contato para confirmar."
+</Accordion>
+
+## Próximos Passos
+
+<CardGroup cols={2}>
+  <Card
+    title="Ferramentas IA"
+    icon="wrench"
+    href="/pt/guias/ferramentas-ia"
+  >
+    Crie ferramentas para Flows dinâmicos
+  </Card>
+  <Card
+    title="Referência de Componentes"
+    icon="book"
+    href="/pt/referencia/componentes-flows"
+  >
+    Lista completa de componentes e propriedades
+  </Card>
+  <Card
+    title="Conceito: WhatsApp Flows"
+    icon="lightbulb"
+    href="/pt/conceitos/whatsapp-flows"
+  >
+    Entenda a tecnologia e limitações
+  </Card>
+  <Card
+    title="Gerenciar Conversas"
+    icon="messages"
+    href="/pt/guias/gerenciar-conversas"
+  >
+    Acompanhe leads que preencheram Flows
+  </Card>
+</CardGroup>
+

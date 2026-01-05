@@ -1,0 +1,574 @@
+---
+title: 'Componentes de Flows'
+description: 'Referência completa de todos os componentes disponíveis para WhatsApp Flows'
+---
+
+## Campos de Input
+
+### TextInput
+
+Campo de texto curto para entrada de dados simples.
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `name` | string | Sim | Identificador único do campo |
+| `label` | string | Sim | Texto da pergunta/label |
+| `input-type` | string | Não | Tipo: `text`, `number`, `email`, `phone`, `password` |
+| `required` | boolean | Não | Se é obrigatório (padrão: false) |
+| `helper-text` | string | Não | Texto de ajuda abaixo do campo |
+| `max-length` | number | Não | Máximo de caracteres |
+| `min-length` | number | Não | Mínimo de caracteres |
+
+**Exemplo:**
+
+```json
+{
+  "type": "TextInput",
+  "name": "email",
+  "label": "Qual é o seu email?",
+  "input-type": "email",
+  "required": true,
+  "helper-text": "Enviaremos confirmação para este email"
+}
+```
+
+---
+
+### TextArea
+
+Campo de texto longo para respostas detalhadas.
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `name` | string | Sim | Identificador único |
+| `label` | string | Sim | Pergunta/label |
+| `required` | boolean | Não | Se é obrigatório |
+| `max-length` | number | Não | Máximo de caracteres (até 1000) |
+| `helper-text` | string | Não | Texto de ajuda |
+
+**Exemplo:**
+
+```json
+{
+  "type": "TextArea",
+  "name": "observacoes",
+  "label": "Conte-nos mais sobre sua necessidade",
+  "max-length": 500,
+  "required": false
+}
+```
+
+## Campos de Seleção
+
+### RadioButtonsGroup
+
+Seleção única entre múltiplas opções (radio buttons).
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `name` | string | Sim | Identificador único |
+| `label` | string | Sim | Título do grupo |
+| `data-source` | array | Sim | Lista de opções |
+| `required` | boolean | Não | Se é obrigatório |
+
+**Estrutura de data-source:**
+
+```json
+{
+  "data-source": [
+    {
+      "id": "opcao1",
+      "title": "Primeira Opção",
+      "description": "Descrição opcional"
+    },
+    {
+      "id": "opcao2",
+      "title": "Segunda Opção"
+    }
+  ]
+}
+```
+
+**Exemplo Completo:**
+
+```json
+{
+  "type": "RadioButtonsGroup",
+  "name": "plano",
+  "label": "Escolha seu plano",
+  "required": true,
+  "data-source": [
+    {
+      "id": "starter",
+      "title": "Starter",
+      "description": "R$ 99/mês - Ideal para começar"
+    },
+    {
+      "id": "pro",
+      "title": "Pro",
+      "description": "R$ 299/mês - Mais recursos"
+    },
+    {
+      "id": "enterprise",
+      "title": "Enterprise",
+      "description": "Personalizado"
+    }
+  ]
+}
+```
+
+---
+
+### CheckboxGroup
+
+Seleção múltipla (checkboxes).
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `name` | string | Sim | Identificador único |
+| `label` | string | Sim | Título do grupo |
+| `data-source` | array | Sim | Lista de opções |
+| `min-selected-items` | number | Não | Mínimo de seleções |
+| `max-selected-items` | number | Não | Máximo de seleções |
+| `required` | boolean | Não | Se ao menos 1 deve ser selecionado |
+
+**Exemplo:**
+
+```json
+{
+  "type": "CheckboxGroup",
+  "name": "interesses",
+  "label": "Quais serviços tem interesse? (escolha um ou mais)",
+  "min-selected-items": 1,
+  "max-selected-items": 3,
+  "data-source": [
+    {
+      "id": "consultoria",
+      "title": "Consultoria"
+    },
+    {
+      "id": "treinamento",
+      "title": "Treinamento"
+    },
+    {
+      "id": "implementacao",
+      "title": "Implementação"
+    }
+  ]
+}
+```
+
+---
+
+### Dropdown
+
+Lista suspensa de opções.
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `name` | string | Sim | Identificador único |
+| `label` | string | Sim | Label do dropdown |
+| `data-source` | array | Sim | Lista de opções |
+| `required` | boolean | Não | Se é obrigatório |
+
+**Quando usar:**
+- Lista longa de opções (> 5)
+- Estados, cidades
+- Categorias extensas
+
+**Exemplo:**
+
+```json
+{
+  "type": "Dropdown",
+  "name": "estado",
+  "label": "Selecione seu estado",
+  "required": true,
+  "data-source": [
+    { "id": "SP", "title": "São Paulo" },
+    { "id": "RJ", "title": "Rio de Janeiro" },
+    { "id": "MG", "title": "Minas Gerais" },
+    // ... mais estados
+  ]
+}
+```
+
+## Campos Especiais
+
+### DatePicker
+
+Seletor de data.
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `name` | string | Sim | Identificador único |
+| `label` | string | Sim | Label do campo |
+| `required` | boolean | Não | Se é obrigatório |
+| `min-date` | string | Não | Data mínima (YYYY-MM-DD) |
+| `max-date` | string | Não | Data máxima (YYYY-MM-DD) |
+| `unavailable-dates` | array | Não | Datas bloqueadas |
+
+**Exemplo:**
+
+```json
+{
+  "type": "DatePicker",
+  "name": "data_agendamento",
+  "label": "Escolha uma data para consulta",
+  "required": true,
+  "min-date": "2025-01-05",
+  "max-date": "2025-02-28",
+  "unavailable-dates": [
+    "2025-01-10",
+    "2025-01-17",
+    "2025-01-24"
+  ]
+}
+```
+
+<Tip>
+  Use `unavailable-dates` para bloquear finais de semana ou datas já lotadas.
+</Tip>
+
+---
+
+### OptIn
+
+Checkbox de aceite (termos, LGPD, etc).
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `name` | string | Sim | Identificador único |
+| `label` | string | Sim | Texto do aceite |
+| `required` | boolean | Sim | Sempre true para OptIn |
+| `on-click-action` | object | Não | Ação ao clicar no link |
+
+**Exemplo:**
+
+```json
+{
+  "type": "OptIn",
+  "name": "aceite_termos",
+  "label": "Aceito os termos de uso e política de privacidade",
+  "required": true,
+  "on-click-action": {
+    "name": "open_url",
+    "payload": {
+      "url": "https://seusite.com/termos"
+    }
+  }
+}
+```
+
+## Elementos Visuais
+
+### Image
+
+Exibe uma imagem no formulário.
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `src` | string | Sim | URL da imagem (HTTPS) |
+| `alt-text` | string | Não | Texto alternativo |
+| `width` | string | Não | Largura: `small`, `medium`, `large`, `full-width` |
+| `height` | number | Não | Altura em pixels |
+
+**Exemplo:**
+
+```json
+{
+  "type": "Image",
+  "src": "https://seusite.com/logo.png",
+  "alt-text": "Logo da Empresa",
+  "width": "medium"
+}
+```
+
+---
+
+### EmbeddedLink
+
+Link clicável dentro do formulário.
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `text` | string | Sim | Texto do link |
+| `on-click-action` | object | Sim | Ação ao clicar |
+
+**Exemplo:**
+
+```json
+{
+  "type": "EmbeddedLink",
+  "text": "Ver catálogo completo",
+  "on-click-action": {
+    "name": "open_url",
+    "payload": {
+      "url": "https://seusite.com/catalogo"
+    }
+  }
+}
+```
+
+## Footer (Botões de Ação)
+
+Todo Flow precisa de um Footer com botões.
+
+**Propriedades:**
+
+| Propriedade | Tipo | Obrigatório | Descrição |
+|-------------|------|-------------|-----------|
+| `label` | string | Sim | Texto do botão principal |
+| `on-click-action` | object | Sim | Ação ao clicar |
+
+**Ações disponíveis:**
+
+### complete (Enviar formulário)
+
+```json
+{
+  "type": "Footer",
+  "label": "Enviar",
+  "on-click-action": {
+    "name": "complete",
+    "payload": {}
+  }
+}
+```
+
+### navigate (Ir para próxima tela)
+
+```json
+{
+  "type": "Footer",
+  "label": "Próximo",
+  "on-click-action": {
+    "name": "navigate",
+    "next": {
+      "type": "screen",
+      "name": "SCREEN_2"
+    }
+  }
+}
+```
+
+## Validação
+
+### Tipos de Validação Built-in
+
+<Tabs>
+  <Tab title="Email">
+    ```json
+    {
+      "type": "TextInput",
+      "input-type": "email"
+      // Valida formato de email automaticamente
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Telefone">
+    ```json
+    {
+      "type": "TextInput",
+      "input-type": "phone"
+      // Valida formato de telefone
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Número">
+    ```json
+    {
+      "type": "TextInput",
+      "input-type": "number"
+      // Aceita apenas números
+    }
+    ```
+  </Tab>
+  
+  <Tab title="Regex Pattern">
+    ```json
+    {
+      "type": "TextInput",
+      "name": "cep",
+      "label": "CEP",
+      "input-type": "text",
+      "helper-text": "Formato: 12345-678"
+      // Validação customizada via regex (limitado)
+    }
+    ```
+  </Tab>
+</Tabs>
+
+## Limites e Restrições
+
+<Warning>
+  **Limites técnicos do WhatsApp:**
+</Warning>
+
+| Item | Limite |
+|------|--------|
+| Telas por Flow | 10 |
+| Campos por tela | ~15-20 |
+| Campos total | ~30 |
+| Tamanho de label | 80 caracteres |
+| Opções em Radio/Checkbox | 20 |
+| Caracteres em TextInput | 200 |
+| Caracteres em TextArea | 1000 |
+| Tamanho da imagem | 5 MB |
+
+## Exemplo de Flow Completo
+
+<Accordion title="Flow de Captura de Lead (2 telas)">
+  ```json
+  {
+    "version": "3.0",
+    "screens": [
+      {
+        "id": "DADOS_PESSOAIS",
+        "title": "Informações de Contato",
+        "data": {},
+        "layout": {
+          "type": "SingleColumnLayout",
+          "children": [
+            {
+              "type": "TextInput",
+              "name": "nome",
+              "label": "Qual é o seu nome completo?",
+              "required": true
+            },
+            {
+              "type": "TextInput",
+              "name": "email",
+              "label": "Qual é o seu email?",
+              "input-type": "email",
+              "required": true
+            },
+            {
+              "type": "TextInput",
+              "name": "telefone",
+              "label": "Telefone com DDD",
+              "input-type": "phone",
+              "required": true
+            },
+            {
+              "type": "Footer",
+              "label": "Próximo",
+              "on-click-action": {
+                "name": "navigate",
+                "next": {
+                  "type": "screen",
+                  "name": "INTERESSE"
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "id": "INTERESSE",
+        "title": "Sobre seu Interesse",
+        "data": {},
+        "layout": {
+          "type": "SingleColumnLayout",
+          "children": [
+            {
+              "type": "RadioButtonsGroup",
+              "name": "servico",
+              "label": "Qual serviço tem interesse?",
+              "required": true,
+              "data-source": [
+                {
+                  "id": "consultoria",
+                  "title": "Consultoria"
+                },
+                {
+                  "id": "treinamento",
+                  "title": "Treinamento"
+                },
+                {
+                  "id": "implementacao",
+                  "title": "Implementação"
+                }
+              ]
+            },
+            {
+              "type": "TextArea",
+              "name": "detalhes",
+              "label": "Conte-nos mais sobre sua necessidade (opcional)",
+              "max-length": 300,
+              "required": false
+            },
+            {
+              "type": "OptIn",
+              "name": "aceite",
+              "label": "Aceito receber contato por email e WhatsApp",
+              "required": true
+            },
+            {
+              "type": "Footer",
+              "label": "Enviar",
+              "on-click-action": {
+                "name": "complete",
+                "payload": {}
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+  ```
+</Accordion>
+
+## Recursos Adicionais
+
+<CardGroup cols={2}>
+  <Card
+    title="Guia de Flows"
+    icon="book"
+    href="/pt/guias/criar-flows"
+  >
+    Guia prático passo a passo
+  </Card>
+  <Card
+    title="Conceitos de Flows"
+    icon="lightbulb"
+    href="/pt/conceitos/whatsapp-flows"
+  >
+    Entenda limitações e melhores práticas
+  </Card>
+  <Card
+    title="Meta Docs"
+    icon="meta"
+    href="https://developers.facebook.com/docs/whatsapp/flows"
+  >
+    Documentação oficial da Meta
+  </Card>
+  <Card
+    title="Exemplos"
+    icon="code"
+  >
+    Repositório com templates (em breve)
+  </Card>
+</CardGroup>
+

@@ -1,32 +1,128 @@
-# Mintlify Starter Kit
+# Integrabot Documentation
 
-Click on `Use this template` to copy the Mintlify starter kit. The starter kit contains examples including
+Official documentation for Integrabot - AI-powered WhatsApp automation platform.
 
-- Guide pages
-- Navigation
-- Customizations
-- API Reference pages
-- Use of popular components
+## 📚 Documentation Structure
 
-### Development
+This documentation is available in:
+- 🇧🇷 **Portuguese** (`/pt/`) - Complete documentation
+- 🇺🇸 **English** (`/en/`) - Main pages (full translation in progress)
 
-Install the [Mintlify CLI](https://www.npmjs.com/package/mintlify) to preview the documentation changes locally. To install, use the following command
+## 🚀 Quick Links
 
+- **Live Documentation:** https://docs.integrabot.ai
+- **App:** https://app.integrabot.ai
+- **Support:** hello@integrabot.ai
+
+## 📖 Content Overview
+
+### Getting Started
+- Introduction to Integrabot
+- Quick start guide (5 minutes)
+- WhatsApp connection guide
+
+### User Guides
+- Configure AI Agent
+- Add knowledge to agent
+- Create WhatsApp Flows
+- Manage conversations
+- AI Tools and integrations
+
+### Concepts
+- How AI works (RAG, LLM, etc)
+- Knowledge base architecture
+- WhatsApp Flows technical details
+- Integrations overview
+
+### Reference
+- Flow components API
+- Tool types reference
+- Glossary
+
+## 🌐 Translation Status
+
+| Section | Portuguese | English |
+|---------|-----------|---------|
+| Introduction | ✅ Complete | ✅ Complete |
+| Quick Start | ✅ Complete | ✅ Complete |
+| User Guides | ✅ Complete | 🔄 In Progress |
+| Concepts | ✅ Complete | 🔄 In Progress |
+| Reference | ✅ Complete | 🔄 In Progress |
+
+## 🛠️ Built With
+
+- **Platform:** [Mintlify](https://mintlify.com)
+- **Deployment:** Automatic on push to `main`
+- **Theme:** Light (custom colors)
+- **Components:** Cards, Accordions, Tabs, Steps, Code blocks
+
+## 🎨 Design System
+
+### Colors
+- Primary: `#34322d` (text-primary)
+- Background: `#f8f8f7` (background-main)
+- Light: `#6b6963`
+- Typography: Libre Baskerville (headings), System fonts (body)
+
+### Components
+- CardGroup for feature highlights
+- Steps for tutorials
+- Accordions for expandable content
+- Tabs for alternative options
+- Info/Warning/Tip callouts
+
+## 📝 Contributing
+
+To update documentation:
+
+1. Edit `.mdx` files in `/pt` or `/en`
+2. Update `mint.json` if adding new pages
+3. Commit and push to `main` branch
+4. Mintlify deploys automatically
+
+### File Structure
 ```
-npm i -g mintlify
+integrabot-docs/
+├── mint.json           # Main configuration
+├── pt/                 # Portuguese docs
+│   ├── introduction.mdx
+│   ├── quickstart.mdx
+│   ├── guias/          # User guides
+│   ├── conceitos/      # Concepts
+│   └── referencia/     # Reference
+├── en/                 # English docs (same structure)
+├── images/             # Screenshots and diagrams
+└── logo/              # Brand assets
 ```
 
-Run the following command at the root of your documentation (where mint.json is)
+## 🔧 Local Development
 
-```
+To preview locally:
+
+```bash
+# Install Mintlify CLI
+npm install -g mintlify
+
+# Run dev server
 mintlify dev
+
+# Access at http://localhost:3000
 ```
 
-### Publishing Changes
+## 📸 Screenshots
 
-Install our Github App to auto propagate changes from your repo to your deployment. Changes will be deployed to production automatically after pushing to the default branch. Find the link to install on your dashboard. 
+Screenshots are organized in:
+- `images/screenshots/pt/` - Portuguese UI
+- `images/screenshots/en/` - English UI
 
-#### Troubleshooting
+## 🤝 Support
 
-- Mintlify dev isn't running - Run `mintlify install` it'll re-install dependencies.
-- Page loads as a 404 - Make sure you are running in a folder with `mint.json`
+- **Email:** hello@integrabot.ai
+- **Discord:** Coming soon
+- **GitHub:** Issues for documentation bugs/suggestions
+
+---
+
+**Last Updated:** January 2025  
+**Version:** 2.0  
+**Status:** Active Development
