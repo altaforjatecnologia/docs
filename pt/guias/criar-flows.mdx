@@ -1,0 +1,228 @@
+---
+title: 'Criar Flows'
+description: 'Crie formulários interativos no WhatsApp'
+---
+
+Crie formulários (Flows) para capturar informações estruturadas de clientes no WhatsApp.
+
+<img
+  src="/images/screenshots/pt/flow-builder-interface.png"
+  alt="Interface de criação de Flows"
+  className="rounded-lg border border-gray-200 shadow-sm my-4"
+/>
+
+## Acessar
+
+No menu, clique em **Flows** para ver formulários existentes ou criar novos.
+
+## Criar Flow
+
+<Steps>
+  <Step title="Novo Flow">
+    Clique em **Novo Flow**
+  </Step>
+  
+  <Step title="Nome e Descrição">
+    - Nome: Como o Flow aparece na lista
+    - Descrição: Para que serve (apenas para você)
+  </Step>
+  
+  <Step title="Adicionar Campos">
+    Arraste componentes da barra lateral para o formulário
+  </Step>
+  
+  <Step title="Configurar Campos">
+    Clique em cada campo para configurar:
+    - Label (texto que o cliente vê)
+    - Placeholder (exemplo)
+    - Obrigatório (sim/não)
+  </Step>
+  
+  <Step title="Testar">
+    Use o botão **Preview** para ver como fica no WhatsApp
+  </Step>
+  
+  <Step title="Publicar">
+    Clique em **Publicar** para ativar
+  </Step>
+</Steps>
+
+## Exemplo: Flow de Agendamento
+
+Vamos criar um formulário para agendar consultas:
+
+### Campos Necessários
+
+<Tabs>
+  <Tab title="1. Nome" icon="user">
+    **Tipo:** Texto curto
+    
+    **Label:** Nome completo
+    
+    **Obrigatório:** Sim
+  </Tab>
+  
+  <Tab title="2. Telefone" icon="phone">
+    **Tipo:** Telefone
+    
+    **Label:** Telefone para contato
+    
+    **Obrigatório:** Sim
+  </Tab>
+  
+  <Tab title="3. Tipo" icon="stethoscope">
+    **Tipo:** Múltipla escolha
+    
+    **Label:** Tipo de consulta
+    
+    **Opções:**
+    - Primeira vez
+    - Retorno
+    - Emergência
+    
+    **Obrigatório:** Sim
+  </Tab>
+  
+  <Tab title="4. Data" icon="calendar">
+    **Tipo:** Data
+    
+    **Label:** Data preferida
+    
+    **Obrigatório:** Sim
+  </Tab>
+  
+  <Tab title="5. Período" icon="clock">
+    **Tipo:** Múltipla escolha
+    
+    **Label:** Período preferido
+    
+    **Opções:**
+    - Manhã (8h às 12h)
+    - Tarde (13h às 18h)
+    
+    **Obrigatório:** Sim
+  </Tab>
+</Tabs>
+
+### Resultado
+
+Quando publicado, o formulário aparece assim no WhatsApp do cliente:
+
+<img
+  src="/images/screenshots/pt/whatsapp-flow-example.png"
+  alt="Flow de agendamento no WhatsApp"
+  className="rounded-lg border border-gray-200 shadow-sm my-4"
+/>
+
+## Tipos de Campo
+
+### Texto
+- **Texto curto:** Nome, email, cidade
+- **Texto longo:** Descrição, observações
+- **Email:** Com validação automática
+- **Telefone:** Com formatação automática
+- **Número:** Apenas números
+
+### Seleção
+- **Múltipla escolha:** Cliente escolhe UMA opção
+- **Checkboxes:** Cliente escolhe VÁRIAS opções
+- **Dropdown:** Lista suspensa (quando tem muitas opções)
+
+### Data e Hora
+- **Data:** Calendário para selecionar
+- **Hora:** Seletor de horário
+
+### Outros
+- **Consentimento:** Checkbox de aceite (LGPD)
+- **Imagem:** Upload de foto
+- **Documento:** Upload de arquivo
+
+## Boas Práticas
+
+<Check>
+  Use labels claros e diretos
+</Check>
+<Check>
+  Marque apenas campos essenciais como obrigatórios
+</Check>
+<Check>
+  Adicione placeholders com exemplos
+</Check>
+<Check>
+  Teste no celular antes de publicar
+</Check>
+<Check>
+  Mantenha formulários curtos (máximo 7-8 campos)
+</Check>
+
+<Warning>
+  Formulários muito longos têm alta taxa de abandono. Se precisa de muitas informações, divida em 2 Flows ou use conversa + Flow.
+</Warning>
+
+## Quando Usar Cada Tipo
+
+<AccordionGroup>
+  <Accordion title="Captura de Leads" icon="user-plus">
+    **Campos:**
+    - Nome (texto curto)
+    - Email (email)
+    - Telefone (telefone)
+    - Interesse (múltipla escolha)
+    - Como conheceu (dropdown)
+  </Accordion>
+  
+  <Accordion title="Agendamento" icon="calendar">
+    **Campos:**
+    - Nome (texto curto)
+    - Telefone (telefone)
+    - Tipo de serviço (múltipla escolha)
+    - Data (data)
+    - Período (múltipla escolha)
+  </Accordion>
+  
+  <Accordion title="Cotação" icon="calculator">
+    **Campos:**
+    - Nome (texto curto)
+    - Email (email)
+    - Produto/Serviço (dropdown)
+    - Quantidade (número)
+    - Observações (texto longo)
+  </Accordion>
+  
+  <Accordion title="Cadastro Imóvel" icon="building">
+    **Campos:**
+    - Nome (texto curto)
+    - Telefone (telefone)
+    - Tipo de imóvel (múltipla escolha)
+    - Bairro preferido (dropdown)
+    - Faixa de preço (múltipla escolha)
+    - Aceita financiamento (checkboxes)
+  </Accordion>
+</AccordionGroup>
+
+## Como o Agente Usa
+
+Depois de publicado, configure quando o agente deve enviar o Flow:
+
+1. Vá em **Meu Agente**
+2. Nas instruções, adicione:
+
+```text
+Quando o cliente demonstrar interesse em agendar, 
+envie o Flow "Agendamento de Consulta" para capturar 
+as informações necessárias.
+```
+
+O agente identifica o momento certo na conversa e envia automaticamente.
+
+## Dados Capturados
+
+Após o cliente enviar o Flow:
+- Dados ficam salvos no perfil do lead
+- Você vê em **Conversas** > detalhes do lead
+- Pode acionar automações com base nos dados
+
+<Card title="WhatsApp Flows Detalhado" icon="diagram-cells" href="/pt/conceitos/whatsapp-flows">
+  Entenda mais sobre Flows e limitações
+</Card>
+

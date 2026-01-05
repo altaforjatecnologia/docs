@@ -3,39 +3,182 @@ title: 'WhatsApp Flows'
 description: 'Formulários interativos no WhatsApp'
 ---
 
-Flows são formulários nativos do WhatsApp para capturar informações estruturadas de clientes.
+Flows são formulários nativos do WhatsApp para capturar informações estruturadas sem o cliente sair do app.
 
-## O que são Flows
+<img
+  src="/images/screenshots/pt/whatsapp-flow-example.png"
+  alt="Exemplo de Flow no WhatsApp"
+  className="rounded-lg border border-gray-200 shadow-sm my-4"
+/>
 
-Formulários que aparecem dentro do WhatsApp, sem sair do app. Úteis para:
-- Captura de leads
-- Agendamentos
-- Cotações
-- Cadastros
+## O que são
+
+Formulários interativos que aparecem dentro do WhatsApp. O cliente preenche campos e envia, tudo sem sair da conversa.
+
+**Diferença de uma conversa normal:**
+- Conversa: agente pergunta uma informação de cada vez
+- Flow: cliente preenche todas as informações de uma vez em um formulário
+
+## Casos de Uso
+
+<CardGroup cols={2}>
+  <Card title="Captura de Leads" icon="user-plus">
+    Nome, email, telefone, interesse
+  </Card>
+  <Card title="Agendamentos" icon="calendar">
+    Data, hora, tipo de serviço
+  </Card>
+  <Card title="Cotações" icon="calculator">
+    Produto, quantidade, forma de pagamento
+  </Card>
+  <Card title="Cadastros" icon="clipboard">
+    Dados completos para processos
+  </Card>
+</CardGroup>
+
+## Como Funcionam
+
+<Steps>
+  <Step title="Agente Envia Flow">
+    Durante a conversa, o agente identifica necessidade e envia o formulário
+  </Step>
+  
+  <Step title="Cliente Preenche">
+    Formulário abre no WhatsApp, cliente preenche campos
+  </Step>
+  
+  <Step title="Cliente Envia">
+    Ao finalizar, dados são enviados para o Integrabot
+  </Step>
+  
+  <Step title="Dados Salvos">
+    Informações ficam salvas no lead e podem acionar automações
+  </Step>
+</Steps>
 
 ## Componentes Disponíveis
 
-- Campos de texto
-- Seleção de data
-- Múltipla escolha
-- Checkboxes
-- Dropdowns
+### Campos de Entrada
+- **Texto curto:** Nome, email, telefone
+- **Texto longo:** Descrição, observações
+- **Número:** Quantidade, valor
+- **Email:** Validação automática de email
+- **Telefone:** Formatação automática
+
+### Seleção
+- **Data:** Calendário para escolher data
+- **Hora:** Seletor de horário
+- **Dropdown:** Lista de opções (escolhe uma)
+- **Múltipla escolha:** Selecionar uma opção
+- **Checkboxes:** Selecionar várias opções
+
+### Outros
+- **Consentimento:** Aceite de termos (LGPD)
+- **Imagem:** Upload de foto
+- **Documento:** Upload de arquivo
+
+## Exemplo Prático
+
+**Flow de Agendamento de Consulta:**
+
+```
+┌─────────────────────────────┐
+│  Agendar Consulta          │
+├─────────────────────────────┤
+│ Nome completo: [________]   │
+│ Telefone: [___________]     │
+│ Tipo de consulta:           │
+│ ○ Primeira vez              │
+│ ○ Retorno                   │
+│ ○ Emergência                │
+│ Data preferida: [📅______]  │
+│ Período:                    │
+│ ○ Manhã                     │
+│ ○ Tarde                     │
+│                             │
+│ [  Agendar Consulta  ]      │
+└─────────────────────────────┘
+```
 
 ## Limitações do WhatsApp
 
 <Warning>
-  Flows têm design padronizado pelo WhatsApp. Não é possível customizar cores ou fontes.
+  Flows têm design padronizado pelo WhatsApp. Não é possível customizar cores, fontes ou layout.
 </Warning>
 
-- Design fixo (não customizável)
-- Componentes pré-definidos
-- Sem lógica complexa
-- Tamanho limitado
+**O que NÃO é possível:**
+- Mudar cores do formulário
+- Usar fontes personalizadas
+- Adicionar logo ou imagens personalizadas no formulário
+- Criar validações complexas
+- Lógica condicional (mostrar campo A se campo B for X)
 
-## Como Criar
+**O que É possível:**
+- Campos obrigatórios
+- Placeholders e labels
+- Validação básica (email, telefone)
+- Múltiplas telas (páginas) no mesmo Flow
 
-Em breve: guia de criação de Flows no painel.
+## Quando Usar
 
-<Card title="Como Funciona a IA" icon="brain" href="/pt/conceitos/como-funciona-ia">
-  Entenda a tecnologia
+✅ **Use Flows quando:**
+- Precisa capturar várias informações de uma vez
+- Cliente já está interessado (qualificado)
+- Informações são estruturadas (data, seleção, etc)
+- Quer acelerar o processo de captura
+
+❌ **NÃO use Flows quando:**
+- Cliente ainda está explorando/pesquisando
+- Precisa de conversa mais natural
+- Poucas informações (1-2 perguntas)
+- Cliente não demonstrou interesse ainda
+
+<Info>
+  Dica: Use conversa para qualificar, depois envie Flow para capturar dados
+</Info>
+
+## Criar Flow
+
+Acesse **Flows** no menu do painel para criar seus formulários.
+
+<img
+  src="/images/screenshots/pt/flow-builder-interface.png"
+  alt="Interface de criação de Flows"
+  className="rounded-lg border border-gray-200 shadow-sm my-4"
+/>
+
+<Steps>
+  <Step title="Criar Novo Flow">
+    Clique em **Novo Flow** e dê um nome
+  </Step>
+  
+  <Step title="Adicionar Campos">
+    Arraste componentes para o formulário
+  </Step>
+  
+  <Step title="Configurar Campos">
+    Defina labels, placeholders e se são obrigatórios
+  </Step>
+  
+  <Step title="Testar">
+    Use o preview para testar o formulário
+  </Step>
+  
+  <Step title="Publicar">
+    Publique para o Flow ficar disponível para o agente
+  </Step>
+</Steps>
+
+## Como o Agente Usa
+
+Depois de publicado, o agente pode enviar o Flow durante conversas:
+
+1. Cliente pergunta sobre agendamento
+2. Agente responde com informações iniciais
+3. Agente envia Flow de agendamento
+4. Cliente preenche e envia
+5. Agente confirma o agendamento com base nos dados
+
+<Card title="Configurar Agente" icon="robot" href="/pt/guias/configurar-agente">
+  Configure quando o agente deve enviar Flows
 </Card>
