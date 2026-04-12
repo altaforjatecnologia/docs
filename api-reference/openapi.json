@@ -1,16 +1,19 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "OpenAPI Plant Store",
-    "description": "A sample API that uses a plant store as an example to demonstrate features in the OpenAPI specification",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "1.0.0"
+    "title": "Integrabot API",
+    "version": "1.0.0",
+    "description": "A API do Integrabot permite gerenciar leads, agents e integrações de forma programática. Use esta API para criar leads a partir de formulários web, sincronizar contatos com seu CRM ou automatizar fluxos de trabalho com os agents de IA do Integrabot.",
+    "contact": {
+      "name": "Suporte Integrabot",
+      "email": "hello@integrabot.ai",
+      "url": "https://docs.integrabot.ai"
+    }
   },
   "servers": [
     {
-      "url": "http://sandbox.mintlify.com"
+      "url": "https://api.integrabot.ai",
+      "description": "Produção"
     }
   ],
   "security": [
@@ -18,177 +21,677 @@
       "bearerAuth": []
     }
   ],
-  "paths": {
-    "/plants": {
-      "get": {
-        "description": "Returns all plants from the system that the user has access to",
-        "parameters": [
-          {
-            "name": "limit",
-            "in": "query",
-            "description": "The maximum number of results to return",
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/Plant"
-                  }
-                }
-              }
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "API Key starting with sk_"
+      }
+    },
+    "schemas": {
+      "Lead": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1234
+          },
+          "name": {
+            "type": "string",
+            "example": "Maria Silva"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["whatsapp", "email", "web", "manual", "instagram"],
+            "example": "whatsapp"
+          },
+          "phone_number": {
+            "type": "string",
+            "nullable": true,
+            "example": "5511999998888"
+          },
+          "email": {
+            "type": "string",
+            "nullable": true,
+            "example": "maria@exemplo.com"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["new", "contacted", "qualified", "lost", "converted"],
+            "example": "new"
+          },
+          "agent_id": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true,
+            "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          },
+          "custom_fields": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "type": "string"
+            },
+            "example": {
+              "empresa": "Acme Ltda",
+              "cidade": "São Paulo"
             }
           },
-          "400": {
-            "description": "Unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-01-15T10:30:00Z"
+          },
+          "updated_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-01-15T14:22:00Z"
+          }
+        }
+      },
+      "LeadInput": {
+        "type": "object",
+        "required": ["name", "type"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Nome completo do lead",
+            "example": "Maria Silva"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["whatsapp", "email", "web", "manual", "instagram"],
+            "description": "Canal de origem do lead",
+            "example": "whatsapp"
+          },
+          "phone_number": {
+            "type": "string",
+            "description": "Número de telefone. Obrigatório quando type for whatsapp. Formato: DDI+DDD+Numero, apenas dígitos.",
+            "example": "5511999998888"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "Endereço de e-mail do lead",
+            "example": "maria@exemplo.com"
+          },
+          "agent_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "UUID do agent ao qual o lead será atribuído. Se não informado, o lead fica sem agent.",
+            "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          },
+          "custom_fields": {
+            "type": "object",
+            "description": "Campos personalizados como pares chave-valor. Use para armazenar informações extras do lead.",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "example": {
+              "empresa": "Acme Ltda",
+              "cidade": "São Paulo"
+            }
+          }
+        }
+      },
+      "Agent": {
+        "type": "object",
+        "properties": {
+          "uuid": {
+            "type": "string",
+            "format": "uuid",
+            "example": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+          },
+          "name": {
+            "type": "string",
+            "example": "Agente de Vendas"
+          },
+          "is_active": {
+            "type": "boolean",
+            "example": true
+          },
+          "model": {
+            "type": "string",
+            "example": "gpt-4o"
+          },
+          "communication_style": {
+            "type": "string",
+            "nullable": true,
+            "example": "professional"
+          },
+          "tools_count": {
+            "type": "integer",
+            "example": 5
+          },
+          "created_at": {
+            "type": "string",
+            "format": "date-time",
+            "example": "2025-01-10T08:00:00Z"
+          }
+        }
+      },
+      "PaginatedLeads": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Lead"
+            }
+          },
+          "meta": {
+            "type": "object",
+            "properties": {
+              "current_page": {
+                "type": "integer",
+                "example": 1
+              },
+              "per_page": {
+                "type": "integer",
+                "example": 25
+              },
+              "total": {
+                "type": "integer",
+                "example": 150
+              },
+              "last_page": {
+                "type": "integer",
+                "example": 6
               }
             }
           }
         }
       },
-      "post": {
-        "description": "Creates a new plant in the store",
-        "requestBody": {
-          "description": "Plant to add to the store",
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/NewPlant"
-              }
-            }
+      "ErrorUnauthorized": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Unauthorized"
           },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "plant response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Plant"
-                }
-              }
-            }
+          "message": {
+            "type": "string",
+            "example": "Token de API inválido ou ausente."
+          }
+        }
+      },
+      "ErrorValidation": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Validation Error"
           },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
+          "message": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
               }
+            },
+            "example": {
+              "name": ["O campo name é obrigatório."],
+              "phone_number": ["O campo phone_number é obrigatório quando type for whatsapp."]
             }
           }
         }
-      }
-    },
-    "/plants/{id}": {
-      "delete": {
-        "description": "Deletes a single plant based on the ID supplied",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "description": "ID of plant to delete",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int64"
-            }
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Plant deleted",
-            "content": {}
+      },
+      "ErrorNotFound": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string",
+            "example": "Not Found"
           },
-          "400": {
-            "description": "unexpected error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Error"
-                }
-              }
-            }
+          "message": {
+            "type": "string",
+            "example": "Recurso não encontrado."
           }
         }
       }
     }
   },
-  "components": {
-    "schemas": {
-      "Plant": {
-        "required": [
-          "name"
-        ],
-        "type": "object",
-        "properties": {
-          "name": {
-            "description": "The name of the plant",
-            "type": "string"
-          },
-          "tag": {
-            "description": "Tag to specify the type",
-            "type": "string"
-          }
-        }
-      },
-      "NewPlant": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/Plant"
-          },
-          {
-            "required": [
-              "id"
-            ],
-            "type": "object",
-            "properties": {
-              "id": {
-                "description": "Identification number of the plant",
-                "type": "integer",
-                "format": "int64"
+  "paths": {
+    "/v1/leads": {
+      "post": {
+        "operationId": "createLead",
+        "summary": "Criar Lead",
+        "description": "Cria um novo lead no workspace. Se já existir um lead com o mesmo telefone ou e-mail, retorna o lead existente com status 200.",
+        "tags": ["Leads"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/LeadInput"
+              },
+              "examples": {
+                "lead_whatsapp": {
+                  "summary": "Lead via WhatsApp",
+                  "value": {
+                    "name": "Maria Silva",
+                    "type": "whatsapp",
+                    "phone_number": "5511999998888",
+                    "email": "maria@exemplo.com",
+                    "agent_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                    "custom_fields": {
+                      "empresa": "Acme Ltda",
+                      "cidade": "São Paulo"
+                    }
+                  }
+                },
+                "lead_web": {
+                  "summary": "Lead via formulário web",
+                  "value": {
+                    "name": "João Santos",
+                    "type": "web",
+                    "email": "joao@empresa.com",
+                    "custom_fields": {
+                      "produto_interesse": "Plano Pro"
+                    }
+                  }
+                }
               }
             }
           }
-        ]
-      },
-      "Error": {
-        "required": [
-          "error",
-          "message"
-        ],
-        "type": "object",
-        "properties": {
-          "error": {
-            "type": "integer",
-            "format": "int32"
+        },
+        "responses": {
+          "201": {
+            "description": "Lead criado com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lead"
+                },
+                "example": {
+                  "id": 1234,
+                  "name": "Maria Silva",
+                  "type": "whatsapp",
+                  "phone_number": "5511999998888",
+                  "email": "maria@exemplo.com",
+                  "status": "new",
+                  "agent_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "custom_fields": {
+                    "empresa": "Acme Ltda",
+                    "cidade": "São Paulo"
+                  },
+                  "created_at": "2025-01-15T10:30:00Z",
+                  "updated_at": "2025-01-15T10:30:00Z"
+                }
+              }
+            }
           },
-          "message": {
-            "type": "string"
+          "200": {
+            "description": "Lead já existia. Retorna o lead existente sem criar duplicata.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lead"
+                },
+                "example": {
+                  "id": 1001,
+                  "name": "Maria Silva",
+                  "type": "whatsapp",
+                  "phone_number": "5511999998888",
+                  "email": "maria@exemplo.com",
+                  "status": "contacted",
+                  "agent_id": null,
+                  "custom_fields": {},
+                  "created_at": "2025-01-10T08:15:00Z",
+                  "updated_at": "2025-01-14T16:45:00Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Token de API inválido ou ausente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorUnauthorized"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Erro de validação. Verifique os campos enviados.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorValidation"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "operationId": "listLeads",
+        "summary": "Listar Leads",
+        "description": "Retorna uma lista paginada de leads do workspace. Use os filtros para refinar os resultados.",
+        "tags": ["Leads"],
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "required": false,
+            "description": "Filtrar por status do lead.",
+            "schema": {
+              "type": "string",
+              "enum": ["new", "contacted", "qualified", "lost", "converted"]
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "Filtrar por canal de origem.",
+            "schema": {
+              "type": "string",
+              "enum": ["whatsapp", "email", "web", "manual", "instagram"]
+            }
+          },
+          {
+            "name": "agent_id",
+            "in": "query",
+            "required": false,
+            "description": "Filtrar por agent. Use o UUID do agent.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "search",
+            "in": "query",
+            "required": false,
+            "description": "Buscar por nome, e-mail ou telefone.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "date_from",
+            "in": "query",
+            "required": false,
+            "description": "Data inicial para filtro (formato ISO 8601).",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "date_to",
+            "in": "query",
+            "required": false,
+            "description": "Data final para filtro (formato ISO 8601).",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "required": false,
+            "description": "Número da página.",
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "per_page",
+            "in": "query",
+            "required": false,
+            "description": "Itens por página. Máximo: 100.",
+            "schema": {
+              "type": "integer",
+              "default": 25,
+              "maximum": 100
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista paginada de leads.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginatedLeads"
+                },
+                "example": {
+                  "data": [
+                    {
+                      "id": 1234,
+                      "name": "Maria Silva",
+                      "type": "whatsapp",
+                      "phone_number": "5511999998888",
+                      "email": "maria@exemplo.com",
+                      "status": "new",
+                      "agent_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                      "custom_fields": {
+                        "empresa": "Acme Ltda"
+                      },
+                      "created_at": "2025-01-15T10:30:00Z",
+                      "updated_at": "2025-01-15T14:22:00Z"
+                    },
+                    {
+                      "id": 1235,
+                      "name": "João Santos",
+                      "type": "web",
+                      "phone_number": null,
+                      "email": "joao@empresa.com",
+                      "status": "contacted",
+                      "agent_id": null,
+                      "custom_fields": {},
+                      "created_at": "2025-01-14T09:00:00Z",
+                      "updated_at": "2025-01-14T11:30:00Z"
+                    }
+                  ],
+                  "meta": {
+                    "current_page": 1,
+                    "per_page": 25,
+                    "total": 150,
+                    "last_page": 6
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Token de API inválido ou ausente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorUnauthorized"
+                }
+              }
+            }
           }
         }
       }
     },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
+    "/v1/leads/{id}": {
+      "get": {
+        "operationId": "getLead",
+        "summary": "Detalhes do Lead",
+        "description": "Retorna os dados completos de um lead específico pelo seu ID.",
+        "tags": ["Leads"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID numérico do lead.",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados do lead.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Lead"
+                },
+                "example": {
+                  "id": 1234,
+                  "name": "Maria Silva",
+                  "type": "whatsapp",
+                  "phone_number": "5511999998888",
+                  "email": "maria@exemplo.com",
+                  "status": "new",
+                  "agent_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "custom_fields": {
+                    "empresa": "Acme Ltda",
+                    "cidade": "São Paulo"
+                  },
+                  "created_at": "2025-01-15T10:30:00Z",
+                  "updated_at": "2025-01-15T14:22:00Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Token de API inválido ou ausente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorUnauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Lead não encontrado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/agents": {
+      "get": {
+        "operationId": "listAgents",
+        "summary": "Listar Agents",
+        "description": "Retorna todos os agents do workspace, incluindo os desativados.",
+        "tags": ["Agents"],
+        "responses": {
+          "200": {
+            "description": "Lista de agents.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Agent"
+                  }
+                },
+                "example": [
+                  {
+                    "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                    "name": "Agente de Vendas",
+                    "is_active": true,
+                    "model": "gpt-4o",
+                    "communication_style": "professional",
+                    "tools_count": 5,
+                    "created_at": "2025-01-10T08:00:00Z"
+                  },
+                  {
+                    "uuid": "f0e1d2c3-b4a5-6789-0abc-def123456789",
+                    "name": "Agente de Suporte",
+                    "is_active": true,
+                    "model": "gpt-4o-mini",
+                    "communication_style": "friendly",
+                    "tools_count": 3,
+                    "created_at": "2025-01-12T14:00:00Z"
+                  }
+                ]
+              }
+            }
+          },
+          "401": {
+            "description": "Token de API inválido ou ausente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorUnauthorized"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/agents/{uuid}": {
+      "get": {
+        "operationId": "getAgent",
+        "summary": "Detalhes do Agent",
+        "description": "Retorna os dados completos de um agent específico, incluindo estilo de comunicação e número de ferramentas configuradas.",
+        "tags": ["Agents"],
+        "parameters": [
+          {
+            "name": "uuid",
+            "in": "path",
+            "required": true,
+            "description": "UUID do agent.",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Dados do agent.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Agent"
+                },
+                "example": {
+                  "uuid": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+                  "name": "Agente de Vendas",
+                  "is_active": true,
+                  "model": "gpt-4o",
+                  "communication_style": "professional",
+                  "tools_count": 5,
+                  "created_at": "2025-01-10T08:00:00Z"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Token de API inválido ou ausente.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorUnauthorized"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Agent não encontrado.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorNotFound"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }

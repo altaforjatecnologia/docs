@@ -77,6 +77,27 @@
       ]
     },
     {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/introduction",
+        {
+          "group": "Leads",
+          "pages": [
+            "api-reference/endpoint/create-lead",
+            "api-reference/endpoint/list-leads",
+            "api-reference/endpoint/get-lead"
+          ]
+        },
+        {
+          "group": "Agents",
+          "pages": [
+            "api-reference/endpoint/list-agents",
+            "api-reference/endpoint/get-agent"
+          ]
+        }
+      ]
+    },
+    {
       "group": "Getting Started",
       "pages": [
         "en/introduction",
