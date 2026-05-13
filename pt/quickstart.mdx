@@ -3,7 +3,7 @@ title: 'Início Rápido'
 description: 'Configure em 5 minutos'
 ---
 
-Configure seu agente de IA e comece a atender clientes automaticamente no WhatsApp.
+Configure seu Assistente de IA e atenda clientes automaticamente via WebChat ou Telegram.
 
 <Note>
   Tempo estimado: 5 minutos
@@ -12,57 +12,34 @@ Configure seu agente de IA e comece a atender clientes automaticamente no WhatsA
 ## Você vai precisar
 
 - Conta no Integrabot ([criar conta](https://integrabot.ai))
-- Número de telefone para WhatsApp Business
 - Informações básicas sobre seu negócio
 
-## Conectar WhatsApp
+## Configurar o Assistente
 
 <Steps>
-  <Step title="Acesse WhatsApp">
-    Faça login em [integrabot.ai](https://integrabot.ai) e clique em **WhatsApp** no menu
+  <Step title="Acesse Meu Assistente">
+    No menu, clique em **Meu Assistente**
   </Step>
-  
-  <Step title="Conectar Canal">
-    Clique em **Conectar Canal**
-  </Step>
-  
-  <Step title="Escanear QR Code">
-    Abra WhatsApp no celular > **Aparelhos Conectados** > Escaneie o código
-  </Step>
-</Steps>
 
-<Warning>
-  Use um número exclusivo. Não use o mesmo em outros dispositivos.
-</Warning>
-
-## Configurar Agente
-
-<Steps>
-  <Step title="Acesse Meu Agente">
-    No menu, clique em **Meu Agente**
-  </Step>
-  
   <Step title="Defina o Objetivo">
-    Descreva o que o agente deve fazer:
-    
+    Descreva o que o assistente deve fazer:
+
     ```text
     Atender clientes interessados em consultoria empresarial,
     fornecer informações sobre serviços e agendar reuniões.
     ```
   </Step>
-  
+
   <Step title="Salvar">
     Clique em **Salvar**
   </Step>
 </Steps>
 
 <Info>
-  Teste o agente clicando no ícone de chat no canto inferior direito!
+  Teste o assistente clicando no ícone de chat no canto inferior direito.
 </Info>
 
 ## Adicionar Conhecimento
-
-Adicione informações para o agente responder clientes:
 
 <Tabs>
   <Tab title="Texto">
@@ -70,52 +47,43 @@ Adicione informações para o agente responder clientes:
     2. Digite ou cole informações sobre produtos, serviços e preços
     3. Clique em **Salvar**
   </Tab>
-  
+
   <Tab title="Website">
     1. Acesse **Base de Conhecimento** > **URLs**
     2. Cole o link do seu site
     3. Clique em **Importar**
   </Tab>
-  
+
   <Tab title="Documento">
     1. Acesse **Base de Conhecimento** > **Documentos**
     2. Arraste PDF, DOC ou TXT
-    3. Aguarde processamento
+    3. Aguarde o processamento
+  </Tab>
+</Tabs>
+
+## Conectar um Canal
+
+<Tabs>
+  <Tab title="WebChat (widget no site)">
+    1. No menu, acesse **Canais**
+    2. Clique em **Adicionar Canal** e escolha **Widget Web**
+    3. Personalize cores, posição e mensagem inicial
+    4. Copie o snippet HTML e cole no seu site antes do fechamento `</body>`
+  </Tab>
+
+  <Tab title="Telegram">
+    1. No menu, acesse **Canais**
+    2. Clique em **Adicionar Canal** e escolha **Telegram**
+    3. Crie um bot via [@BotFather](https://t.me/BotFather) e copie o token
+    4. Cole o token no campo indicado e salve
   </Tab>
 </Tabs>
 
 ## Pronto!
 
-Seu agente já está ativo. Qualquer mensagem no WhatsApp será respondida automaticamente.
-
 <Check>
   Acesse **Conversas** no menu para acompanhar interações em tempo real
 </Check>
-
-## Próximo Passo: Criar Flows
-
-Flows são formulários interativos no WhatsApp. Use para:
-
-<CardGroup cols={2}>
-  <Card title="Capturar Leads" icon="user-plus">
-    Nome, email, telefone em um formulário
-  </Card>
-  <Card title="Agendamentos" icon="calendar">
-    Data, hora e tipo de serviço
-  </Card>
-  <Card title="Cotações" icon="calculator">
-    Produto, quantidade e observações
-  </Card>
-  <Card title="Cadastros" icon="clipboard">
-    Múltiplas informações estruturadas
-  </Card>
-</CardGroup>
-
-**Vantagem:** Cliente preenche tudo de uma vez, sem múltiplas mensagens.
-
-<Card title="Criar Flows" icon="diagram-cells" href="/pt/guias/criar-flows">
-  Aprenda a criar formulários para o WhatsApp
-</Card>
 
 ## Recursos Adicionais
 
@@ -131,4 +99,3 @@ Flows são formulários interativos no WhatsApp. Use para:
 <Info>
   Dúvidas? Entre em contato: hello@integrabot.ai
 </Info>
-

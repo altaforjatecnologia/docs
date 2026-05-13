@@ -1,152 +1,131 @@
 ---
 title: 'Quick Start'
-description: 'Set up your first AI agent on Integrabot in less than 5 minutes'
+description: 'Set up your first AI Assistant on Integrabot in less than 5 minutes'
 ---
 
-## Welcome! 🎉
+## Welcome
 
-This guide will take you through the essential steps to start using Integrabot. At the end, you'll have a functioning AI agent conversing with your customers via WhatsApp.
+This guide walks you through the essential steps to start using Integrabot. By the end, you will have a working AI Assistant talking to your customers via WebChat or Telegram.
 
 <Note>
-  **Estimated time:** 5-10 minutes
+  **Estimated time:** 5–10 minutes
 </Note>
 
 ## Prerequisites
 
-Before starting, make sure you have:
-
 <Check>
-  An Integrabot account (if not, [create one here](https://app.integrabot.ai/register))
+  An Integrabot account (if you don't have one, [create one here](https://app.integrabot.ai/register))
 </Check>
 <Check>
-  A phone number for WhatsApp Business
-</Check>
-<Check>
-  Basic information about your business (products/services)
+  Basic information about your business (products / services)
 </Check>
 
-## Step 1: Connect your WhatsApp
+## Step 1: Configure your AI Assistant
 
 <Steps>
-  <Step title="Access Panel">
-    Log in at [app.integrabot.ai](https://app.integrabot.ai) and click **WhatsApp** in the sidebar
+  <Step title="Open My Assistant">
+    In the sidebar, click **My Assistant**
   </Step>
-  
-  <Step title="Click Connect New Channel">
-    On the WhatsApp screen, click **"+ Connect Channel"**
-  </Step>
-  
-  <Step title="Scan the QR Code">
-    - Open WhatsApp on your phone
-    - Go to **Settings > Linked Devices**
-    - Tap **Link a Device**
-    - Scan the QR Code displayed on screen
-  </Step>
-  
-  <Step title="Confirm Connection">
-    After scanning, wait a few seconds. You'll see a success message and your channel will be connected!
-  </Step>
-</Steps>
 
-<Warning>
-  **Important:** Use an exclusive number for the bot. Don't use the same number on other devices simultaneously.
-</Warning>
-
-## Step 2: Configure your AI Agent
-
-<Steps>
-  <Step title="Access My Agent">
-    In the sidebar, click **My Agent**
-  </Step>
-  
   <Step title="Define the Goal">
-    In the **Main Goal** field, describe your agent's purpose
+    In **Main Goal**, describe your assistant's purpose
   </Step>
-  
+
   <Step title="Write Instructions">
-    In the **Instructions** field, detail how the agent should behave
+    In **Instructions**, detail how the assistant should behave
   </Step>
-  
+
   <Step title="Choose Communication Style">
-    Select communication temperature:
-    - **0.3** (Balanced) - Recommended to start
+    Pick a temperature (start with `0.3`, balanced)
   </Step>
-  
-  <Step title="Save Settings">
+
+  <Step title="Save">
     Click **Save** at the top of the page
   </Step>
 </Steps>
 
 <Info>
-  You can test your agent by clicking the chat icon in the bottom right corner of the screen!
+  You can test your assistant by clicking the chat icon at the bottom right of the screen.
 </Info>
 
-## Step 3: Add Knowledge
-
-For your agent to respond accurately, it needs to know your business.
+## Step 2: Add Knowledge
 
 <Tabs>
-  <Tab title="Direct Text (Fastest)">
-    1. Go to **Knowledge Base** in menu
-    2. Click **Text** tab
-    3. Paste important information
+  <Tab title="Direct Text (fastest)">
+    1. Go to **Knowledge Base**
+    2. Click **Text**
+    3. Paste your information
     4. Click **Save**
   </Tab>
-  
+
   <Tab title="Import Website">
-    1. Go to **Knowledge Base**
-    2. Click **URLs** tab
-    3. Paste your site link
-    4. Click **Import**
-    5. Wait for processing
+    1. Go to **Knowledge Base** > **URLs**
+    2. Paste your site link
+    3. Click **Import**
+    4. Wait for processing
   </Tab>
-  
+
   <Tab title="Upload Document">
-    1. Go to **Knowledge Base**
-    2. Click **Documents** tab
-    3. Drag PDF, DOC or TXT files
-    4. Wait for upload and processing
+    1. Go to **Knowledge Base** > **Documents**
+    2. Drag PDF, DOC or TXT files
+    3. Wait for upload and processing
   </Tab>
 </Tabs>
 
-## Step 4: Test your Agent
+## Step 3: Connect a channel
+
+<Tabs>
+  <Tab title="WebChat (site widget)">
+    1. Go to **Channels**
+    2. Click **Add Channel** and select **Web Widget**
+    3. Customize colors, position and welcome message
+    4. Copy the HTML snippet and paste it on your site before the `</body>` tag
+  </Tab>
+
+  <Tab title="Telegram">
+    1. Go to **Channels**
+    2. Click **Add Channel** and select **Telegram**
+    3. Create a bot via [@BotFather](https://t.me/BotFather) and copy the token
+    4. Paste the token in the configuration screen and save
+  </Tab>
+</Tabs>
+
+## Step 4: Test your Assistant
 
 <Steps>
   <Step title="Open Test Chat">
-    Click the **chat** icon in the bottom right corner
+    Click the chat icon at the bottom right
   </Step>
-  
+
   <Step title="Simulate a Conversation">
     Ask questions as if you were a customer
   </Step>
-  
+
   <Step title="Evaluate Responses">
     - Are responses correct?
     - Is the tone appropriate?
-    - Is the agent using knowledge base information?
+    - Is the assistant using knowledge base information?
   </Step>
-  
+
   <Step title="Adjust if Necessary">
-    If something isn't good, go back to **My Agent** and adjust instructions
+    If something is off, go back to **My Assistant** and tweak the instructions
   </Step>
 </Steps>
 
-## Step 5: Your Agent is Live! 🚀
-
-Congratulations! Your agent is now active and ready to serve.
+## Step 5: Your Assistant is Live 🚀
 
 ### What happens now?
 
-1. Anyone who sends a message to your WhatsApp number will be served by the agent
-2. The agent will use the instructions and knowledge you configured
-3. You can monitor all conversations in real-time in the **Conversations** menu
+1. Visitors using your WebChat or chatting with your Telegram bot are served automatically
+2. The assistant uses the instructions and knowledge you configured
+3. You can monitor all conversations in real time in **Conversations**
 4. If needed, you can intervene manually in any conversation
 
 ### Monitoring
 
 <CardGroup cols={2}>
   <Card title="Conversations" icon="messages">
-    View and interact with conversations in real-time
+    View and interact with conversations in real time
   </Card>
   <Card title="Leads" icon="users">
     See captured contacts and their information
@@ -154,32 +133,10 @@ Congratulations! Your agent is now active and ready to serve.
   <Card title="Dashboard" icon="chart-line">
     Track service metrics and performance
   </Card>
-  <Card title="AI Tools" icon="tools">
-    Expand agent capabilities with tools
+  <Card title="AI Tools" icon="screwdriver-wrench">
+    Expand the assistant's capabilities with tools
   </Card>
 </CardGroup>
-
-## Next Steps (Optional)
-
-Now that your basic agent is working, you can:
-
-<AccordionGroup>
-  <Accordion title="1. Create Interactive Flows" icon="workflow">
-    Create forms within WhatsApp to capture structured information
-  </Accordion>
-  
-  <Accordion title="2. Add AI Tools" icon="screwdriver-wrench">
-    Connect external APIs and automate actions (check inventory, create orders, etc)
-  </Accordion>
-  
-  <Accordion title="3. Configure Integrations" icon="plug">
-    Integrate with CRM, email, calendar and other systems
-  </Accordion>
-  
-  <Accordion title="4. Expand Knowledge Base" icon="book">
-    Add more documents, FAQs and detailed information
-  </Accordion>
-</AccordionGroup>
 
 ## Need Help?
 
@@ -190,19 +147,12 @@ Now that your basic agent is working, you can:
   <Card title="Community" icon="discord">
     Join our Discord
   </Card>
-  <Card title="Knowledge Base" icon="book">
-    Browse complete guides (Portuguese)
-  </Card>
-  <Card title="Video Tutorials" icon="video">
-    Coming soon on our channel
-  </Card>
 </CardGroup>
 
 <Check>
-  **Done!** Your AI agent is configured and working. Good luck! 🎉
+  **Done!** Your AI Assistant is configured and working.
 </Check>
 
 <Note>
-  **📚 More Guides:** For detailed guides in English, please refer to Portuguese documentation at `/pt/` (full translation in progress).
+  **📚 More Guides:** Full guides in Portuguese at `/pt/` (English translation in progress).
 </Note>
-

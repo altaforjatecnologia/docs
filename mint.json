@@ -62,17 +62,14 @@
     {
       "group": "Guias",
       "pages": [
-        "pt/guias/conectar-whatsapp",
         "pt/guias/configurar-agente",
         "pt/guias/adicionar-conhecimento",
-        "pt/guias/criar-flows",
         "pt/guias/gerenciar-conversas"
       ]
     },
     {
       "group": "Recursos",
       "pages": [
-        "pt/conceitos/whatsapp-flows",
         "pt/conceitos/como-funciona-ia"
       ]
     },

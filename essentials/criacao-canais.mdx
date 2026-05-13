@@ -1,11 +1,11 @@
 ---
 title: 'Criação de Canais'
-description: 'Guia completo para criar e configurar canais de comunicação em seu agente de IA'
+description: 'Guia completo para criar e configurar canais de comunicação no seu Assistente de IA'
 ---
 
-# Criação de Canais em Agentes
+# Criação de Canais
 
-Os canais de comunicação são as interfaces através das quais seus usuários interagem com seu agente de IA. Este guia explica como criar e configurar diferentes canais para seu agente.
+Os canais são as interfaces através das quais seus clientes interagem com seu Assistente de IA. Este guia explica como criar e configurar os canais disponíveis.
 
 ## Visão Geral dos Canais
 
@@ -20,135 +20,118 @@ Os canais de comunicação são as interfaces através das quais seus usuários 
   alt="Canais Dark"
 />
 
-Na seção de Canais, você pode criar, configurar e gerenciar os diferentes meios de comunicação disponíveis para seu agente. Para acessar:
+Para acessar:
 
-1. Selecione seu agente no Dashboard
-2. Clique em "Canais" no menu lateral
-3. Visualize os canais existentes ou adicione novos
+1. Selecione seu Assistente no Dashboard
+2. Clique em **Canais** no menu lateral
+3. Visualize canais existentes ou adicione novos
 
 ## Tipos de Canais Disponíveis
 
-A IntegraBot oferece diferentes tipos de canais que você pode configurar para seu agente:
+### Widget Web
 
-### WhatsApp Web
+Chat embutido no seu site através de um snippet HTML.
 
-Conecte seu agente ao WhatsApp usando a versão web do aplicativo.
+- **Vantagens**: configuração simples, totalmente sob seu domínio
+- **Como usar**: cole o snippet antes de `</body>` no HTML do site
 
-- **Vantagens**: Configuração simples, sem necessidade de aprovação
-- **Limitações**: Requer um dispositivo conectado, sujeito a limitações do WhatsApp Web
+### Iframe
 
-### WhatsApp Cloud API
+Incorpore o Assistente em uma página específica do seu site.
 
-Integre seu agente diretamente com a API oficial do WhatsApp Business.
+- **Vantagens**: integração fixa em uma rota dedicada
+- **Como usar**: defina dimensões e cole o iframe no HTML
 
-- **Vantagens**: Conexão estável, recursos avançados, maior volume de mensagens
-- **Limitações**: Requer aprovação da Meta e número de telefone comercial
+### Telegram
 
-### Outros Canais (Em breve)
+Bot do Telegram para atender contatos diretamente no aplicativo.
 
-- **Telegram**: Integração com a plataforma Telegram
-- **Facebook Messenger**: Conexão com páginas do Facebook
-- **Instagram Direct**: Mensagens diretas no Instagram
-- **SMS**: Envio e recebimento de mensagens de texto
+- **Vantagens**: alcance amplo, infra gerenciada pelo Telegram
+- **Como usar**: crie um bot no @BotFather e cole o token
 
 ## Como Criar um Novo Canal
 
-### Passo 1: Acessar a Seção de Canais
+### Passo 1: Acessar a seção Canais
 
 1. Faça login na plataforma IntegraBot
-2. Selecione o agente para o qual deseja adicionar um canal
-3. No menu lateral, clique em "Canais"
-4. Clique no botão "Adicionar Canal" no canto superior direito
+2. Selecione o Assistente desejado
+3. Clique em **Canais** no menu lateral
+4. Clique em **Adicionar Canal**
 
-### Passo 2: Selecionar o Tipo de Canal
+### Passo 2: Selecionar o tipo de canal
 
-1. No modal que aparece, escolha o tipo de canal que deseja adicionar
-2. Cada tipo de canal terá requisitos específicos de configuração
-3. Clique em "Criar" para prosseguir
+1. Escolha entre **Widget Web**, **Iframe** ou **Telegram**
+2. Clique em **Criar**
 
-### Passo 3: Configurar o Canal
+### Passo 3: Configurar o canal
 
-#### Para WhatsApp Web:
+#### Widget Web
 
-1. Após criar o canal, clique em "Gerenciar Canal"
-2. Clique no botão "Conectar WhatsApp"
-3. Um QR code será exibido na tela
-4. Abra o WhatsApp no seu celular
-5. Acesse Configurações > Dispositivos conectados > Conectar um dispositivo
-6. Escaneie o QR code exibido na plataforma
-7. Aguarde a confirmação da conexão
+1. Personalize cores, posição e mensagem inicial
+2. Copie o snippet HTML
+3. Cole no seu site antes de `</body>`
+4. Acesse seu site para validar
 
-#### Para WhatsApp Cloud API:
+#### Iframe
 
-1. Após criar o canal, clique em "Gerenciar Canal"
-2. Insira o Phone Number ID fornecido pela Meta
-3. Insira o Access Token da sua conta de desenvolvedor
-4. Configure o Webhook URL (fornecido pela plataforma) na sua conta Meta
-5. Defina o Verification Token (fornecido pela plataforma)
-6. Clique em "Salvar" e depois em "Verificar Conexão"
+1. Defina largura e altura (px ou %)
+2. Copie o código do iframe
+3. Cole na página em que deseja exibir o Assistente
+
+#### Telegram
+
+1. Crie um bot pelo [@BotFather](https://t.me/BotFather)
+2. Copie o token gerado
+3. Cole o token na configuração do canal
+4. Salve e teste enviando uma mensagem ao bot
 
 ## Gerenciamento de Canais
 
 ### Visualização de Status
 
-Para cada canal, você pode verificar:
-- **Status de conexão**: Conectado, Desconectado ou Em configuração
-- **Data de criação**: Quando o canal foi adicionado
-- **Estatísticas básicas**: Número de mensagens trocadas
+- **Status de conexão**: conectado, desconectado ou em configuração
+- **Data de criação**
+- **Estatísticas básicas**
 
 ### Configurações Avançadas
 
-Dependendo do tipo de canal, você pode configurar:
-
-- **Tempo de resposta**: Intervalo entre mensagens recebidas e respostas
-- **Mensagem de boas-vindas**: Texto enviado no início de uma nova conversa
-- **Transferência para humano**: Configurações para escalar o atendimento
-- **Horário de funcionamento**: Definir quando o agente estará ativo
+- **Mensagem de boas-vindas**
+- **Transferência para humano**
+- **Horário de funcionamento**
 
 ### Desconexão e Remoção
 
-Para gerenciar seus canais:
-- **Desconectar**: Pausar temporariamente o canal sem removê-lo
-- **Reconectar**: Reativar um canal previamente desconectado
-- **Excluir**: Remover completamente o canal do seu agente
+- **Desconectar**: pausa o canal sem removê-lo
+- **Reconectar**: reativa um canal pausado
+- **Excluir**: remove o canal definitivamente
 
-## Solução de Problemas Comuns
+## Solução de Problemas
 
-### WhatsApp Web Desconectado
+### Widget Web não aparece no site
 
-Se seu canal WhatsApp Web desconectar:
-1. Verifique se o dispositivo móvel está com internet ativa
-2. Confirme se o WhatsApp está aberto no dispositivo
-3. Tente reconectar seguindo o processo de escaneamento do QR code
-4. Verifique se não há muitos dispositivos já conectados à sua conta
+1. Verifique se o snippet está antes de `</body>`
+2. Confira o console do navegador (erros 4xx / 5xx)
+3. Confirme se o domínio do site está autorizado no painel
 
-### Falha na Verificação da Cloud API
+### Bot do Telegram não responde
 
-Se a verificação da API do WhatsApp falhar:
-1. Confirme se o Phone Number ID está correto
-2. Verifique se o Access Token é válido e não expirou
-3. Certifique-se de que o Webhook URL foi configurado corretamente
-4. Verifique se as permissões necessárias foram concedidas na conta Meta
+1. Verifique se o token está correto e ativo
+2. Confirme que o webhook foi registrado (status "conectado" no painel)
+3. Cheque os logs em **Conversas** para mensagens recebidas mas não processadas
 
 ## Melhores Práticas
 
-1. **Teste antes de usar em produção**: Configure o canal e realize testes completos antes de disponibilizá-lo aos usuários.
-
-2. **Mantenha backups de tokens**: Guarde os tokens e credenciais em um local seguro para facilitar reconfigurações.
-
-3. **Monitore o desempenho**: Verifique regularmente as estatísticas de uso e tempo de resposta do canal.
-
-4. **Atualize regularmente**: Mantenha-se atualizado sobre mudanças nas políticas das plataformas (especialmente WhatsApp).
-
-5. **Configure mensagens de fallback**: Prepare respostas automáticas para momentos em que o canal estiver indisponível.
+1. **Teste antes de usar em produção**: configure e teste o canal antes de publicar
+2. **Mantenha o token do Telegram seguro**: nunca compartilhe publicamente
+3. **Monitore o desempenho**: revise periodicamente status e tempo de resposta
+4. **Configure mensagens de fallback**: respostas para indisponibilidade do canal
 
 ## Limitações por Plano
 
-Dependendo do seu plano na IntegraBot, podem existir limitações quanto a:
+Dependendo do seu plano podem existir limitações de:
 
-- **Número de canais**: Quantidade de canais que podem ser criados por agente
-- **Volume de mensagens**: Limite mensal de mensagens por canal
-- **Tipos de canais**: Disponibilidade de canais específicos
-- **Recursos avançados**: Acesso a configurações e integrações especiais
+- **Número de canais** por Assistente
+- **Volume de mensagens** mensal
+- **Recursos avançados** (transferência humana, automações, integrações)
 
-Consulte a página de [Planos e Preços](https://integrabot.com/pricing) para mais detalhes sobre as limitações específicas do seu plano.
+Consulte [Planos e Preços](https://integrabot.com/pricing) para detalhes.

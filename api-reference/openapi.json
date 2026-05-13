@@ -43,8 +43,8 @@
           },
           "type": {
             "type": "string",
-            "enum": ["whatsapp", "email", "web", "manual", "instagram"],
-            "example": "whatsapp"
+            "enum": ["web", "telegram", "email", "manual"],
+            "example": "web"
           },
           "phone_number": {
             "type": "string",
@@ -101,13 +101,13 @@
           },
           "type": {
             "type": "string",
-            "enum": ["whatsapp", "email", "web", "manual", "instagram"],
+            "enum": ["web", "telegram", "email", "manual"],
             "description": "Canal de origem do lead",
-            "example": "whatsapp"
+            "example": "web"
           },
           "phone_number": {
             "type": "string",
-            "description": "Número de telefone. Obrigatório quando type for whatsapp. Formato: DDI+DDD+Numero, apenas dígitos.",
+            "description": "Número de telefone. Obrigatório quando aplicável. Formato: DDI+DDD+Numero, apenas dígitos.",
             "example": "5511999998888"
           },
           "email": {
@@ -233,7 +233,7 @@
             },
             "example": {
               "name": ["O campo name é obrigatório."],
-              "phone_number": ["O campo phone_number é obrigatório quando type for whatsapp."]
+              "phone_number": ["O campo phone_number deve estar em formato válido."]
             }
           }
         }
@@ -268,11 +268,11 @@
                 "$ref": "#/components/schemas/LeadInput"
               },
               "examples": {
-                "lead_whatsapp": {
-                  "summary": "Lead via WhatsApp",
+                "lead_web_completo": {
+                  "summary": "Lead via formulário web completo",
                   "value": {
                     "name": "Maria Silva",
-                    "type": "whatsapp",
+                    "type": "web",
                     "phone_number": "5511999998888",
                     "email": "maria@exemplo.com",
                     "agent_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
@@ -308,7 +308,7 @@
                 "example": {
                   "id": 1234,
                   "name": "Maria Silva",
-                  "type": "whatsapp",
+                  "type": "web",
                   "phone_number": "5511999998888",
                   "email": "maria@exemplo.com",
                   "status": "new",
@@ -333,7 +333,7 @@
                 "example": {
                   "id": 1001,
                   "name": "Maria Silva",
-                  "type": "whatsapp",
+                  "type": "web",
                   "phone_number": "5511999998888",
                   "email": "maria@exemplo.com",
                   "status": "contacted",
@@ -390,7 +390,7 @@
             "description": "Filtrar por canal de origem.",
             "schema": {
               "type": "string",
-              "enum": ["whatsapp", "email", "web", "manual", "instagram"]
+              "enum": ["web", "telegram", "email", "manual"]
             }
           },
           {
@@ -467,7 +467,7 @@
                     {
                       "id": 1234,
                       "name": "Maria Silva",
-                      "type": "whatsapp",
+                      "type": "web",
                       "phone_number": "5511999998888",
                       "email": "maria@exemplo.com",
                       "status": "new",
@@ -542,7 +542,7 @@
                 "example": {
                   "id": 1234,
                   "name": "Maria Silva",
-                  "type": "whatsapp",
+                  "type": "web",
                   "phone_number": "5511999998888",
                   "email": "maria@exemplo.com",
                   "status": "new",
