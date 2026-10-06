@@ -1,6 +1,6 @@
 # Integrabot Documentation
 
-Official documentation for Integrabot — AI Assistant platform for customer service via WebChat and Telegram.
+Official documentation for Integrabot — AI Agents for customer service on the official WhatsApp (Meta Cloud API), with the site widget as an alternative channel.
 
 ## Structure
 
@@ -8,6 +8,7 @@ Official documentation for Integrabot — AI Assistant platform for customer ser
 - `en/` — English docs (in progress)
 - `essentials/` — Platform feature guides
 - `api-reference/` — Public REST API reference
+- `_arquivo/` — Obsolete pages kept for history (not in the navigation)
 - `images/` — Assets used by the docs
 - `logo/` — Brand assets
 

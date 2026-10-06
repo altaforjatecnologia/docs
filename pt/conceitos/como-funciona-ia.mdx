@@ -1,15 +1,15 @@
 ---
 title: 'Como Funciona a IA'
-description: 'Entenda a tecnologia por trás do Assistente'
+description: 'Entenda como o Agente de IA responde'
 ---
 
-O Assistente usa IA para entender perguntas e buscar respostas na sua base de conhecimento.
+O Agente de IA entende a pergunta do cliente, busca a resposta na base de conhecimento do seu negócio e confere a resposta antes de enviar.
 
 ## Arquitetura
 
 ```mermaid
 graph TD
-    User[Cliente] -- Pergunta --> Canal[WebChat / Telegram]
+    User[Cliente] -- Pergunta --> Canal[WhatsApp / widget no site]
     Canal --> Integrabot[Integrabot]
     Integrabot --> LLM[IA]
     Integrabot --> KB[Base de Conhecimento]
@@ -22,19 +22,19 @@ graph TD
 
 ## Como Responde
 
-1. Cliente faz pergunta no WebChat ou Telegram
+1. Cliente faz uma pergunta no WhatsApp ou no widget do site
 2. Pergunta é enviada para a IA
 3. IA busca informação relevante na base de conhecimento
 4. IA formula resposta usando o conhecimento
 5. Resposta é enviada ao cliente
 
 <Info>
-  A IA sempre usa informações da sua base de conhecimento, não inventa dados.
+  O Agente é orientado a responder com a sua base de conhecimento e não inventar dados. Sem a informação, ele diz que não tem e oferece o próximo passo, ou transfere para a equipe.
 </Info>
 
 ## Busca Semântica
 
-O Assistente busca por **significado**, não por palavras exatas. Se o cliente perguntar "qual o valor", o Assistente encontra "preço" na base.
+O Agente busca por **significado**, não por palavras exatas. Se o cliente perguntar "qual o valor", o Agente encontra "preço" na base.
 
 <Card title="Base de Conhecimento" icon="book" href="/pt/guias/adicionar-conhecimento">
   Adicione informações

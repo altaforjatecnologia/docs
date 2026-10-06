@@ -1,101 +1,71 @@
 ---
-title: 'Início Rápido'
-description: 'Configure em 5 minutos'
+title: 'Início rápido'
+description: 'Do cadastro ao Agente de IA atendendo no WhatsApp ou no seu site'
 ---
 
-Configure seu Assistente de IA e atenda clientes automaticamente via WebChat ou Telegram.
-
-<Note>
-  Tempo estimado: 5 minutos
-</Note>
+Da criação da conta até o Agente respondendo são duas telas de formulário e uma conexão de canal.
 
 ## Você vai precisar
 
-- Conta no Integrabot ([criar conta](https://integrabot.ai))
-- Informações básicas sobre seu negócio
+- Uma conta no Integrabot ([criar conta](https://integrabot.ai))
+- Informações básicas sobre o seu negócio: o que você vende ou faz, horários, preços e o jeito de atender
+- Para o WhatsApp: os [requisitos da Meta](/pt/custos-meta-e-requisitos). Para o widget: acesso para editar o seu site
 
-## Configurar o Assistente
+## 1. Crie o Agente
 
 <Steps>
-  <Step title="Acesse Meu Assistente">
-    No menu, clique em **Meu Assistente**
+  <Step title="Descreva o seu negócio">
+    Na primeira tela, conte o que o seu negócio faz e como você atende hoje. O Agente nasce de um esqueleto de
+    atendimento com objetivo, instruções e limites de segurança (incluindo quando transferir para uma pessoa).
   </Step>
-
-  <Step title="Defina o Objetivo">
-    Descreva o que o assistente deve fazer:
-
-    ```text
-    Atender clientes interessados em consultoria empresarial,
-    fornecer informações sobre serviços e agendar reuniões.
-    ```
-  </Step>
-
-  <Step title="Salvar">
-    Clique em **Salvar**
+  <Step title="Revise e teste">
+    Na segunda tela, revise o nome, o objetivo e as instruções. Use o chat de teste para conversar com o Agente como
+    se fosse um cliente e ajuste o que precisar.
   </Step>
 </Steps>
 
 <Info>
-  Teste o assistente clicando no ícone de chat no canto inferior direito.
+  Os limites de segurança e a regra de transferência para a equipe vêm do esqueleto e não são removidos pela
+  geração automática. Você pode endurecer as regras, nunca apagar a transferência.
 </Info>
 
-## Adicionar Conhecimento
+## 2. Ensine o seu negócio
+
+Em **Agentes**, abra o Agente e adicione conhecimento: texto, link do seu site ou documento. O Agente consulta essa
+base antes de responder e não inventa preço, prazo ou disponibilidade.
+
+Veja [Adicionar conhecimento](/pt/guias/adicionar-conhecimento).
+
+## 3. Escolha onde o Agente atende
 
 <Tabs>
-  <Tab title="Texto">
-    1. Acesse **Base de Conhecimento**
-    2. Digite ou cole informações sobre produtos, serviços e preços
-    3. Clique em **Salvar**
-  </Tab>
+  <Tab title="WhatsApp oficial">
+    1. Clique em **Conectar o WhatsApp**
+    2. Entre com a sua conta da Meta, escolha o portfólio empresarial e o número
+    3. Volte para o Integrabot: o Agente passa a responder as mensagens que chegarem no número
 
-  <Tab title="Website">
-    1. Acesse **Base de Conhecimento** > **URLs**
-    2. Cole o link do seu site
-    3. Clique em **Importar**
+    Já usa o app WhatsApp Business no celular? Com a coexistência, você conecta o mesmo número e continua com o app.
+    Veja [WhatsApp ou widget no site](/pt/canais).
   </Tab>
-
-  <Tab title="Documento">
-    1. Acesse **Base de Conhecimento** > **Documentos**
-    2. Arraste PDF, DOC ou TXT
-    3. Aguarde o processamento
+  <Tab title="Widget no site">
+    1. No Agente, abra a aba **Widget**
+    2. Informe o endereço do seu site (só os sites informados podem mostrar o widget)
+    3. Clique em **Ativar widget**, copie o código e cole antes do `</body>` do seu site
   </Tab>
 </Tabs>
 
-## Conectar um Canal
-
-<Tabs>
-  <Tab title="WebChat (widget no site)">
-    1. No menu, acesse **Canais**
-    2. Clique em **Adicionar Canal** e escolha **Widget Web**
-    3. Personalize cores, posição e mensagem inicial
-    4. Copie o snippet HTML e cole no seu site antes do fechamento `</body>`
-  </Tab>
-
-  <Tab title="Telegram">
-    1. No menu, acesse **Canais**
-    2. Clique em **Adicionar Canal** e escolha **Telegram**
-    3. Crie um bot via [@BotFather](https://t.me/BotFather) e copie o token
-    4. Cole o token no campo indicado e salve
-  </Tab>
-</Tabs>
-
-## Pronto!
+## 4. Acompanhe
 
 <Check>
-  Acesse **Conversas** no menu para acompanhar interações em tempo real
+  Em **Conversas** você acompanha cada atendimento, assume quando quiser e devolve ao Agente quando terminar.
+  Em **Ações** você vê o que o Agente agendou para fazer sozinho, como retomadas e lembretes.
 </Check>
 
-## Recursos Adicionais
+## Teste grátis
 
-<CardGroup cols={2}>
-  <Card title="Gerenciar Conversas" icon="messages" href="/pt/guias/gerenciar-conversas">
-    Acompanhe e intervenha em conversas
-  </Card>
-  <Card title="Como Funciona a IA" icon="brain" href="/pt/conceitos/como-funciona-ia">
-    Entenda a tecnologia
-  </Card>
-</CardGroup>
+Ao publicar o Agente, você escolhe o plano e cadastra o cartão. Os primeiros 7 dias são de teste: nada é cobrado
+nesse período e cancelar durante o teste não cobra nada. Veja [Teste grátis de 7 dias](/pt/teste-gratis).
 
 <Info>
-  Dúvidas? Entre em contato: hello@integrabot.ai
+  Dúvidas? Escreva para hello@integrabot.ai.
 </Info>

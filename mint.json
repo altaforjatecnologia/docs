@@ -56,7 +56,16 @@
       "group": "Começando",
       "pages": [
         "pt/introduction",
-        "pt/quickstart"
+        "pt/quickstart",
+        "pt/canais"
+      ]
+    },
+    {
+      "group": "Planos e cobrança",
+      "pages": [
+        "pt/planos-e-precos",
+        "pt/teste-gratis",
+        "pt/custos-meta-e-requisitos"
       ]
     },
     {
@@ -70,7 +79,10 @@
     {
       "group": "Recursos",
       "pages": [
-        "pt/conceitos/como-funciona-ia"
+        "pt/automacoes",
+        "pt/integracoes",
+        "pt/conceitos/como-funciona-ia",
+        "pt/faq"
       ]
     },
     {
@@ -97,8 +109,7 @@
     {
       "group": "Getting Started",
       "pages": [
-        "en/introduction",
-        "en/quickstart"
+        "en/introduction"
       ]
     }
   ],

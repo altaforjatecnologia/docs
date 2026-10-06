@@ -1,0 +1,89 @@
+---
+title: 'Automações'
+description: 'O que o Agente de IA faz sozinho, por pilar, e os limites que ele respeita'
+---
+
+Além de responder, o Agente pode agir por conta própria: retomar quem parou de responder, lembrar um horário marcado,
+chamar a equipe na hora certa e proteger o seu número. Cada automação liga e desliga por Agente, na aba
+**Automações**.
+
+## Como o Agente decide
+
+Antes de cada resposta e antes de cada ação por conta própria, o Agente confere a conversa: se é mesmo um pedido de
+atendimento humano, se ainda vale retomar, se o cliente pediu para parar. A IA escreve, essa conferência decide e o
+sistema executa.
+
+Uma automação desligada não muda nada na conversa.
+
+## Os limites de toda mensagem por conta própria
+
+As automações que mandam mensagem ao cliente sem ele ter escrito antes:
+
+- respeitam o **horário de atendimento** do Agente;
+- têm **limite de mensagens por cliente por dia**;
+- param na hora quando o cliente pede para **não receber mais mensagens** (opt-out);
+- fora da janela de 24 horas do WhatsApp, só saem com **template aprovado pela Meta**.
+
+Em **Ações** você vê cada retomada e cada lembrete agendado, adianta ou cancela.
+
+## Por pilar
+
+### Não deixar a venda esfriar
+
+| Automação | O que faz |
+|---|---|
+| Retomar quem parou de responder | Quando o cliente mostrou interesse e parou de responder, manda uma mensagem curta retomando a conversa, depois do tempo definido e até o máximo por dia. |
+| Oportunidade no Lead | Depois de cada resposta, atualiza a etapa do cliente e sugere o próximo passo em **Leads**. Não fala com o cliente. |
+
+### Saber quem está pronto para comprar
+
+| Automação | O que faz |
+|---|---|
+| Conduzir até o objetivo | A cada mensagem, vê o que o cliente já informou e o que falta, e leva a conversa a pedir o que falta. |
+| Cliente pronto para fechar | Quando o cliente informou tudo o que o objetivo pede, confirma com ele e chama a equipe para fechar. |
+
+### Cuidar de quem já foi atendido
+
+| Automação | O que faz |
+|---|---|
+| Pesquisa de satisfação | Ao encerrar a conversa, pede uma nota de 1 a 5 e guarda na conversa. Uma vez, só dentro da janela de 24 horas. |
+
+### Atender cada cliente do jeito dele, na hora certa
+
+| Automação | O que faz |
+|---|---|
+| Encerrar conversas resolvidas | Quando a conversa fica parada, vê se ela terminou e guarda o resultado. Não manda mensagem. |
+| Fechar sem resposta | Fecha a conversa quando a retomada ou a pesquisa ficou sem resposta, depois das horas definidas. |
+| Lembrete do compromisso | Quando o cliente confirma dia e horário, manda um lembrete antes do horário marcado. |
+| Retomar na abertura | Quando o cliente escreve fora do horário de atendimento, retoma a conversa assim que o atendimento abre. |
+| Não responder despedidas | Não responde a "ok", "obrigado" ou despedida quando não precisa. |
+| Idioma do cliente | Responde no idioma em que o cliente escreve. |
+| Contexto certo para a resposta | Manda ao Agente só a habilidade e os trechos da base que servem para aquela mensagem. |
+
+### Chamar uma pessoa na hora certa
+
+| Automação | O que faz |
+|---|---|
+| Cliente pede uma pessoa | Quando o cliente pede uma pessoa, avisa e passa a conversa para a equipe. |
+| Assunto sensível | Emergência, saúde, estorno, dado de terceiro ou jurídico: avisa e passa para a equipe. |
+| Ameaça de reclamação | Cliente cita Procon, Reclame Aqui, advogado ou avaliação negativa: passa para a equipe na hora. |
+| Cliente irritado | Se a irritação continua, pede desculpas e passa para a equipe. |
+| Avisar que a equipe já vem | Se ninguém da equipe respondeu no tempo definido, avisa o cliente que a equipe já foi chamada. |
+| Pedido para a equipe | Pedido que só a equipe faz (documento, estorno, consulta): diz ao cliente que a equipe vai cuidar e registra em **Ações**. |
+| Prioridade na espera | Sobe na fila de espera a conversa com urgência ou cliente irritado. |
+| Resumo para a equipe | Quando a conversa vai para a equipe, escreve um resumo curto do que foi dito. |
+| Fila de ações | Rotinas olham as conversas a cada 5 minutos e registram em **Ações** o que precisa de acompanhamento. |
+
+### Proteger o negócio e o cliente
+
+| Automação | O que faz |
+|---|---|
+| Proteção contra manipulação | Mensagem que tenta mudar as regras ou se passar pela equipe recebe recusa educada. |
+| Proteção contra spam | Para de responder contato que é robô ou propaganda, depois de três mensagens seguidas. |
+| Conferir a resposta antes de enviar | Antes de enviar, reescreve a resposta que vaza instrução, pede dado sensível ou promete sem base. |
+| Respeitar quem pede para parar (opt-out) | Quando o cliente pede para parar, confirma, marca o contato e corta todo envio por iniciativa da IA. A conversa que o cliente começa segue normal. |
+
+## Automações personalizadas
+
+Além do catálogo, você pode escrever regras do tipo "quando ___, faça ___": orientar a resposta, registrar um pedido
+para a equipe ou transferir a conversa.
